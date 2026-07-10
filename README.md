@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Downtown Door Repair & Security — website
 
-## Getting Started
+Custom marketing site for a Brooklyn/Manhattan door repair, locksmith, and
+security company, replacing an outdated WordPress site. Built for two distinct
+buyer paths:
 
-First, run the development server:
+- **Path A — Residential & commercial** (transactional): fast quotes,
+  click-to-call, emergency intent.
+- **Path B — Government & institutional** (credential-driven): capability
+  statement, bid inquiries, licensing/insurance/compliance — no "call now"
+  urgency.
+
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) · **React 19** · **TypeScript**
+- **Tailwind CSS v4** (brand theme in `src/app/globals.css`)
+- **Resend** (form email) · **Cloudflare Turnstile** (spam) · **Zod** (validation)
+- **schema-dts** JSON-LD · **Vercel Analytics + Speed Insights**
+- Self-hosted fonts via `next/font` (Sora + Inter)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local   # fill in — see docs/human-todo.md
+pnpm dev                     # http://localhost:3000
+pnpm build                   # production build (42 routes)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project shape
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/                       # routes (App Router)
+    services/[slug]/         # Path A service pages (data-driven)
+    service-areas/[hub]/[city]/   # Phase 1 boroughs now; Phase 2 counties reserved
+    government-contracting/  # Path B (overview, capability-statement, case-studies)
+    contact/                 # two separated forms (quote / bid)
+    api/{quote,bid}/         # form handlers -> Resend, distinct subjects
+    sitemap.ts · robots.ts
+  lib/
+    site.ts                  # * SINGLE SOURCE OF TRUTH for NAP + business facts
+    services.ts              # Path A service content
+    service-areas.ts         # areas (published Phase 1 + reserved Phase 2)
+    government.ts            # Path B content (placeholders until real data)
+    schema.ts                # JSON-LD builders (LocalBusiness/Service/FAQ/Breadcrumb)
+    reviews.ts               # live Google reviews (never hardcoded)
+    redirects.ts             # 301 map from the old WordPress URLs
+  components/                # layout, sections, ui, forms
+docs/
+  human-todo.md              # * everything a human must do (accounts, data, launch)
+  migration-inventory.md     # old->new URL map + NAP discrepancy
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design & content principles enforced
 
-## Learn More
+- **Single-source NAP** — header, footer, schema, sitemap, and forms all read
+  `src/lib/site.ts`. No independently-hardcoded phone/address anywhere.
+- **Nothing fabricated** — reviews, ratings, certifications, bonding, insurance
+  limits, hours, past projects, and pricing are clearly-marked placeholders
+  pulled from config until real data is supplied. Photos use labeled
+  `ImageSlot` placeholders.
+- **Two funnels never blended** — quote vs. bid forms route to distinct inboxes
+  with distinct subject lines.
+- **SEO/GEO** — answer-first opening paragraph on every service/area/gov page,
+  `FAQPage` schema, `BreadcrumbList` sitewide, `LocalBusiness` on every page,
+  unique per-page titles/descriptions, sitemap excludes noindex Phase-2 hubs.
+- **Phase 2 ready** — `/service-areas/[hub]/[city]` already handles future
+  counties; reserved hubs render "coming soon" + noindex until published.
 
-To learn more about Next.js, take a look at the following resources:
+## Before launch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See **[docs/human-todo.md](docs/human-todo.md)** — domain, API keys, real
+content, NAP/phone confirmation, and the Search Console launch steps.

@@ -1,26 +1,219 @@
 @import "tailwindcss";
 
+/*
+  Downtown Door Repair & Security — brand system
+  Palette: light blue / grey / white. Deep navy ink (never pure black).
+  All text/background pairings target WCAG AA.
+*/
+
+@theme {
+  /* Brand blue scale (light-blue forward) */
+  --color-brand-50: #eef5fc;
+  --color-brand-100: #d9e9f9;
+  --color-brand-200: #b7d4f2;
+  --color-brand-300: #8bb8e8;
+  --color-brand-400: #5b97db;
+  --color-brand-500: #3b7bcc;
+  --color-brand-600: #2b63ad; /* primary CTA — 5.2:1 on white */
+  --color-brand-700: #234f8c;
+  --color-brand-800: #1f4271;
+  --color-brand-900: #1c3a5f;
+  --color-brand-950: #122741;
+
+  /* Cool grey / neutral scale */
+  --color-ink: #14273d; /* headings — deep navy, not black */
+  --color-body: #3c4b5c; /* body copy — AA on white */
+  --color-muted: #64748b; /* secondary text */
+  --color-line: #dbe4ee; /* borders / hairlines */
+  --color-surface: #f5f8fc; /* subtle section background */
+  --color-surface-2: #eaf1f9; /* alt tint */
+
+  /* Semantic emergency accent — used sparingly (24/7 / urgency) */
+  --color-emergency: #d64848;
+  --color-emergency-tint: #fdecec;
+
+  /* Fonts (wired in layout.tsx via next/font) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-inter), ui-sans-serif, sans-serif;
+
+  /* Radii */
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--color-ink);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  h1 { line-height: 1.05; }
+  h2 { line-height: 1.12; }
+
+  p { text-wrap: pretty; }
+
+  /* Visible, on-brand focus ring for keyboard users (WCAG) */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Content width used across page sections */
+  .container-page {
+    width: 100%;
+    max-width: 80rem; /* 1280px */
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-page { padding-inline: 2rem; }
+  }
+
+  /* Subtle brand grid/gradient backdrops for hero + sections */
+  .bg-hero-sheen {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(60rem 40rem at 85% -10%, var(--color-brand-100), transparent 60%),
+      radial-gradient(50rem 30rem at 0% 0%, var(--color-surface-2), transparent 55%),
+      #ffffff;
+  }
+  /* Gentle animated aurora on every standard hero */
+  .bg-hero-sheen::before {
+    content: ""; position: absolute; inset: -20%; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(30rem 22rem at 18% 12%, color-mix(in oklab, var(--color-brand-300) 42%, transparent), transparent 60%),
+      radial-gradient(28rem 20rem at 86% 18%, color-mix(in oklab, var(--color-brand-200) 48%, transparent), transparent 60%);
+    filter: blur(10px);
+    animation: auroraMove 22s ease-in-out infinite;
+  }
 }
+
+/* --- Premium motion & surface utilities ----------------------------------- */
+@keyframes auroraMove {
+  0%   { transform: translate3d(-6%, -4%, 0) scale(1.1); }
+  50%  { transform: translate3d(6%, 5%, 0) scale(1.28); }
+  100% { transform: translate3d(-6%, -4%, 0) scale(1.1); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+@layer utilities {
+  /* Animated aurora / gradient-mesh backdrop. Put in a relative parent behind content. */
+  .bg-aurora { position: absolute; inset: 0; overflow: hidden; }
+  .bg-aurora::before {
+    content: ""; position: absolute; inset: -30%;
+    background:
+      radial-gradient(35rem 28rem at 20% 20%, color-mix(in oklab, var(--color-brand-400) 55%, transparent), transparent 60%),
+      radial-gradient(32rem 26rem at 80% 25%, color-mix(in oklab, var(--color-brand-300) 55%, transparent), transparent 60%),
+      radial-gradient(40rem 30rem at 60% 85%, color-mix(in oklab, var(--color-brand-200) 60%, transparent), transparent 62%);
+    filter: blur(14px);
+    animation: auroraMove 20s ease-in-out infinite;
+  }
+
+  /* Subtle film grain overlay (place on a relative element) */
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    mix-blend-mode: overlay;
+  }
+
+  .glass {
+    background: color-mix(in oklab, white 72%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border: 1px solid color-mix(in oklab, white 55%, var(--color-line));
+  }
+  .glass-dark {
+    background: color-mix(in oklab, var(--color-brand-950) 42%, transparent);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .text-gradient {
+    background: linear-gradient(100deg, var(--color-brand-600), var(--color-brand-400) 55%, var(--color-brand-700));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .ring-soft { box-shadow: 0 1px 2px rgba(20, 39, 61, 0.04), 0 12px 34px -12px rgba(20, 39, 61, 0.16); }
+  .animate-float { animation: floatSlow 7s ease-in-out infinite; }
+  .marquee-track { animation: marquee 34s linear infinite; width: max-content; }
+}
+
+/* --- CSS reveal system (no JS / no observer — content is never left hidden) - */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  /* Single element fade-up on load. --reveal-delay staggers it. */
+  .reveal {
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--reveal-delay, 0s);
+  }
+
+  /* Auto-staggered group: direct children fade up in sequence. */
+  .stagger > * { animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .stagger > *:nth-child(1) { animation-delay: 0.04s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.10s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.16s; }
+  .stagger > *:nth-child(4) { animation-delay: 0.22s; }
+  .stagger > *:nth-child(5) { animation-delay: 0.28s; }
+  .stagger > *:nth-child(6) { animation-delay: 0.34s; }
+  .stagger > *:nth-child(7) { animation-delay: 0.40s; }
+  .stagger > *:nth-child(8) { animation-delay: 0.46s; }
+  .stagger > *:nth-child(n + 9) { animation-delay: 0.5s; }
+}
+

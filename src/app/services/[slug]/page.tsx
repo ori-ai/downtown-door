@@ -1,0 +1,282 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import {
+  Phone,
+  CheckCircle2,
+  ArrowRight,
+  Info,
+  ShieldCheck,
+  MapPin,
+} from "lucide-react";
+import Image from "next/image";
+
+import { services, getService } from "@/lib/services";
+import { siteConfig } from "@/lib/site";
+import { publishedHubs } from "@/lib/service-areas";
+import { serviceSchema, faqSchema } from "@/lib/schema";
+import { absoluteUrl, cn } from "@/lib/utils";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { Container, Section, SectionHeading } from "@/components/ui/section";
+import { buttonVariants } from "@/components/ui/button";
+import { ServiceCard } from "@/components/ui/service-card";
+import { FaqList } from "@/components/ui/faq";
+import { CtaBand } from "@/components/sections/cta-band";
+import { JsonLd } from "@/components/json-ld";
+
+/** Category-relevant hero imagery (illustrative — see homepage note). */
+const serviceHeroImage: Record<string, string> = {
+  "door-repair": "/images/hero-entry.png",
+  "door-installation": "/images/hero-entry.png",
+  "emergency-door-repair": "/images/storefront.png",
+  "commercial-storefront-doors": "/images/storefront.png",
+  "locksmith-door-hardware": "/images/intercom.png",
+  "security-systems-access-control": "/images/security-cctv.png",
+};
+
+export function generateStaticParams() {
+  return services.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getService(slug);
+  if (!service) return {};
+  return {
+    // metaTitle already includes the brand — use absolute to avoid a double suffix.
+    title: { absolute: service.metaTitle },
+    description: service.metaDescription,
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title: service.metaTitle,
+      description: service.metaDescription,
+      url: absoluteUrl(`/services/${service.slug}`),
+    },
+  };
+}
+
+export default async function ServicePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = getService(slug);
+  if (!service) notFound();
+
+  const related = service.related.map(getService).filter(Boolean);
+  const isEmergency = service.emergency;
+
+  return (
+    <>
+      <JsonLd data={serviceSchema(service)} />
+      <JsonLd data={faqSchema(service.faqs)} />
+
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ]}
+      />
+
+      {/* Hero — cinematic two-column */}
+      <section className={cn("relative overflow-hidden", isEmergency ? "bg-emergency-tint/30" : "bg-white")}>
+        {!isEmergency && <div className="bg-aurora grain" aria-hidden />}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white" aria-hidden />
+        <Container className="relative grid items-center gap-10 py-12 md:grid-cols-2 md:py-16">
+          <div className="reveal">
+            {isEmergency ? (
+              <span className="inline-flex items-center gap-2 rounded-full bg-emergency px-3 py-1 text-sm font-semibold text-white">
+                24/7 Emergency Service
+              </span>
+            ) : (
+              <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium text-brand-700">
+                <MapPin className="h-4 w-4" aria-hidden />
+                Brooklyn &amp; Manhattan
+              </span>
+            )}
+            <h1 className="mt-4 text-4xl md:text-5xl">{service.title}</h1>
+            {/* Answer-first (GEO/AEO) */}
+            <p className="mt-4 text-lg leading-relaxed text-body">{service.answerFirst}</p>
+            <div className="mt-7 flex flex-col gap-2.5 sm:flex-row">
+              <a
+                href={siteConfig.phone.href}
+                className={buttonVariants({ size: "lg", variant: isEmergency ? "emergency" : "primary" })}
+              >
+                <Phone className="h-4.5 w-4.5" aria-hidden />
+                {siteConfig.phone.display}
+              </a>
+              <Link href="/contact" className={buttonVariants({ variant: "outline", size: "lg" })}>
+                Request a quote
+              </Link>
+            </div>
+          </div>
+
+          <div
+            className="reveal relative aspect-[4/3] overflow-hidden rounded-3xl border border-line ring-soft"
+            style={{ ["--reveal-delay" as string]: "0.12s" }}
+          >
+            <Image
+              src={serviceHeroImage[service.slug] ?? "/images/hero-entry.png"}
+              alt={service.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-950/25 via-transparent to-transparent" />
+          </div>
+        </Container>
+      </section>
+
+      {/* Body */}
+      <Section>
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[1fr_20rem]">
+            {/* Main column */}
+            <div className="max-w-2xl">
+              {/* What it is */}
+              <div className="space-y-4">
+                {service.whatItIs.map((p, i) => (
+                  <p key={i} className="text-lg leading-relaxed text-body">
+                    {p}
+                  </p>
+                ))}
+              </div>
+
+              {/* When it's needed */}
+              <div className="mt-10">
+                <h2 className="text-2xl">When you need it</h2>
+                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {service.whenNeeded.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 rounded-xl border border-line bg-white p-4">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" aria-hidden />
+                      <span className="text-sm text-body">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Process */}
+              <div className="mt-10">
+                <h2 className="text-2xl">How it works</h2>
+                <ol className="mt-5 space-y-4">
+                  {service.process.map((step, i) => (
+                    <li key={step.title} className="flex gap-4 rounded-xl border border-line bg-white p-5">
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-600 text-sm font-bold text-white">
+                        {i + 1}
+                      </span>
+                      <div>
+                        <h3 className="font-bold text-ink">{step.title}</h3>
+                        <p className="mt-1 text-sm text-body">{step.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Pricing guidance */}
+              <div className="mt-10">
+                <h2 className="text-2xl">Pricing guidance</h2>
+                <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900">
+                  <Info className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brand-600" aria-hidden />
+                  <p>
+                    Every job is quoted after an on-site assessment. The ranges below are
+                    general guidance only — final pricing depends on the door, hardware,
+                    and scope. <strong>Illustrative placeholders shown until confirmed.</strong>
+                  </p>
+                </div>
+                <div className="mt-4 overflow-hidden rounded-xl border border-line">
+                  <table className="w-full text-left text-sm">
+                    <tbody className="divide-y divide-line">
+                      {service.pricing.map((p) => (
+                        <tr key={p.item} className="bg-white">
+                          <th scope="row" className="px-4 py-3 font-medium text-ink">
+                            {p.item}
+                            {p.note ? (
+                              <span className="mt-0.5 block text-xs font-normal text-muted">{p.note}</span>
+                            ) : null}
+                          </th>
+                          <td className="whitespace-nowrap px-4 py-3 text-right font-semibold text-brand-700">
+                            {p.range}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* FAQ */}
+              <div className="mt-10">
+                <h2 className="text-2xl">Frequently asked</h2>
+                <div className="mt-5">
+                  <FaqList faqs={service.faqs} />
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <aside className="lg:sticky lg:top-24 lg:self-start">
+              <div className="rounded-2xl border border-line bg-white p-6">
+                <h2 className="text-lg font-bold text-ink">Talk to us</h2>
+                <p className="mt-2 text-sm text-body">
+                  Serving Brooklyn &amp; Manhattan. Call for same-day help or request a quote.
+                </p>
+                <a href={siteConfig.phone.href} className={buttonVariants({ className: "mt-4 w-full" })}>
+                  <Phone className="h-4.5 w-4.5" aria-hidden />
+                  {siteConfig.phone.display}
+                </a>
+                <Link href="/contact" className={buttonVariants({ variant: "outline", className: "mt-2.5 w-full" })}>
+                  Request a quote
+                </Link>
+                <div className="mt-5 flex items-center gap-2 border-t border-line pt-4 text-sm text-body">
+                  <ShieldCheck className="h-4.5 w-4.5 text-brand-600" aria-hidden />
+                  Licensed &amp; Insured
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-2xl border border-line bg-surface p-6">
+                <h2 className="text-sm font-semibold text-ink">Service areas</h2>
+                <ul className="mt-3 space-y-1.5">
+                  {publishedHubs.map((hub) => (
+                    <li key={hub.slug}>
+                      <Link
+                        href={`/service-areas/${hub.slug}`}
+                        className="inline-flex items-center gap-1 text-sm text-body hover:text-brand-700"
+                      >
+                        <MapPin className="h-3.5 w-3.5 text-brand-500" aria-hidden />
+                        {hub.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Related services */}
+      {related.length ? (
+        <Section topBorder className="bg-surface">
+          <Container>
+            <SectionHeading eyebrow="Related" title="You might also need" />
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((s) => (
+                <ServiceCard key={s!.slug} service={s!} />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
+
+      <CtaBand />
+    </>
+  );
+}

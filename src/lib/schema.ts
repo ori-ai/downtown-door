@@ -1,0 +1,163 @@
+/**
+ * JSON-LD builders (schema-dts typed). NAP is pulled from siteConfig so the
+ * structured data always matches the visible page and the Google Business
+ * Profile exactly.
+ *
+ * Honesty gates:
+ *  - openingHoursSpecification is only emitted when hours are confirmed.
+ *  - No aggregateRating is emitted until real GBP review data is wired (we never
+ *    fabricate a rating).
+ */
+
+import type {
+  BreadcrumbList,
+  FAQPage,
+  GeoCoordinates,
+  HomeAndConstructionBusiness,
+  OpeningHoursSpecification,
+  PostalAddress,
+  Service as ServiceSchema,
+  WithContext,
+} from "schema-dts";
+
+import { siteConfig, formattedAddress, emailAddress } from "./site";
+import { absoluteUrl } from "./utils";
+import type { Service } from "./services";
+
+const ORG_ID = `${siteConfig.url}/#business`;
+
+function postalAddress(): PostalAddress {
+  const a = siteConfig.address;
+  return {
+    "@type": "PostalAddress",
+    streetAddress: a.street,
+    addressLocality: a.city,
+    addressRegion: a.region,
+    postalCode: a.postalCode,
+    addressCountry: a.country,
+  };
+}
+
+function geo(): GeoCoordinates {
+  return {
+    "@type": "GeoCoordinates",
+    latitude: siteConfig.geo.lat,
+    longitude: siteConfig.geo.lng,
+  };
+}
+
+function openingHours(): OpeningHoursSpecification[] | undefined {
+  // Do not assert hours we haven't confirmed.
+  if (!siteConfig.hoursConfirmed) return undefined;
+  const h = siteConfig.hours;
+  const specs: OpeningHoursSpecification[] = [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: h.weekdays.opens,
+      closes: h.weekdays.closes,
+    },
+  ];
+  if (!h.sundayClosed || h.saturday) {
+    specs.push({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday"],
+      opens: h.saturday.opens,
+      closes: h.saturday.closes,
+    });
+  }
+  return specs;
+}
+
+/** Core LocalBusiness (HomeAndConstructionBusiness subtype). */
+export function localBusinessSchema(): WithContext<HomeAndConstructionBusiness> {
+  const sameAs = Object.values(siteConfig.social).filter(Boolean) as string[];
+  const hours = openingHours();
+
+  const schema: WithContext<HomeAndConstructionBusiness> = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": ORG_ID,
+    name: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    telephone: `+1${siteConfig.phone.digits}`,
+    email: emailAddress("general"),
+    image: absoluteUrl("/og.jpg"),
+    address: postalAddress(),
+    geo: geo(),
+    areaServed: [...siteConfig.serviceAreaPhase1],
+    knowsAbout: [
+      "Door repair",
+      "Door installation",
+      "Commercial storefront doors",
+      "Locksmith services",
+      "Access control",
+      "Security systems",
+    ],
+    // priceRange is a coarse signal Google expects for LocalBusiness.
+    priceRange: "$$",
+  };
+
+  if (hours) schema.openingHoursSpecification = hours;
+  if (sameAs.length) schema.sameAs = sameAs;
+  // NOTE: aggregateRating intentionally omitted — wired only from live GBP data.
+
+  return schema;
+}
+
+/** Service schema for a single Path A service page. */
+export function serviceSchema(service: Service): WithContext<ServiceSchema> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.metaDescription,
+    serviceType: service.title,
+    provider: {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": ORG_ID,
+      name: siteConfig.name,
+      telephone: `+1${siteConfig.phone.digits}`,
+      address: postalAddress(),
+    },
+    areaServed: [...siteConfig.serviceAreaPhase1],
+    url: absoluteUrl(`/services/${service.slug}`),
+  };
+}
+
+/** FAQPage schema from Q/A pairs. */
+export function faqSchema(faqs: { q: string; a: string }[]): WithContext<FAQPage> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+/** BreadcrumbList schema from an ordered list of {name, path}. */
+export function breadcrumbSchema(
+  items: { name: string; path: string }[],
+): WithContext<BreadcrumbList> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+/** Convenience: the visible one-line address (kept in sync for consistency). */
+export const nap = {
+  name: siteConfig.name,
+  address: formattedAddress(),
+  phone: siteConfig.phone.display,
+};
