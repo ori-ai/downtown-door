@@ -51,5 +51,17 @@ export async function POST(request: Request) {
   if (!result.ok) {
     return NextResponse.json({ ok: false, error: "Could not send. Please call us." }, { status: 502 });
   }
+
+  // Fire-and-forget: instant labeled WhatsApp to Ori via Clever.
+  await fetch("https://tools.getclearops.io/clever/lead_notify", {
+    signal: AbortSignal.timeout(4000),
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      company: "Downtown Door Repair", source: "website",
+      name: data.name, phone: data.phone, email: data.email,
+      service: (data as { service?: string }).service, message: (data as { message?: string }).message,
+    }),
+  }).catch(() => {});
   return NextResponse.json({ ok: true, delivered: result.delivered });
 }
