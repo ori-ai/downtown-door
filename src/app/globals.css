@@ -7,43 +7,50 @@
 */
 
 @theme {
-  /* Brand blue scale (light-blue forward) */
-  --color-brand-50: #eef5fc;
-  --color-brand-100: #d9e9f9;
-  --color-brand-200: #b7d4f2;
-  --color-brand-300: #8bb8e8;
-  --color-brand-400: #5b97db;
-  --color-brand-500: #3b7bcc;
-  --color-brand-600: #2b63ad; /* primary CTA — 5.2:1 on white */
-  --color-brand-700: #234f8c;
-  --color-brand-800: #1f4271;
-  --color-brand-900: #1c3a5f;
-  --color-brand-950: #122741;
+  /* Brand = ELECTRIC BLUE scale (security-tech CTAs + accents on dark) */
+  --color-brand-50: #eaf2ff;
+  --color-brand-100: #d3e3ff;
+  --color-brand-200: #a9c8ff;
+  --color-brand-300: #7aa8ff;
+  --color-brand-400: #4d8bff;
+  --color-brand-500: #2f74ff;
+  --color-brand-600: #1e63f0; /* primary CTA — electric blue */
+  --color-brand-700: #1a52cc;
+  --color-brand-800: #1a44a3;
+  --color-brand-900: #1a3a80;
+  --color-brand-950: #0e2150;
 
-  /* Cool grey / neutral scale */
-  --color-ink: #14273d; /* headings — deep navy, not black */
-  --color-body: #3c4b5c; /* body copy — AA on white */
-  --color-muted: #64748b; /* secondary text */
-  --color-line: #dbe4ee; /* borders / hairlines */
-  --color-surface: #f5f8fc; /* subtle section background */
-  --color-surface-2: #eaf1f9; /* alt tint */
+  /* Cyan accent — small techy highlights (eyebrows, hairline marks, glows) */
+  --color-accent: #38bdf8;
+  --color-accent-600: #0ea5e0;
+  --color-accent-tint: #0c2740;
+
+  /* DARK navy neutral scale (security-tech) */
+  --color-ink: #f4f7fc; /* headings — near-white */
+  --color-body: #b7c3da; /* body copy — light blue-grey on navy */
+  --color-muted: #7f8db0; /* secondary text */
+  --color-line: #26325a; /* borders / hairlines on dark */
+  --color-surface: #111d3b; /* raised panel / section */
+  --color-surface-2: #17244a; /* deeper panel */
 
   /* Semantic emergency accent — used sparingly (24/7 / urgency) */
-  --color-emergency: #d64848;
-  --color-emergency-tint: #fdecec;
+  --color-emergency: #ff5a4d;
+  --color-emergency-tint: #2a1512;
 
   /* Fonts (wired in layout.tsx via next/font) */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, sans-serif;
 
-  /* Radii */
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
+  /* Radii — restrained, architectural (sharper reads more serious/premium) */
+  --radius-lg: 0.4rem;
+  --radius-xl: 0.55rem;
+  --radius-2xl: 0.7rem;
+  --radius-3xl: 0.9rem;
 }
 
 :root {
-  --background: #ffffff;
+  /* Deep navy base — security-tech. Panels (surface) sit slightly lighter. */
+  --background: #0a1330;
   --foreground: var(--color-ink);
 }
 
@@ -113,18 +120,20 @@
     isolation: isolate;
     overflow: hidden;
     background:
-      radial-gradient(60rem 40rem at 85% -10%, var(--color-brand-100), transparent 60%),
-      radial-gradient(50rem 30rem at 0% 0%, var(--color-surface-2), transparent 55%),
-      #ffffff;
+      radial-gradient(48rem 30rem at 90% -15%, color-mix(in oklab, var(--color-brand-600) 32%, transparent), transparent 60%),
+      radial-gradient(40rem 26rem at 0% 0%, color-mix(in oklab, var(--color-brand-800) 48%, transparent), transparent 55%),
+      var(--background);
   }
-  /* Gentle animated aurora on every standard hero */
+  /* Faint tech grid, masked toward the top — matches the homepage hero */
   .bg-hero-sheen::before {
-    content: ""; position: absolute; inset: -20%; z-index: -1; pointer-events: none;
-    background:
-      radial-gradient(30rem 22rem at 18% 12%, color-mix(in oklab, var(--color-brand-300) 42%, transparent), transparent 60%),
-      radial-gradient(28rem 20rem at 86% 18%, color-mix(in oklab, var(--color-brand-200) 48%, transparent), transparent 60%);
-    filter: blur(10px);
-    animation: auroraMove 22s ease-in-out infinite;
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    opacity: 0.06;
+    background-image:
+      linear-gradient(var(--color-brand-300) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-brand-300) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(52rem 34rem at 50% 0%, black, transparent 72%);
+    mask-image: radial-gradient(52rem 34rem at 50% 0%, black, transparent 72%);
   }
 }
 
@@ -145,6 +154,15 @@
 @keyframes shimmer {
   from { background-position: 200% 0; }
   to   { background-position: -200% 0; }
+}
+/* Slow, deliberate Ken-Burns drift for hero media — duration is set per-slide
+   inline (matches that slide's real dwell time) so the zoom always lands
+   exactly as the crossfade begins. Disabled entirely under reduced-motion
+   (see hero-media.tsx) — never relies on the global animation-duration
+   override below, since that would snap straight to the zoomed end frame. */
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
 }
 
 @layer utilities {
@@ -189,6 +207,14 @@
   .ring-soft { box-shadow: 0 1px 2px rgba(20, 39, 61, 0.04), 0 12px 34px -12px rgba(20, 39, 61, 0.16); }
   .animate-float { animation: floatSlow 7s ease-in-out infinite; }
   .marquee-track { animation: marquee 34s linear infinite; width: max-content; }
+
+  /* Applied only while a hero slide is active + motion is allowed. Pass the
+     slide's own dwell time via inline `animationDuration`. */
+  .animate-kenburns {
+    animation-name: kenburns;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+  }
 }
 
 /* --- CSS reveal system (no JS / no observer — content is never left hidden) - */

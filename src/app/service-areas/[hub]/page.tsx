@@ -68,7 +68,7 @@ export default async function HubPage({
         <Section>
           <Container>
             <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-line bg-surface p-10 text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-sm font-medium text-brand-700">
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-950/50 px-3 py-1 text-sm font-medium text-brand-300">
                 <Clock className="h-4 w-4" aria-hidden />
                 Phase 2 — Coming soon
               </span>
@@ -94,12 +94,15 @@ export default async function HubPage({
     <>
       <Breadcrumbs items={crumbs} />
 
-      <section className="relative overflow-hidden bg-white">
-        <div className="bg-aurora grain" aria-hidden />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white" aria-hidden />
+      <section className="relative overflow-hidden border-b border-line">
+        <div
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{ background: "radial-gradient(44rem 28rem at 8% -20%, color-mix(in oklab, var(--color-brand-600) 30%, transparent), transparent 60%)" }}
+          aria-hidden
+        />
         <Container className="relative grid items-center gap-10 py-12 md:grid-cols-2 md:py-16">
           <div className="reveal">
-            <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium text-brand-700">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-800 bg-brand-950/50 px-3.5 py-1.5 text-sm font-medium text-brand-300">
               <MapPin className="h-4 w-4" aria-hidden />
               {hub.name}, {hub.state}
             </span>
@@ -113,7 +116,7 @@ export default async function HubPage({
             style={{ ["--reveal-delay" as string]: "0.12s" }}
           >
             <Image
-              src="/images/hero-entry.png"
+              src="/images/real/real-storefront-door.jpg"
               alt={`Door & security service in ${hub.name}`}
               fill
               priority
@@ -134,7 +137,7 @@ export default async function HubPage({
               <Link
                 key={n.slug}
                 href={`/service-areas/${hub.slug}/${n.slug}`}
-                className="group flex flex-col rounded-2xl border border-line bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
+                className="group flex flex-col rounded-2xl border border-line bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
               >
                 <div className="flex items-center gap-2 text-brand-600">
                   <MapPin className="h-5 w-5" aria-hidden />

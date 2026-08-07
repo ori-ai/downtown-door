@@ -26,7 +26,7 @@ export default function TermsPage() {
           <article className="mx-auto max-w-2xl text-body">
             <h1 className="text-3xl md:text-4xl">Terms &amp; Conditions</h1>
             <p className="mt-2 text-sm text-muted">
-              Template — review and finalize with the business / legal counsel before launch.
+              Last updated: July 2026
             </p>
 
             <div className="mt-8 space-y-6 leading-relaxed">

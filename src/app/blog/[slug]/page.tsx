@@ -53,7 +53,7 @@ export default async function BlogPostPage({
       <Section>
         <Container>
           <article className="mx-auto max-w-2xl">
-            <span className="inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
+            <span className="inline-flex rounded-full bg-brand-950/50 px-3 py-1 text-xs font-semibold text-brand-300">
               {audienceLabels[post.audience]}
             </span>
             <h1 className="mt-4 text-3xl md:text-4xl">{post.title}</h1>

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { services } from "@/lib/services";
 import { publishedHubs, allPublishedNeighborhoods } from "@/lib/service-areas";
+import { localServices } from "@/lib/local-services";
 import { posts } from "@/lib/blog";
 
 /**
@@ -19,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/government-contracting", priority: 0.9, changeFrequency: "monthly" },
     { path: "/government-contracting/capability-statement", priority: 0.7, changeFrequency: "monthly" },
     { path: "/government-contracting/case-studies", priority: 0.6, changeFrequency: "monthly" },
+    { path: "/case-studies", priority: 0.7, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "yearly" },
     { path: "/reviews", priority: 0.6, changeFrequency: "weekly" },
     { path: "/blog", priority: 0.6, changeFrequency: "weekly" },
@@ -41,6 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   for (const { hub, slug } of allPublishedNeighborhoods()) {
     entries.push({ url: url(`/service-areas/${hub}/${slug}`), changeFrequency: "monthly", priority: 0.6 });
+    // Programmatic service × neighborhood keyword pages
+    for (const s of localServices) {
+      entries.push({ url: url(`/service-areas/${hub}/${slug}/${s.slug}`), changeFrequency: "monthly", priority: 0.6 });
+    }
   }
   for (const post of posts) {
     entries.push({ url: url(`/blog/${post.slug}`), changeFrequency: "yearly", priority: 0.5 });

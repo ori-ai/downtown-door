@@ -48,6 +48,7 @@ export const mainNav: NavGroup[] = [
     href: "/service-areas",
     children: publishedHubs.map((h) => ({ label: h.name, href: `/service-areas/${h.slug}` })),
   },
+  { label: "Our Work", href: "/case-studies" },
   { label: "Government", href: "/government-contracting" },
   { label: "About", href: "/about" },
   { label: "Reviews", href: "/reviews" },
@@ -77,6 +78,7 @@ export const footerNav: NavGroup[] = [
     href: "/about",
     children: [
       { label: "About Us", href: "/about" },
+      { label: "Our Work", href: "/case-studies" },
       { label: "Reviews", href: "/reviews" },
       { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },

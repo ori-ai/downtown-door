@@ -61,7 +61,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center">
+      <div className="rounded-2xl border border-brand-800 bg-brand-950/50 p-8 text-center">
         <CheckCircle2 className="mx-auto h-10 w-10 text-brand-600" aria-hidden />
         <h3 className="mt-3 text-xl font-bold text-ink">Request received</h3>
         <p className="mt-2 text-body">

@@ -45,7 +45,7 @@ const icons: Record<string, LucideIcon> = {
 export const metadata: Metadata = {
   title: "Government & Institutional Contracting",
   description:
-    "Downtown Door Repair & Security serves NYC public schools, hospitals, and municipal agencies — with the licensing, insurance, compliance, and capability institutional door and security projects require.",
+    "Downtown Doors & Security serves NYC public schools, hospitals, and municipal agencies — with the licensing, insurance, compliance, and capability institutional door and security projects require.",
   alternates: { canonical: "/government-contracting" },
   openGraph: { url: absoluteUrl("/government-contracting") },
 };
@@ -66,7 +66,7 @@ export default function GovernmentContractingPage() {
       <section className="relative overflow-hidden bg-brand-950 text-white">
         <div className="absolute inset-0" aria-hidden>
           <Image
-            src="/images/security-cctv.png"
+            src="/images/real/real-hero-panicbar.jpg"
             alt=""
             fill
             priority
@@ -86,7 +86,7 @@ export default function GovernmentContractingPage() {
             </h1>
             {/* Answer-first (GEO/AEO) */}
             <p className="mt-5 text-lg leading-relaxed text-brand-100">
-              Downtown Door Repair &amp; Security supports facilities and procurement
+              Downtown Doors &amp; Security supports facilities and procurement
               teams at NYC public schools, hospitals, and municipal agencies — providing
               door repair, replacement, and security systems backed by the licensing,
               insurance, compliance, and references institutional buyers require.
@@ -123,8 +123,8 @@ export default function GovernmentContractingPage() {
             {clientsServed.map((c) => {
               const Icon = icons[c.icon] ?? Building2;
               return (
-                <div key={c.name} className="rounded-2xl border border-line bg-white p-7">
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-50 text-brand-600">
+                <div key={c.name} className="rounded-2xl border border-line bg-surface p-7">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-950/60 text-brand-300">
                     <Icon className="h-6 w-6" aria-hidden />
                   </span>
                   <h3 className="mt-4 text-lg font-bold text-ink">{c.name}</h3>
@@ -147,8 +147,8 @@ export default function GovernmentContractingPage() {
             {whyChoose.map((w) => {
               const Icon = icons[w.icon] ?? BadgeCheck;
               return (
-                <div key={w.title} className="flex gap-4 rounded-2xl border border-line bg-white p-6">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-600">
+                <div key={w.title} className="flex gap-4 rounded-2xl border border-line bg-surface p-6">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-950/60 text-brand-300">
                     <Icon className="h-5.5 w-5.5" aria-hidden />
                   </span>
                   <div>
@@ -175,7 +175,7 @@ export default function GovernmentContractingPage() {
               <table className="w-full text-left text-sm">
                 <tbody className="divide-y divide-line">
                   {credentialFields.map((f) => (
-                    <tr key={f.label} className="bg-white">
+                    <tr key={f.label} className="bg-surface">
                       <th scope="row" className="w-1/2 px-5 py-4 align-top font-semibold text-ink">
                         {f.label}
                         <span className="mt-0.5 block text-xs font-normal text-muted">{f.hint}</span>
@@ -223,7 +223,7 @@ export default function GovernmentContractingPage() {
           />
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {procurementPortals.map((p) => (
-              <div key={p.name} className="rounded-2xl border border-line bg-white p-6">
+              <div key={p.name} className="rounded-2xl border border-line bg-surface p-6">
                 <h3 className="text-lg font-bold text-ink">{p.name}</h3>
                 <p className="mt-1 text-sm text-body">{p.full}</p>
                 <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-2.5 py-1 text-xs font-medium text-brand-700">
@@ -255,7 +255,7 @@ export default function GovernmentContractingPage() {
                 <ArrowRight className="h-4.5 w-4.5" aria-hidden />
               </Link>
             </div>
-            <div className="flex flex-col rounded-2xl border border-line bg-white p-8">
+            <div className="flex flex-col rounded-2xl border border-line bg-surface p-8">
               <ClipboardCheck className="h-8 w-8 text-brand-600" aria-hidden />
               <h3 className="mt-4 text-2xl">Past project references</h3>
               <p className="mt-2 flex-1 text-body">

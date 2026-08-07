@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { FileText, Download, CheckCircle2, Clock } from "lucide-react";
 
 import { capabilityStatement } from "@/lib/government";
@@ -12,7 +13,7 @@ import { BidForm } from "@/components/forms/bid-form";
 export const metadata: Metadata = {
   title: "Capability Statement",
   description:
-    "Request the Downtown Door Repair & Security capability statement — company overview, services, licensing, insurance, and how to engage us on institutional projects.",
+    "Request the Downtown Doors & Security capability statement — company overview, services, licensing, insurance, and how to engage us on institutional projects.",
   alternates: { canonical: "/government-contracting/capability-statement" },
   openGraph: { url: absoluteUrl("/government-contracting/capability-statement") },
 };
@@ -36,8 +37,19 @@ export default function CapabilityStatementPage() {
         ]}
       />
 
-      <section className="bg-brand-950 text-white">
-        <Container className="py-14 md:py-18">
+      <section className="relative overflow-hidden bg-brand-950 text-white">
+        <div className="absolute inset-0" aria-hidden>
+          <Image
+            src="/images/real/real-door-closer-install.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/92 to-brand-950/70" />
+        </div>
+        <Container className="relative py-14 md:py-18">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-medium text-brand-100">
               <FileText className="h-4 w-4" aria-hidden />
@@ -68,7 +80,7 @@ export default function CapabilityStatementPage() {
                   Download capability statement (PDF)
                 </a>
               ) : (
-                <div className="rounded-2xl border border-dashed border-brand-200 bg-brand-50 p-6">
+                <div className="rounded-2xl border border-dashed border-brand-800 bg-brand-950/50 p-6">
                   <div className="flex items-center gap-2 text-brand-700">
                     <Clock className="h-5 w-5" aria-hidden />
                     <h2 className="font-bold text-ink">Being finalized</h2>
@@ -105,7 +117,7 @@ export default function CapabilityStatementPage() {
             </div>
 
             {/* Request form */}
-            <div className="rounded-2xl border border-line bg-white p-6 md:p-8">
+            <div className="rounded-2xl border border-line bg-surface p-6 md:p-8">
               <h2 className="text-xl font-bold text-ink">Request the capability statement</h2>
               <p className="mt-1 text-sm text-body">
                 Tell us where to send it. We&apos;ll include current licensing and insurance

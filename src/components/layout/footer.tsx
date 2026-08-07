@@ -1,21 +1,36 @@
 import Link from "next/link";
-import { DoorClosed, Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig, formattedAddress, emailAddress } from "@/lib/site";
 import { footerNav } from "@/lib/nav";
 import { Container } from "@/components/ui/section";
+import { Logomark } from "@/components/ui/logomark";
+import { FindUsOn } from "@/components/sections/find-us-on";
 
 export function Footer() {
   const year = 2026; // build-time constant; avoids hydration mismatch
 
   return (
-    <footer className="mt-4 border-t border-line bg-surface">
-      <Container className="py-14">
+    <footer className="relative mt-4 overflow-hidden border-t border-line bg-surface">
+      {/* Faint jobsite texture — real photo, heavily dimmed, never competes with text */}
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
+        <Image
+          src="/images/real/real-key-wall-board.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-top opacity-[0.05] grayscale"
+        />
+        <div className="grain absolute inset-0 opacity-[0.5]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface via-surface/98 to-surface" />
+      </div>
+      <Container className="relative py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand + NAP */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white">
-                <DoorClosed className="h-5 w-5" aria-hidden />
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white ring-1 ring-inset ring-white/15">
+                <Logomark className="h-6 w-6" />
               </span>
               <span className="font-display text-lg font-bold text-ink">
                 {siteConfig.name}
@@ -41,9 +56,13 @@ export function Footer() {
               </span>
             </address>
 
-            <p className="mt-5 inline-flex items-center rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-body">
-              Licensed &amp; Insured
+            <p className="mt-5 inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-body">
+              {siteConfig.credentials.licenseNumber
+                ? `Licensed & Insured — NYC DCA Lic. #${siteConfig.credentials.licenseNumber}`
+                : "Licensed & Insured"}
             </p>
+
+            <FindUsOn variant="compact" className="mt-5" />
           </div>
 
           {/* Link columns */}

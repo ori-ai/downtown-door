@@ -38,3 +38,21 @@ export const bidSchema = z.object({
   turnstileToken: z.string().optional(),
 });
 export type BidInput = z.infer<typeof bidSchema>;
+
+// --- Path C: appointment request (proposes a time, not a live calendar) ------
+// No live-availability calendar is connected yet — this captures a preferred
+// day/time as a real lead, routed and confirmed the same as a quote request.
+// The team confirms the actual time back with the client.
+export const bookSchema = z.object({
+  name: z.string().min(2, "Please enter your name").max(120),
+  phone: z.string().min(7, "Please enter a phone number").max(30),
+  email: z.string().email("Enter a valid email").max(160).or(z.literal("")).optional(),
+  service: z.string().max(80).optional(),
+  address: z.string().max(200).optional(),
+  preferredDate: z.string().max(40).optional(),
+  preferredWindow: z.enum(["Morning", "Afternoon", "Evening", "No preference"]).optional(),
+  message: z.string().max(3000).optional(),
+  company: z.string().max(0).optional(), // honeypot
+  turnstileToken: z.string().optional(),
+});
+export type BookInput = z.infer<typeof bookSchema>;

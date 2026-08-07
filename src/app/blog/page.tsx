@@ -20,7 +20,7 @@ function PostCard({ slug, title, excerpt }: { slug: string; title: string; excer
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group flex flex-col rounded-2xl border border-line bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
+      className="group flex flex-col rounded-2xl border border-line bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
     >
       <h3 className="text-lg font-bold text-ink group-hover:text-brand-700">{title}</h3>
       <p className="mt-2 flex-1 text-sm text-body">{excerpt}</p>
@@ -57,8 +57,8 @@ export default function BlogIndexPage() {
       {sortedPosts.length === 0 ? (
         <Section>
           <Container>
-            <div className="mx-auto max-w-2xl rounded-2xl border border-line bg-white p-8 text-center md:p-12">
-              <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+            <div className="mx-auto max-w-2xl rounded-2xl border border-line bg-surface p-8 text-center md:p-12">
+              <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-950/60 text-brand-300">
                 <Newspaper className="h-7 w-7" aria-hidden />
               </span>
               <h2 className="mt-5 text-2xl">Articles coming soon</h2>

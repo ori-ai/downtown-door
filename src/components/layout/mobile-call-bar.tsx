@@ -16,7 +16,7 @@ export function MobileCallBar() {
   if (pathname.startsWith("/government-contracting")) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 backdrop-blur lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 backdrop-blur lg:hidden">
       <div className="grid grid-cols-2 gap-2 p-2.5">
         <a
           href={siteConfig.phone.href}
@@ -28,7 +28,7 @@ export function MobileCallBar() {
         </a>
         <a
           href="/contact"
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-brand-200 bg-brand-50 font-semibold text-brand-800"
+          className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-brand-800 bg-brand-950/50 font-semibold text-brand-800"
           data-analytics="mobilebar-quote"
         >
           <MessageSquareText className="h-4.5 w-4.5" aria-hidden />

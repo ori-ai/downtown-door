@@ -82,4 +82,8 @@ export const inboxes = {
     to: () => process.env.LEAD_INBOX_BID || "ori@clearmarketingdigital.com",
     subjectPrefix: `[Bid Inquiry — Public Sector] ${siteConfig.shortName}`,
   },
+  book: {
+    to: () => process.env.LEAD_INBOX_QUOTE || "ori@clearmarketingdigital.com",
+    subjectPrefix: `[Appointment Request] ${siteConfig.shortName}`,
+  },
 };

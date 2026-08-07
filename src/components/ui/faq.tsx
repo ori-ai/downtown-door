@@ -7,7 +7,7 @@ import type { Faq } from "@/lib/services";
  */
 export function FaqList({ faqs }: { faqs: Faq[] }) {
   return (
-    <div className="divide-y divide-line rounded-2xl border border-line bg-white">
+    <div className="divide-y divide-line rounded-2xl border border-line bg-surface">
       {faqs.map((f) => (
         <details key={f.q} className="group px-5 py-1 open:bg-surface/40">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-semibold text-ink marker:hidden">

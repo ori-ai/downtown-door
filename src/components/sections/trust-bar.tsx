@@ -1,6 +1,7 @@
 import { ShieldCheck, MapPin, Building2, Star } from "lucide-react";
 import { getGoogleReviews } from "@/lib/reviews";
 import { Container } from "@/components/ui/section";
+import { siteConfig } from "@/lib/site";
 
 /**
  * Trust bar. The Google rating is rendered ONLY when live review data exists —
@@ -10,7 +11,12 @@ export async function TrustBar() {
   const reviews = await getGoogleReviews();
 
   const items = [
-    { icon: ShieldCheck, label: "Licensed & Insured" },
+    {
+      icon: ShieldCheck,
+      label: siteConfig.credentials.licenseNumber
+        ? `NYC DCA Lic. #${siteConfig.credentials.licenseNumber}`
+        : "Licensed & Insured",
+    },
     { icon: MapPin, label: "Serving Brooklyn & Manhattan" },
     { icon: Building2, label: "Homes · Businesses · Institutions" },
     reviews
@@ -22,7 +28,7 @@ export async function TrustBar() {
   ];
 
   return (
-    <div className="border-y border-line bg-white">
+    <div className="border-y border-line bg-surface">
       <Container>
         <ul className="grid grid-cols-2 gap-x-4 gap-y-3 py-4 md:flex md:items-center md:justify-between">
           {items.map(({ icon: Icon, label }) => (

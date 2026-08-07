@@ -17,27 +17,27 @@ export const SITE_URL =
   "https://downtowndoorrepair.example"; // PLACEHOLDER until the real domain is registered
 
 // --- Phone -------------------------------------------------------------------
-// ⚠️ FLAG: the brief lists this number, but it also appears in the owner's
-// own config as the "ClearOps public reception line." Confirm it is the
-// correct client CTA number before launch (see docs/human-todo.md).
-// NOTE: this is DIFFERENT from the old WordPress site, which showed
-// (347) 519-4918 / (347) 514-8770 — another reason to confirm against GBP.
-const PHONE_DIGITS = "9175403962";
+// Downtown's dedicated AI-reception line: calls are answered by "Dori" (an
+// ElevenLabs voice agent), who qualifies the job, captures the lead (routed to
+// Ori), and hands off to Ori at +19174388338 for the owner / emergencies /
+// custom pricing. Provisioned via Twilio 2026-07-24. This REPLACES the old
+// ClearOps reception line (9175403962) and the exposed personal number.
+const PHONE_DIGITS = "3478518615";
 
 export const siteConfig = {
-  name: "Downtown Door Repair & Security",
-  shortName: "Downtown Door Repair",
-  legalName: "Downtown Door Repair & Security",
+  name: "Downtown Doors & Security",
+  shortName: "Downtown Doors",
+  legalName: "Downtown Doors & Security",
   tagline: "Door Repair, Locksmith & Security Experts — Brooklyn & Manhattan",
   description:
-    "Downtown Door Repair & Security provides door repair, installation, locksmith and commercial security systems across Brooklyn and Manhattan — for homeowners, businesses, and institutional clients.",
+    "Downtown Doors & Security provides door repair, installation, locksmith and commercial security systems across Brooklyn and Manhattan — for homeowners, businesses, and institutional clients.",
 
   url: SITE_URL,
 
   // --- Phone -----------------------------------------------------------------
   phone: {
     digits: PHONE_DIGITS,
-    display: "(917) 540-3962",
+    display: "(347) 851-8615",
     href: `tel:+1${PHONE_DIGITS}`,
   },
 
@@ -46,7 +46,7 @@ export const siteConfig = {
   // at the domain/email provider, NOT in code). Uses the real domain once set.
   email: {
     // Rendered with the live host once NEXT_PUBLIC_SITE_URL is a real domain.
-    general: "info", // + "@" + domain — assembled by emailAddress()
+    general: "office", // + "@" + domain — assembled by emailAddress()
     bids: "bids", // dedicated institutional/procurement inbox alias
   },
 
@@ -84,7 +84,8 @@ export const siteConfig = {
   // client confirms them — components hide/placeholder empty values.
   credentials: {
     licensedInsured: true, // general trade claim shown in trust bar
-    licenseNumber: null as string | null, // VERIFY (NYC DCWP / relevant license #)
+    licenseNumber: "2109597" as string | null, // NYC DCA (Dept. of Consumer & Worker Protection) license #
+    licenseAuthority: "NYC Department of Consumer and Worker Protection (DCA)",
     insuranceSummary: null as string | null, // VERIFY (GL limits, etc.)
     bondingSummary: null as string | null, // VERIFY (bonding capacity)
     yearEstablished: null as number | null, // VERIFY — do not invent "years in business"
@@ -101,9 +102,15 @@ export const siteConfig = {
   // Rating & count come LIVE from Google Business Profile at render time —
   // never hardcoded. See src/lib/reviews.ts. `null` here means "not yet wired".
   reviews: {
-    googlePlaceId: null as string | null, // VERIFY / supply GBP place id
-    profileUrl: null as string | null,
+    googlePlaceId: "ChIJxbP4QSdbwokRti8UT3aRgp8" as string | null,
+    profileUrl: "https://search.google.com/local/writereview?placeid=ChIJxbP4QSdbwokRti8UT3aRgp8" as string | null,
   },
+
+  // --- Google Business Profile map link ---------------------------------------
+  // The verified GBP listing's own maps link (cid-based) — NOT a generic address
+  // search. Keeps "View on Google Maps" pointed at the actual business listing
+  // (with reviews/hours attached), matching the NAP the GBP listing carries.
+  gbpMapsUri: "https://maps.google.com/maps?cid=11493909136321818550",
 
   // --- Service area (Phase 1) ------------------------------------------------
   serviceAreaPhase1: ["Brooklyn", "Manhattan"] as const,
@@ -114,7 +121,27 @@ export const siteConfig = {
     facebook: null as string | null,
     instagram: null as string | null,
   },
+
+  // --- Where we're listed, besides Google (verified 2026-08 via live web
+  // search) — Google itself uses `gbpMapsUri` above, not duplicated here.
+  // Only platforms with a confirmed, real listing — do not add Angi, BBB,
+  // HomeAdvisor, Houzz, Nextdoor, etc. without the same confirmation.
+  otherProfiles: [
+    {
+      name: "Yelp",
+      url: "https://m.yelp.com/biz/downtown-locksmiths-door-repair-and-security-brooklyn",
+    },
+    {
+      name: "Thumbtack",
+      url: "https://www.thumbtack.com/ny/brooklyn/locksmiths/downtown-door-repair-security/service/565595125467586570",
+    },
+  ] as { name: string; url: string }[],
 } as const;
+
+/** Every verified "find us on" listing, Google included — Google reuses `gbpMapsUri`. */
+export function businessProfiles(): { name: string; url: string }[] {
+  return [{ name: "Google", url: siteConfig.gbpMapsUri }, ...siteConfig.otherProfiles];
+}
 
 export type SiteConfig = typeof siteConfig;
 

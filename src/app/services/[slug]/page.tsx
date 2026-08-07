@@ -5,7 +5,6 @@ import {
   Phone,
   CheckCircle2,
   ArrowRight,
-  Info,
   ShieldCheck,
   MapPin,
 } from "lucide-react";
@@ -24,14 +23,43 @@ import { FaqList } from "@/components/ui/faq";
 import { CtaBand } from "@/components/sections/cta-band";
 import { JsonLd } from "@/components/json-ld";
 
-/** Category-relevant hero imagery (illustrative — see homepage note). */
+/** Category-relevant hero imagery — real, no-person job photos, one per service. */
 const serviceHeroImage: Record<string, string> = {
-  "door-repair": "/images/hero-entry.png",
-  "door-installation": "/images/hero-entry.png",
-  "emergency-door-repair": "/images/storefront.png",
-  "commercial-storefront-doors": "/images/storefront.png",
-  "locksmith-door-hardware": "/images/intercom.png",
-  "security-systems-access-control": "/images/security-cctv.png",
+  "door-repair": "/images/real/real-mortise-repair.jpg",
+  "door-installation": "/images/real/real-office-install.jpg",
+  "emergency-door-repair": "/images/real/real-drill-install.jpg",
+  "commercial-storefront-doors": "/images/real/real-commercial-door.jpg",
+  "locksmith-door-hardware": "/images/real/real-mortise-keys.jpg",
+  "security-systems-access-control": "/images/real/real-access-install.jpg",
+  "fire-door-repair": "/images/real/real-panic-bar-exit.jpg",
+  "panic-exit-devices": "/images/real/real-hero-panicbar.jpg",
+  "door-closers": "/images/real/real-door-closer.jpg",
+  "security-gates": "/images/real/real-padlocks-gate.jpg",
+  "intercom-systems": "/images/real/real-intercom-button.jpg",
+  "cctv-camera-systems": "/images/real/real-cctv-camera.jpg",
+  "master-key-systems": "/images/real/real-keypad-lever-lock.jpg",
+};
+
+/**
+ * A second, distinct real photo per service — dropped into the body copy so
+ * service pages aren't just a hero image and a wall of text. Deliberately
+ * different shots than the hero (a mid-repair or in-progress angle, not the
+ * same finished-product photo twice).
+ */
+const serviceBodyImage: Record<string, { src: string; caption: string }> = {
+  "door-repair": { src: "/images/real/real-frame-repair-oscillating.jpg", caption: "Cutting out a damaged frame pocket before rebuilding it" },
+  "door-installation": { src: "/images/real/real-brass-deadbolt-drill.jpg", caption: "Fitting a new deadbolt on a freshly hung door" },
+  "emergency-door-repair": { src: "/images/real/real-strike-plate-drill.jpg", caption: "Re-setting a strike plate after a forced-entry repair" },
+  "commercial-storefront-doors": { src: "/images/real/real-storefront-pull-door.jpg", caption: "Storefront glass door, hardware realigned and tested" },
+  "locksmith-door-hardware": { src: "/images/real/real-key-wall-board.jpg", caption: "Blanks on hand for same-day key cutting" },
+  "security-systems-access-control": { src: "/images/real/real-reader-install-green.jpg", caption: "Card reader wired in on a commercial entry" },
+  "fire-door-repair": { src: "/images/real/real-door-frame-measure.jpg", caption: "Confirming clearances on a fire-rated door frame" },
+  "panic-exit-devices": { src: "/images/real/real-panic-bar-street-install.jpg", caption: "Exit device install on a commercial rear door" },
+  "door-closers": { src: "/images/real/real-door-closer-install.jpg", caption: "New door closer, mounted and adjusted" },
+  "security-gates": { src: "/images/real/real-wood-gate-padlocks.jpg", caption: "Hasp and padlock hardware on a gate install" },
+  "intercom-systems": { src: "/images/real/real-intercom-wiring-gray-door.jpg", caption: "Wiring a buzzer entry system at the door" },
+  "cctv-camera-systems": { src: "/images/real/real-dome-camera-mount.jpg", caption: "Dome camera mounted on an exterior door frame" },
+  "master-key-systems": { src: "/images/real/real-milwaukee-toolbox-hardware.jpg", caption: "Cylinders and cut keys for a building master-key set" },
 };
 
 export function generateStaticParams() {
@@ -70,6 +98,7 @@ export default async function ServicePage({
 
   const related = service.related.map(getService).filter(Boolean);
   const isEmergency = service.emergency;
+  const bodyImage = serviceBodyImage[service.slug];
 
   return (
     <>
@@ -85,9 +114,12 @@ export default async function ServicePage({
       />
 
       {/* Hero — cinematic two-column */}
-      <section className={cn("relative overflow-hidden", isEmergency ? "bg-emergency-tint/30" : "bg-white")}>
-        {!isEmergency && <div className="bg-aurora grain" aria-hidden />}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-white/60 to-white" aria-hidden />
+      <section className={cn("relative overflow-hidden border-b border-line", isEmergency ? "bg-emergency-tint/20" : "")}>
+        <div
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{ background: "radial-gradient(44rem 28rem at 8% -20%, color-mix(in oklab, var(--color-brand-600) 30%, transparent), transparent 60%)" }}
+          aria-hidden
+        />
         <Container className="relative grid items-center gap-10 py-12 md:grid-cols-2 md:py-16">
           <div className="reveal">
             {isEmergency ? (
@@ -95,7 +127,7 @@ export default async function ServicePage({
                 24/7 Emergency Service
               </span>
             ) : (
-              <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium text-brand-700">
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand-800 bg-brand-950/50 px-3.5 py-1.5 text-sm font-medium text-brand-300">
                 <MapPin className="h-4 w-4" aria-hidden />
                 Brooklyn &amp; Manhattan
               </span>
@@ -122,7 +154,7 @@ export default async function ServicePage({
             style={{ ["--reveal-delay" as string]: "0.12s" }}
           >
             <Image
-              src={serviceHeroImage[service.slug] ?? "/images/hero-entry.png"}
+              src={serviceHeroImage[service.slug] ?? "/images/real/real-storefront-door.jpg"}
               alt={service.title}
               fill
               priority
@@ -154,7 +186,7 @@ export default async function ServicePage({
                 <h2 className="text-2xl">When you need it</h2>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {service.whenNeeded.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 rounded-xl border border-line bg-white p-4">
+                    <li key={item} className="flex items-start gap-2.5 rounded-xl border border-line bg-surface p-4">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" aria-hidden />
                       <span className="text-sm text-body">{item}</span>
                     </li>
@@ -162,12 +194,30 @@ export default async function ServicePage({
                 </ul>
               </div>
 
+              {/* Mid-body real photo — breaks up the text wall with a second, distinct shot */}
+              {bodyImage ? (
+                <figure className="mt-10 overflow-hidden rounded-2xl border border-line ring-soft">
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={bodyImage.src}
+                      alt={bodyImage.caption}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 42rem"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="border-t border-line bg-surface px-5 py-3 text-sm text-body">
+                    {bodyImage.caption}
+                  </figcaption>
+                </figure>
+              ) : null}
+
               {/* Process */}
               <div className="mt-10">
                 <h2 className="text-2xl">How it works</h2>
                 <ol className="mt-5 space-y-4">
                   {service.process.map((step, i) => (
-                    <li key={step.title} className="flex gap-4 rounded-xl border border-line bg-white p-5">
+                    <li key={step.title} className="flex gap-4 rounded-xl border border-line bg-surface p-5">
                       <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-600 text-sm font-bold text-white">
                         {i + 1}
                       </span>
@@ -180,35 +230,28 @@ export default async function ServicePage({
                 </ol>
               </div>
 
-              {/* Pricing guidance */}
+              {/* How pricing works — honest, no placeholder ranges */}
               <div className="mt-10">
-                <h2 className="text-2xl">Pricing guidance</h2>
-                <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900">
-                  <Info className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brand-600" aria-hidden />
-                  <p>
-                    Every job is quoted after an on-site assessment. The ranges below are
-                    general guidance only — final pricing depends on the door, hardware,
-                    and scope. <strong>Illustrative placeholders shown until confirmed.</strong>
+                <h2 className="font-display text-2xl uppercase tracking-tight text-ink">How pricing works</h2>
+                <div className="mt-4 rounded-2xl border border-line bg-surface p-6">
+                  <p className="leading-relaxed text-body">
+                    Every {service.shortTitle.toLowerCase()} job is priced after an <strong className="text-ink">on-site diagnosis</strong> —
+                    no guesswork and no surprises. We diagnose the real issue, explain your options in
+                    plain language, and give you clear pricing before any work begins.
                   </p>
-                </div>
-                <div className="mt-4 overflow-hidden rounded-xl border border-line">
-                  <table className="w-full text-left text-sm">
-                    <tbody className="divide-y divide-line">
-                      {service.pricing.map((p) => (
-                        <tr key={p.item} className="bg-white">
-                          <th scope="row" className="px-4 py-3 font-medium text-ink">
-                            {p.item}
-                            {p.note ? (
-                              <span className="mt-0.5 block text-xs font-normal text-muted">{p.note}</span>
-                            ) : null}
-                          </th>
-                          <td className="whitespace-nowrap px-4 py-3 text-right font-semibold text-brand-700">
-                            {p.range}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                  <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                    <Link href="/contact" className={buttonVariants({ size: "lg" })}>
+                      Request your on-site quote
+                      <ArrowRight className="h-4.5 w-4.5" aria-hidden />
+                    </Link>
+                    <a
+                      href={siteConfig.phone.href}
+                      className={buttonVariants({ variant: "outline", size: "lg", className: "border-brand-700 bg-brand-950/40 text-ink hover:bg-brand-900/50" })}
+                    >
+                      <Phone className="h-4.5 w-4.5" aria-hidden />
+                      {siteConfig.phone.display}
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -223,7 +266,7 @@ export default async function ServicePage({
 
             {/* Sidebar */}
             <aside className="lg:sticky lg:top-24 lg:self-start">
-              <div className="rounded-2xl border border-line bg-white p-6">
+              <div className="rounded-2xl border border-line bg-surface p-6">
                 <h2 className="text-lg font-bold text-ink">Talk to us</h2>
                 <p className="mt-2 text-sm text-body">
                   Serving Brooklyn &amp; Manhattan. Call for same-day help or request a quote.

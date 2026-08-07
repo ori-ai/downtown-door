@@ -1,150 +1,100 @@
 import Link from "next/link";
-import Image from "next/image";
-import type { CSSProperties } from "react";
-import {
-  Phone,
-  ArrowRight,
-  FileText,
-  Home,
-  Landmark,
-  CheckCircle2,
-  BadgeCheck,
-  MapPin,
-  Star,
-  ShieldCheck,
-} from "lucide-react";
+import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
 
 import { siteConfig } from "@/lib/site";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
+import { Parallax } from "@/components/motion/scroll-fx";
+import { HeroMedia } from "@/components/sections/hero-media";
 
-const d = (s: number): CSSProperties => ({ "--reveal-delay": `${s}s` } as CSSProperties);
+const trust = ["Licensed & insured", "24/7 emergency", "Residential · Commercial · Institutional"];
 
+/**
+ * Full-bleed cinematic hero: real photos/video ARE the background, the
+ * whole width of the section — not boxed into a side panel. Text sits in a
+ * scrim-protected column on top. This is the "ideal" pattern for a trade
+ * brand leaning on real jobsite footage for credibility: let the real work
+ * carry the visual weight instead of competing with it in a small frame.
+ */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      {/* Animated aurora + grain backdrop */}
-      <div className="bg-aurora grain" aria-hidden />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/30 via-white/70 to-white" aria-hidden />
+    <section className="relative isolate overflow-hidden border-b border-line">
+      {/* Full-bleed real media, whole section */}
+      <div className="absolute inset-0 -z-20">
+        <Parallax strength={30} className="absolute -inset-y-16 inset-x-0">
+          <HeroMedia />
+        </Parallax>
+      </div>
 
-      <Container className="relative pt-16 pb-6 md:pt-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="reveal glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium text-brand-700" style={d(0)}>
-            <MapPin className="h-4 w-4" aria-hidden />
-            Serving Brooklyn &amp; Manhattan
-          </p>
+      {/* Scrim: dark from the left (text legibility) + from the bottom, on
+          top of the media but under the text/CTA layer. */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "linear-gradient(105deg, #0a1330 0%, rgba(10,19,48,0.94) 32%, rgba(10,19,48,0.55) 58%, rgba(10,19,48,0.22) 78%, rgba(10,19,48,0.35) 100%), linear-gradient(to top, #0a1330 0%, rgba(10,19,48,0.5) 22%, transparent 46%)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "linear-gradient(var(--color-brand-300) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-300) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+        aria-hidden
+      />
 
-          <h1 className="mt-6 text-[2.6rem] leading-[1.03] md:text-6xl">
-            <span className="reveal block" style={d(0.08)}>Doors repaired.</span>
-            <span className="reveal block" style={d(0.18)}>Buildings secured.</span>
-            <span className="reveal block text-gradient" style={d(0.28)}>Done right, the first time.</span>
+      <Container className="relative flex min-h-[32rem] flex-col justify-center py-16 sm:min-h-[38rem] md:min-h-[42rem] md:py-20">
+        <div className="max-w-xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-700/60 bg-[#0a1330]/50 px-3 py-1 font-display text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-brand-300 backdrop-blur-sm">
+            <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
+            NYC · Since day one
+          </span>
+
+          <h1 className="mt-6 font-display text-[2rem] font-bold uppercase leading-[1.1] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[3.2rem]">
+            Doors repaired.
+            <br />
+            Buildings <span className="text-brand-400">secured.</span>
           </h1>
 
-          <p className="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body" style={d(0.4)}>
-            Downtown Door Repair &amp; Security handles door repair, installation,
-            locksmith, and commercial security work across Brooklyn and Manhattan — for
-            homeowners and businesses that need it done fast, and for institutions that
-            need a vendor they can vet.
+          <p className="mt-5 font-display text-sm font-medium uppercase tracking-[0.12em] text-brand-100 md:text-base">
+            Done right — the first time.
           </p>
-        </div>
 
-        {/* Two distinct buyer paths */}
-        <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
-          {/* PATH A */}
-          <div className="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-white ring-soft" style={d(0.5)}>
-            <div className="relative h-44 overflow-hidden">
-              <Image
-                src="/images/hero-entry.png"
-                alt="Modern residential entry door in Brooklyn"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/25 to-transparent" />
-              <span className="glass absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-xl text-brand-600">
-                <Home className="h-5.5 w-5.5" aria-hidden />
-              </span>
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <h2 className="text-2xl">Need a repair now?</h2>
-              <p className="mt-2 text-body">
-                Homeowners, landlords &amp; businesses — a door, lock, or storefront fixed
-                fast. Same-visit repairs when parts are on hand.
-              </p>
-              <ul className="mt-4 space-y-2 text-sm text-body">
-                {["Door repair & installation", "Emergency & break-in repair", "Locks, hardware & security"].map((t) => (
-                  <li key={t} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4.5 w-4.5 text-brand-600" aria-hidden />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
-                <a href={siteConfig.phone.href} className={buttonVariants({ size: "lg", className: "flex-1" })}>
-                  <Phone className="h-4.5 w-4.5" aria-hidden />
-                  {siteConfig.phone.display}
-                </a>
-                <Link href="/contact" className={buttonVariants({ variant: "outline", size: "lg", className: "flex-1" })}>
-                  Get a quote
-                </Link>
-              </div>
-            </div>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-body drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
+            Door repair, installation, locksmith, and commercial security across
+            Brooklyn &amp; Manhattan — for homeowners and businesses that need it fast,
+            and institutions that need a vendor they can vet.
+          </p>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link
+              href="/contact"
+              className={buttonVariants({ size: "lg", className: "justify-center shadow-[0_10px_30px_-8px_var(--color-brand-600)]" })}
+            >
+              Request your on-site quote
+              <ArrowRight className="h-4.5 w-4.5" aria-hidden />
+            </Link>
+            <a
+              href={siteConfig.phone.href}
+              className={buttonVariants({ variant: "outline", size: "lg", className: "justify-center border-white/25 bg-[#0a1330]/40 text-ink backdrop-blur-sm hover:bg-brand-900/60" })}
+            >
+              <Phone className="h-4.5 w-4.5" aria-hidden />
+              {siteConfig.phone.display}
+            </a>
           </div>
 
-          {/* PATH B */}
-          <div className="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-brand-800 bg-brand-950 text-white ring-soft" style={d(0.6)}>
-            <div className="relative h-44 overflow-hidden">
-              <Image
-                src="/images/security-cctv.png"
-                alt="Commercial building security cameras"
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover opacity-85 transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/40 to-transparent" />
-              <span className="glass-dark absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-xl text-brand-200">
-                <Landmark className="h-5.5 w-5.5" aria-hidden />
-              </span>
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <h2 className="text-2xl text-white">Bidding on a public project?</h2>
-              <p className="mt-2 text-brand-100">
-                Facilities &amp; procurement teams — review our capacity to deliver on
-                institutional door and security projects across NYC.
-              </p>
-              <ul className="mt-4 space-y-2 text-sm text-brand-100">
-                {["Licensing, insurance & bonding", "Capability statement & references", "Schools, hospitals & municipal"].map((t) => (
-                  <li key={t} className="flex items-center gap-2">
-                    <BadgeCheck className="h-4.5 w-4.5 text-brand-300" aria-hidden />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
-                <Link href="/government-contracting" className={buttonVariants({ size: "lg", className: "flex-1 bg-white text-brand-800 hover:bg-brand-50" })}>
-                  Public sector
-                  <ArrowRight className="h-4.5 w-4.5" aria-hidden />
-                </Link>
-                <Link
-                  href="/government-contracting/capability-statement"
-                  className={buttonVariants({ variant: "outline", size: "lg", className: "flex-1 border-white/25 bg-transparent text-white hover:bg-white/10 hover:border-white/40" })}
-                >
-                  <FileText className="h-4.5 w-4.5" aria-hidden />
-                  Capability
-                </Link>
-              </div>
-            </div>
-          </div>
+          <ul className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/15 pt-6 text-sm">
+            {trust.map((t, i) => (
+              <li key={t} className="flex items-center gap-6">
+                {i > 0 && <span className="hidden h-1 w-1 rounded-full bg-brand-400 sm:block" aria-hidden />}
+                <span className="font-medium text-body drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">{t}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Trust row */}
-        <ul className="reveal mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-muted" style={d(0.7)}>
-          <li className="flex items-center gap-2"><ShieldCheck className="h-4.5 w-4.5 text-brand-600" aria-hidden /> Licensed &amp; Insured</li>
-          <li className="flex items-center gap-2"><Star className="h-4.5 w-4.5 text-brand-500" aria-hidden /> Trusted local service</li>
-          <li className="flex items-center gap-2"><MapPin className="h-4.5 w-4.5 text-brand-600" aria-hidden /> Brooklyn &amp; Manhattan</li>
-          <li className="flex items-center gap-2"><BadgeCheck className="h-4.5 w-4.5 text-brand-600" aria-hidden /> Residential · Commercial · Institutional</li>
-        </ul>
       </Container>
     </section>
   );

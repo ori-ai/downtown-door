@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const control =
-  "w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[0.95rem] text-ink placeholder:text-muted/70 focus-visible:border-brand-400 focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-brand-500/40 disabled:opacity-50";
+  "w-full rounded-lg border border-line bg-surface px-3.5 py-2.5 text-[0.95rem] text-ink placeholder:text-muted/70 focus-visible:border-brand-400 focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-brand-500/40 disabled:opacity-50";
 
 export function Label({
   className,

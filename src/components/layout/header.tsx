@@ -3,25 +3,26 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { DoorClosed, Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site";
 import { mainNav } from "@/lib/nav";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
+import { Logomark } from "@/components/ui/logomark";
 
 function Wordmark() {
   return (
     <Link href="/" className="flex items-center gap-2.5 rounded-md" aria-label={`${siteConfig.name} — home`}>
-      <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white">
-        <DoorClosed className="h-5 w-5" aria-hidden />
+      <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white ring-1 ring-inset ring-white/15">
+        <Logomark className="h-6 w-6" />
       </span>
       <span className="flex flex-col leading-none">
         <span className="font-display text-[1.05rem] font-bold tracking-tight text-ink">
-          Downtown Door
+          Downtown Doors
         </span>
         <span className="text-[0.7rem] font-medium uppercase tracking-[0.16em] text-muted">
-          Repair &amp; Security
+          &amp; Security
         </span>
       </span>
     </Link>
@@ -38,7 +39,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="sticky top-0 z-50 border-b border-line bg-[#0a1330]/90 backdrop-blur supports-[backdrop-filter]:bg-[#0a1330]/75">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Wordmark />
 
@@ -54,7 +55,7 @@ export function Header() {
                   {item.label}
                   <ChevronDown className="h-3.5 w-3.5 text-muted transition-transform group-hover:rotate-180" aria-hidden />
                 </Link>
-                <div className="invisible absolute left-0 top-full min-w-56 translate-y-1 rounded-xl border border-line bg-white p-2 opacity-0 shadow-lg shadow-brand-950/5 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full min-w-56 translate-y-1 rounded-xl border border-line bg-surface p-2 opacity-0 shadow-lg shadow-black/40 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
@@ -90,7 +91,7 @@ export function Header() {
 
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-lg border border-line text-ink lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-lg border border-line text-ink lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -102,7 +103,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       {open ? (
-        <div className="border-t border-line bg-white lg:hidden">
+        <div className="border-t border-line bg-[#0a1330] lg:hidden">
           <Container className="py-4">
             <nav className="flex flex-col gap-1" aria-label="Mobile">
               {mainNav.map((item) => (

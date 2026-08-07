@@ -8,15 +8,20 @@ import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { CtaBand } from "@/components/sections/cta-band";
 
 export const metadata: Metadata = {
-  title: "Service Areas — Brooklyn & Manhattan",
+  title: "Service Areas — NYC Door Repair & Security",
   description:
-    "Downtown Door Repair & Security serves Brooklyn and Manhattan, with neighborhood-level door repair, locksmith, and security service. More areas coming in Phase 2.",
+    "Downtown Doors & Security serves Brooklyn, Manhattan, Queens, the Bronx, and Staten Island, with neighborhood-level door repair, locksmith, and security service.",
   alternates: { canonical: "/service-areas" },
   openGraph: { url: absoluteUrl("/service-areas") },
 };
 
 export default function ServiceAreasIndexPage() {
   const comingSoon = areaHubs.filter((h) => !h.published);
+  const publishedNames = publishedHubs.map((h) => h.name);
+  const boroughList =
+    publishedNames.length > 1
+      ? `${publishedNames.slice(0, -1).join(", ")} and ${publishedNames[publishedNames.length - 1]}`
+      : publishedNames[0];
 
   return (
     <>
@@ -32,9 +37,9 @@ export default function ServiceAreasIndexPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl">Service areas</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              We currently serve Brooklyn and Manhattan with neighborhood-level door
+              We currently serve {boroughList} with neighborhood-level door
               repair, installation, locksmith, and security service. Expansion to
-              nearby boroughs and counties is planned for Phase 2.
+              nearby counties is planned for Phase 2.
             </p>
           </div>
         </Container>
@@ -42,10 +47,10 @@ export default function ServiceAreasIndexPage() {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="Now serving" title="Brooklyn & Manhattan" />
+          <SectionHeading eyebrow="Now serving" title={boroughList ?? "Our service areas"} />
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {publishedHubs.map((hub) => (
-              <div key={hub.slug} className="rounded-2xl border border-line bg-white p-7">
+              <div key={hub.slug} className="rounded-2xl border border-line bg-surface p-7">
                 <div className="flex items-center justify-between">
                   <h2 className="text-xl font-bold text-ink">{hub.name}</h2>
                   <Link href={`/service-areas/${hub.slug}`} className="text-sm font-semibold text-brand-700 hover:text-brand-800">
@@ -83,7 +88,7 @@ export default function ServiceAreasIndexPage() {
             {comingSoon.map((hub) => (
               <li
                 key={hub.slug}
-                className="inline-flex items-center gap-2 rounded-full border border-dashed border-line bg-white px-4 py-2 text-sm text-muted"
+                className="inline-flex items-center gap-2 rounded-full border border-dashed border-line bg-surface px-4 py-2 text-sm text-muted"
               >
                 <Clock className="h-4 w-4 text-brand-400" aria-hidden />
                 {hub.name}

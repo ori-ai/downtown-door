@@ -8,6 +8,7 @@ import {
   Wrench,
   BadgeCheck,
   MapPin,
+  Star,
 } from "lucide-react";
 
 import { siteConfig } from "@/lib/site";
@@ -18,12 +19,16 @@ import { buttonVariants } from "@/components/ui/button";
 import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { ServiceCard } from "@/components/ui/service-card";
 import { Hero } from "@/components/sections/hero";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { TrustStrip } from "@/components/sections/trust-strip";
+import { BrandsStrip } from "@/components/sections/brands-strip";
+import { Reveal } from "@/components/motion/reveal";
+import { MotionReveal, MotionStagger, MotionStaggerItem } from "@/components/motion/scroll-fx";
 import { JsonLd } from "@/components/json-ld";
+import { CtaBand } from "@/components/sections/cta-band";
 
 const homeFaqs = [
   {
-    q: "What areas does Downtown Door Repair & Security serve?",
+    q: "What areas does Downtown Doors & Security serve?",
     a: "We serve Brooklyn and Manhattan for door repair, installation, locksmith, and security-system work. Expansion to Queens, the Bronx, Staten Island, Nassau, Westchester, and Bergen County (NJ) is planned.",
   },
   {
@@ -37,10 +42,26 @@ const homeFaqs = [
 ];
 
 const workGallery = [
-  { src: "/images/hero-entry.png", label: "Entry & residential doors" },
-  { src: "/images/storefront.png", label: "Commercial & storefront doors" },
-  { src: "/images/intercom.png", label: "Intercom & entry systems" },
-  { src: "/images/security-cctv.png", label: "Security cameras & CCTV" },
+  { src: "/images/real/real-commercial-door.jpg", label: "Commercial & storefront doors" },
+  { src: "/images/real/real-mortise-repair.jpg", label: "Door & lock repair" },
+  { src: "/images/real/real-panic-bar-exit.jpg", label: "Panic bars & exit devices" },
+  { src: "/images/real/real-cctv-camera.jpg", label: "Security cameras & CCTV" },
+  { src: "/images/real/real-intercom-button.jpg", label: "Intercom & buzzer entry" },
+  { src: "/images/real/real-access-install.jpg", label: "Access control & strikes" },
+  { src: "/images/real/real-mortise-keys.jpg", label: "Locksmith & rekeying" },
+  { src: "/images/real/real-padlocks.jpg", label: "Gates, locks & security" },
+  { src: "/images/real/real-brass-strike-install.jpg", label: "Door hardware installation" },
+  { src: "/images/real/real-key-cutting.jpg", label: "On-site key cutting" },
+  { src: "/images/real/real-padlocks-wood-gate.jpg", label: "Security gates & padlocks" },
+  { src: "/images/real/real-rooftop-door-install.jpg", label: "High-rise & commercial installs" },
+  { src: "/images/real/real-brass-deadbolt-drill.jpg", label: "Deadbolt & cylinder installs" },
+  { src: "/images/real/real-storefront-gate-install.jpg", label: "Roll gates & storefront security" },
+  { src: "/images/real/real-dome-camera-mount.jpg", label: "Dome cameras & CCTV mounting" },
+  { src: "/images/real/real-reader-install-green.jpg", label: "Card readers & access control" },
+  { src: "/images/real/real-fence-hinge-install.jpg", label: "Gate hardware & hinges" },
+  { src: "/images/real/real-storefront-mortise-install.jpg", label: "Storefront mortise lock installs" },
+  { src: "/images/real/real-frame-repair-oscillating.jpg", label: "Door frame repair, in progress" },
+  { src: "/images/real/real-brass-knob-outdoor.jpg", label: "Brass hardware, done clean" },
 ];
 
 export default function HomePage() {
@@ -49,40 +70,47 @@ export default function HomePage() {
       <JsonLd data={faqSchema(homeFaqs)} />
 
       <Hero />
+      <TrustStrip />
+      <BrandsStrip />
 
       {/* ---------------- SERVICES ---------------- */}
       <Section topBorder>
         <Container>
-          <Reveal>
+          <MotionReveal>
             <SectionHeading
               eyebrow="What we do"
               title="Door, lock & security services"
               intro="Residential and commercial work across Brooklyn and Manhattan — from a single sticking door to a full building access-control system."
             />
-          </Reveal>
-          <Stagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          </MotionReveal>
+          <MotionStagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <StaggerItem key={service.slug}>
+              <MotionStaggerItem key={service.slug}>
                 <ServiceCard service={service} />
-              </StaggerItem>
+              </MotionStaggerItem>
             ))}
-          </Stagger>
+          </MotionStagger>
         </Container>
       </Section>
+
+      <CtaBand
+        title="Not sure what you need?"
+        subtitle="Tell us what's going on — we'll help you figure it out, price it honestly, and get it scheduled."
+      />
 
       {/* ---------------- MEDIA SHOWCASE ---------------- */}
       <Section topBorder className="bg-surface">
         <Container>
-          <Reveal>
+          <MotionReveal>
             <SectionHeading
               eyebrow="The work we do"
               title="One team for doors, hardware & security"
-              intro="Illustrative of the services we provide across NYC. Your own project photos drop in here once supplied — we don't pass off stock as your work."
+              intro="Real jobs across Brooklyn and Manhattan — doors repaired and installed, commercial exit hardware, gates, locks, and security, done on site."
             />
-          </Reveal>
-          <Stagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          </MotionReveal>
+          <MotionStagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {workGallery.map((item) => (
-              <StaggerItem key={item.src}>
+              <MotionStaggerItem key={item.src}>
                 <figure className="group relative overflow-hidden rounded-2xl border border-line ring-soft">
                   <div className="relative aspect-[4/5]">
                     <Image
@@ -98,32 +126,67 @@ export default function HomePage() {
                     {item.label}
                   </figcaption>
                 </figure>
-              </StaggerItem>
+              </MotionStaggerItem>
             ))}
-          </Stagger>
+          </MotionStagger>
+        </Container>
+      </Section>
+
+      {/* ---------------- INLINE POP CTA (post-gallery conversion moment) ---------------- */}
+      <Section className="!py-8">
+        <Container>
+          <MotionReveal>
+            <div className="relative overflow-hidden rounded-2xl border border-brand-500/40 bg-brand-950 px-6 py-5 shadow-[0_20px_60px_-24px_var(--color-brand-600)] sm:px-8">
+              <div
+                className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+                style={{ background: "radial-gradient(60rem 20rem at 20% 0%, color-mix(in oklab, var(--color-brand-600) 55%, transparent), transparent 70%)" }}
+                aria-hidden
+              />
+              <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+                <div className="flex items-center gap-3">
+                  <span className="hidden items-center gap-0.5 sm:flex" aria-hidden>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-brand-300 text-brand-300" />
+                    ))}
+                  </span>
+                  <p className="text-center text-base font-semibold text-white sm:text-left">
+                    Like what you see? Get the same crew on your job — today.
+                  </p>
+                </div>
+                <a
+                  href={siteConfig.phone.href}
+                  className={buttonVariants({ size: "lg", className: "w-full shrink-0 bg-white text-brand-700 hover:bg-brand-50 sm:w-auto" })}
+                  data-analytics="homepage-post-gallery-cta"
+                >
+                  <Phone className="h-4.5 w-4.5" aria-hidden />
+                  {siteConfig.phone.display}
+                </a>
+              </div>
+            </div>
+          </MotionReveal>
         </Container>
       </Section>
 
       {/* ---------------- PROCESS ---------------- */}
       <Section topBorder>
         <Container>
-          <Reveal>
+          <MotionReveal>
             <SectionHeading
               eyebrow="How it works"
               title="Straightforward, from call to fixed"
               intro="No guesswork and no surprise pricing — you know what's wrong and what it costs before we start."
             />
-          </Reveal>
-          <Stagger className="mt-10 grid gap-6 md:grid-cols-4">
+          </MotionReveal>
+          <MotionStagger className="mt-10 grid gap-6 md:grid-cols-4">
             {[
               { icon: Phone, title: "Call or request a quote", desc: "Tell us what's going on. We'll advise and schedule promptly." },
               { icon: Search, title: "On-site diagnosis", desc: "We find the real cause — often the frame or hardware, not the door." },
               { icon: ClipboardCheck, title: "Clear scope & price", desc: "Plain-language options and pricing before any work begins." },
               { icon: Wrench, title: "Repaired & verified", desc: "We fix it, test that it locks and seals, and clean up." },
             ].map((step, i) => (
-              <StaggerItem key={step.title}>
-                <div className="relative h-full rounded-2xl border border-line bg-white p-6 ring-soft transition-transform hover:-translate-y-1">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-50 text-brand-600">
+              <MotionStaggerItem key={step.title}>
+                <div className="relative h-full rounded-2xl border border-line bg-surface p-6 transition-transform hover:-translate-y-1 hover:border-brand-700">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-950/60 text-brand-300">
                     <step.icon className="h-5.5 w-5.5" aria-hidden />
                   </span>
                   <span className="absolute right-5 top-5 font-display text-2xl font-bold text-brand-100">
@@ -132,11 +195,17 @@ export default function HomePage() {
                   <h3 className="mt-4 text-base font-bold text-ink">{step.title}</h3>
                   <p className="mt-1.5 text-sm text-body">{step.desc}</p>
                 </div>
-              </StaggerItem>
+              </MotionStaggerItem>
             ))}
-          </Stagger>
+          </MotionStagger>
         </Container>
       </Section>
+
+      <CtaBand
+        title="See real jobs, then call us for yours."
+        subtitle="Same crew, same quality — from a sticking door to a full building security upgrade."
+        eyebrow="Real crew, real photos"
+      />
 
       {/* ---------------- SERVICE AREAS ---------------- */}
       <Section topBorder className="bg-surface">
@@ -151,7 +220,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {publishedHubs.map((hub, i) => (
               <Reveal key={hub.slug} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-line bg-white p-7 ring-soft">
+                <div className="h-full rounded-2xl border border-line bg-surface p-7">
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-bold text-ink">{hub.name}</h3>
                     <Link href={`/service-areas/${hub.slug}`} className="text-sm font-semibold text-brand-700 hover:text-brand-800">
@@ -180,12 +249,12 @@ export default function HomePage() {
       {/* ---------------- GOVERNMENT (Path B) ---------------- */}
       <Section topBorder>
         <Container>
-          <Reveal>
+          <MotionReveal>
             <div className="relative overflow-hidden rounded-3xl border border-brand-800 bg-brand-950 text-white ring-soft">
               <div className="absolute inset-y-0 right-0 hidden w-1/2 md:block">
                 <Image
-                  src="/images/intercom.png"
-                  alt="Building intercom and access-control panel"
+                  src="/images/real/real-storefront-door.jpg"
+                  alt="Commercial glass storefront door with door closer, installed by Downtown Doors & Security in NYC"
                   fill
                   sizes="50vw"
                   className="object-cover opacity-40"
@@ -219,7 +288,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </Reveal>
+          </MotionReveal>
         </Container>
       </Section>
 
@@ -232,7 +301,7 @@ export default function HomePage() {
                 <SectionHeading eyebrow="FAQ" title="Common questions" />
                 <div className="mt-8 space-y-4">
                   {homeFaqs.map((f) => (
-                    <div key={f.q} className="rounded-xl border border-line bg-white p-5 ring-soft">
+                    <div key={f.q} className="rounded-xl border border-line bg-surface p-5">
                       <h3 className="text-base font-bold text-ink">{f.q}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-body">{f.a}</p>
                     </div>
@@ -240,15 +309,25 @@ export default function HomePage() {
                 </div>
               </div>
             </Reveal>
-            <Reveal delay={0.1}>
-              <div className="flex h-full flex-col justify-center rounded-3xl border border-line bg-brand-600 p-8 text-white ring-soft">
-                <h2 className="text-3xl text-white">Ready when you are.</h2>
+            <MotionReveal delay={0.1}>
+              <div
+                className="relative flex h-full flex-col justify-center overflow-hidden rounded-3xl border border-brand-400/30 p-8 text-white shadow-[0_30px_90px_-30px_var(--color-brand-600)] ring-soft"
+                style={{
+                  background:
+                    "radial-gradient(120% 160% at 100% 0%, color-mix(in oklab, var(--color-accent) 30%, transparent), transparent 55%), linear-gradient(120deg, var(--color-brand-600), var(--color-brand-700) 70%)",
+                }}
+              >
+                <BadgeCheck className="h-8 w-8 text-brand-200" aria-hidden />
+                <h2 className="mt-4 text-3xl text-white">Ready when you are.</h2>
                 <p className="mt-3 text-brand-50">
                   Call for same-day help, or send a few details and we'll get right back to
                   you with next steps and pricing.
                 </p>
                 <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
-                  <a href={siteConfig.phone.href} className={buttonVariants({ size: "lg", className: "bg-white text-brand-700 hover:bg-brand-50" })}>
+                  <a
+                    href={siteConfig.phone.href}
+                    className={buttonVariants({ size: "lg", className: "bg-white text-brand-700 shadow-lg shadow-black/30 hover:bg-brand-50" })}
+                  >
                     <Phone className="h-4.5 w-4.5" aria-hidden />
                     {siteConfig.phone.display}
                   </a>
@@ -260,7 +339,7 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
-            </Reveal>
+            </MotionReveal>
           </div>
         </Container>
       </Section>
