@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1.0, changeFrequency: "weekly" },
     { path: "/services", priority: 0.9, changeFrequency: "monthly" },
     { path: "/brands", priority: 0.6, changeFrequency: "monthly" },
+    { path: "/gallery", priority: 0.6, changeFrequency: "monthly" },
     { path: "/service-areas", priority: 0.8, changeFrequency: "monthly" },
     { path: "/government-contracting", priority: 0.9, changeFrequency: "monthly" },
     { path: "/government-contracting/capability-statement", priority: 0.7, changeFrequency: "monthly" },

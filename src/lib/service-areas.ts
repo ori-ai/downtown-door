@@ -515,12 +515,14 @@ const statenIsland: AreaHub = {
   ],
 };
 
-// --- PHASE 2 (RESERVED — not yet published) ----------------------------------
-// Route + hub shells exist so Phase 2 launches without a rebuild. No neighborhood
-// pages are built yet; hubs render "coming soon" and are noindex + sitemap-excluded.
-// Nassau, Westchester, and Bergen (NJ) are outside NYC proper and stay reserved.
+// --- COUNTIES (outside NYC proper) -------------------------------------------
+// Hub-level pages, live -- matches the real service area on the GBP listing
+// and site-wide schema. No per-neighborhood breakdown yet (that's a real,
+// separate content build, tracked as future work); the hub page itself is
+// honest as-is: general "we serve X county" copy, no specific town claims
+// we haven't done work to back up.
 
-function reserved(
+function countyHub(
   slug: string,
   name: string,
   state: "NY" | "NJ",
@@ -530,16 +532,17 @@ function reserved(
     name,
     kind: "county",
     state,
-    published: false,
-    intro: `Service to ${name} is planned as part of our Phase 2 expansion. We currently serve Brooklyn, Manhattan, Queens, the Bronx, and Staten Island — check back soon or contact us about ${name}.`,
+    published: true,
+    intro: `Downtown Doors & Security Systems NYC serves ${name} for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage. Call to confirm scheduling for your address.`,
     neighborhoods: [],
   };
 }
 
-const phase2: AreaHub[] = [
-  reserved("nassau-county", "Nassau County", "NY"),
-  reserved("westchester-county", "Westchester County", "NY"),
-  reserved("bergen-county", "Bergen County (NJ)", "NJ"),
+const counties: AreaHub[] = [
+  countyHub("nassau-county", "Nassau County", "NY"),
+  countyHub("westchester-county", "Westchester County", "NY"),
+  countyHub("rockland-county", "Rockland County", "NY"),
+  countyHub("bergen-county", "Bergen County", "NJ"),
 ];
 
 // --- Exports -----------------------------------------------------------------
@@ -550,7 +553,7 @@ export const areaHubs: AreaHub[] = [
   queens,
   theBronx,
   statenIsland,
-  ...phase2,
+  ...counties,
 ];
 
 export const publishedHubs = areaHubs.filter((h) => h.published);

@@ -13,6 +13,7 @@ import {
 
 import { siteConfig } from "@/lib/site";
 import { services } from "@/lib/services";
+import { galleryItems } from "@/lib/gallery";
 import { publishedHubs } from "@/lib/service-areas";
 import { faqSchema } from "@/lib/schema";
 import { buttonVariants } from "@/components/ui/button";
@@ -53,28 +54,13 @@ const homeFaqs = [
   },
 ];
 
+// Locksmith + security first, a few door shots for variety — pulled from the
+// same real-photo pool as the full /gallery page (see src/lib/gallery.ts).
 const workGallery = [
-  { src: "/images/real/real-commercial-door.jpg", label: "Commercial & storefront doors" },
-  { src: "/images/real/real-mortise-repair.jpg", label: "Door & lock repair" },
-  { src: "/images/real/real-panic-bar-exit.jpg", label: "Panic bars & exit devices" },
-  { src: "/images/real/real-cctv-camera.jpg", label: "Security cameras & CCTV" },
-  { src: "/images/real/real-intercom-button.jpg", label: "Intercom & buzzer entry" },
-  { src: "/images/real/real-access-install.jpg", label: "Access control & strikes" },
-  { src: "/images/real/real-mortise-keys.jpg", label: "Locksmith & rekeying" },
-  { src: "/images/real/real-padlocks.jpg", label: "Gates, locks & security" },
-  { src: "/images/real/real-brass-strike-install.jpg", label: "Door hardware installation" },
-  { src: "/images/real/real-key-cutting.jpg", label: "On-site key cutting" },
-  { src: "/images/real/real-padlocks-wood-gate.jpg", label: "Security gates & padlocks" },
-  { src: "/images/real/real-rooftop-door-install.jpg", label: "High-rise & commercial installs" },
-  { src: "/images/real/real-brass-deadbolt-drill.jpg", label: "Deadbolt & cylinder installs" },
-  { src: "/images/real/real-storefront-gate-install.jpg", label: "Roll gates & storefront security" },
-  { src: "/images/real/real-dome-camera-mount.jpg", label: "Dome cameras & CCTV mounting" },
-  { src: "/images/real/real-reader-install-green.jpg", label: "Card readers & access control" },
-  { src: "/images/real/real-fence-hinge-install.jpg", label: "Gate hardware & hinges" },
-  { src: "/images/real/real-storefront-mortise-install.jpg", label: "Storefront mortise lock installs" },
-  { src: "/images/real/real-frame-repair-oscillating.jpg", label: "Door frame repair, in progress" },
-  { src: "/images/real/real-brass-knob-outdoor.jpg", label: "Brass hardware, done clean" },
-];
+  ...galleryItems.filter((g) => g.category === "locksmith").slice(0, 8),
+  ...galleryItems.filter((g) => g.category === "security").slice(0, 8),
+  ...galleryItems.filter((g) => g.category === "door").slice(0, 4),
+].map((g) => ({ src: g.src, label: g.caption }));
 
 export default function HomePage() {
   return (
@@ -116,8 +102,8 @@ export default function HomePage() {
           <MotionReveal>
             <SectionHeading
               eyebrow="The work we do"
-              title="One team for doors, hardware & security"
-              intro="Real jobs across the five boroughs — doors repaired and installed, commercial exit hardware, gates, locks, and security, done on site."
+              title="Locksmith, security & hardware — done on site"
+              intro="Real jobs across the five boroughs — lock installs, access control, intercoms, cameras, and door hardware. No stock photos."
             />
           </MotionReveal>
           <MotionStagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -141,6 +127,12 @@ export default function HomePage() {
               </MotionStaggerItem>
             ))}
           </MotionStagger>
+          <div className="mt-8 flex justify-center">
+            <Link href="/gallery" className={buttonVariants({ variant: "outline", size: "lg" })}>
+              See the full gallery
+              <ArrowRight className="h-4.5 w-4.5" aria-hidden />
+            </Link>
+          </div>
         </Container>
       </Section>
 

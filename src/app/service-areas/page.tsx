@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Clock } from "lucide-react";
-import { areaHubs, publishedHubs } from "@/lib/service-areas";
+import { MapPin } from "lucide-react";
+import { publishedHubs } from "@/lib/service-areas";
 import { absoluteUrl } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container, Section, SectionHeading } from "@/components/ui/section";
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default function ServiceAreasIndexPage() {
-  const comingSoon = areaHubs.filter((h) => !h.published);
   const publishedNames = publishedHubs.map((h) => h.name);
   const boroughList =
     publishedNames.length > 1
@@ -37,10 +36,9 @@ export default function ServiceAreasIndexPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl">Service areas</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              We currently serve {boroughList} with neighborhood-level locksmith,
-              security-system, and door repair service — plus Westchester, Rockland,
-              and Nassau counties, and Bergen County, NJ, by request. Dedicated pages
-              for those counties are coming in Phase 2.
+              We serve {boroughList} for locksmith, security-system, and door work —
+              with neighborhood-level pages for the five boroughs, and county-wide
+              service by request for Westchester, Rockland, Nassau, and Bergen County.
             </p>
           </div>
         </Container>
@@ -75,30 +73,6 @@ export default function ServiceAreasIndexPage() {
               </div>
             ))}
           </div>
-        </Container>
-      </Section>
-
-      <Section topBorder className="bg-surface">
-        <Container>
-          <SectionHeading
-            eyebrow="Phase 2"
-            title="Expanding soon"
-            intro="These areas aren't live yet — but if you have a project there, get in touch and we'll let you know our timeline."
-          />
-          <ul className="mt-8 flex flex-wrap gap-3">
-            {comingSoon.map((hub) => (
-              <li
-                key={hub.slug}
-                className="inline-flex items-center gap-2 rounded-full border border-dashed border-line bg-surface px-4 py-2 text-sm text-muted"
-              >
-                <Clock className="h-4 w-4 text-brand-400" aria-hidden />
-                {hub.name}
-                <span className="rounded-full bg-surface-2 px-2 py-0.5 text-xs font-medium text-brand-700">
-                  Coming soon
-                </span>
-              </li>
-            ))}
-          </ul>
         </Container>
       </Section>
 

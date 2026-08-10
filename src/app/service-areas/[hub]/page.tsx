@@ -38,8 +38,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: `Door Repair, Locksmith & Security in ${hub.name}`,
-    description: `Door repair, installation, locksmith, and security systems across ${hub.name}. Serving its neighborhoods with fast, reliable local service.`,
+    title: `Locksmith & Security Systems in ${hub.name} | Also Door Repair`,
+    description: `Locksmith, security systems, access control, and door repair across ${hub.name}. Fast, reliable local service.`,
     alternates: { canonical: `/service-areas/${hub.slug}` },
     openGraph: { url: absoluteUrl(`/service-areas/${hub.slug}`) },
   };
@@ -107,7 +107,7 @@ export default async function HubPage({
               {hub.name}, {hub.state}
             </span>
             <h1 className="mt-4 text-4xl md:text-5xl">
-              Door Repair & Security in {hub.name}
+              Locksmith &amp; Security in {hub.name}
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-body">{hub.intro}</p>
           </div>
@@ -128,31 +128,33 @@ export default async function HubPage({
         </Container>
       </section>
 
-      {/* Neighborhoods */}
-      <Section>
-        <Container>
-          <SectionHeading eyebrow="Neighborhoods" title={`Where we work in ${hub.name}`} />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {hub.neighborhoods.map((n) => (
-              <Link
-                key={n.slug}
-                href={`/service-areas/${hub.slug}/${n.slug}`}
-                className="group flex flex-col rounded-2xl border border-line bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
-              >
-                <div className="flex items-center gap-2 text-brand-600">
-                  <MapPin className="h-5 w-5" aria-hidden />
-                  <h3 className="text-lg font-bold text-ink">{n.name}</h3>
-                </div>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-body">{n.intro}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
-                  {n.name} services
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {/* Neighborhoods (borough hubs only — county hubs don't have a per-town breakdown yet) */}
+      {hub.neighborhoods.length ? (
+        <Section>
+          <Container>
+            <SectionHeading eyebrow="Neighborhoods" title={`Where we work in ${hub.name}`} />
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {hub.neighborhoods.map((n) => (
+                <Link
+                  key={n.slug}
+                  href={`/service-areas/${hub.slug}/${n.slug}`}
+                  className="group flex flex-col rounded-2xl border border-line bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
+                >
+                  <div className="flex items-center gap-2 text-brand-600">
+                    <MapPin className="h-5 w-5" aria-hidden />
+                    <h3 className="text-lg font-bold text-ink">{n.name}</h3>
+                  </div>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-body">{n.intro}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
+                    {n.name} services
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       {/* Services offered here */}
       <Section topBorder className="bg-surface">

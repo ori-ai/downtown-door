@@ -1,5 +1,6 @@
 import { services, serviceCategories, type ServiceCategory } from "./services";
 import { publishedHubs } from "./service-areas";
+import { brandPages } from "./brands";
 
 export interface NavLink {
   label: string;
@@ -48,6 +49,8 @@ export const mainNav: NavGroup[] = [
     href: "/service-areas",
     children: publishedHubs.map((h) => ({ label: h.name, href: `/service-areas/${h.slug}` })),
   },
+  { label: "Brands", href: "/brands", children: brandPages.map((b) => ({ label: b.name, href: `/brands/${b.page.slug}` })) },
+  { label: "Gallery", href: "/gallery" },
   { label: "Our Work", href: "/case-studies" },
   { label: "Government", href: "/government-contracting" },
   { label: "About", href: "/about" },
@@ -79,6 +82,8 @@ export const footerNav: NavGroup[] = [
     children: [
       { label: "About Us", href: "/about" },
       { label: "Our Work", href: "/case-studies" },
+      { label: "Gallery", href: "/gallery" },
+      { label: "Brands", href: "/brands" },
       { label: "Reviews", href: "/reviews" },
       { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
