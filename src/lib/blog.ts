@@ -10,14 +10,22 @@
 
 export type Audience = "consumer" | "institutional";
 
+export interface BlogSection {
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
   audience: Audience;
   excerpt: string;
   date: string; // ISO
-  /** Body as an array of paragraphs (upgrade to MDX when the blog grows). */
-  content: string[];
+  /** Hero photo shown at the top of the post and as the card thumbnail. */
+  image: string;
+  imageAlt: string;
+  /** Body broken into headed sections (upgrade to MDX when the blog grows). */
+  sections: BlogSection[];
 }
 
 export const audienceLabels: Record<Audience, string> = {

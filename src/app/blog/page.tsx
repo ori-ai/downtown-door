@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Newspaper, Home, Landmark } from "lucide-react";
 
@@ -16,15 +17,38 @@ export const metadata: Metadata = {
   openGraph: { url: absoluteUrl("/blog") },
 };
 
-function PostCard({ slug, title, excerpt }: { slug: string; title: string; excerpt: string }) {
+function PostCard({
+  slug,
+  title,
+  excerpt,
+  image,
+  imageAlt,
+}: {
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  imageAlt: string;
+}) {
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group flex flex-col rounded-2xl border border-line bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-950/5"
     >
-      <h3 className="text-lg font-bold text-ink group-hover:text-brand-700">{title}</h3>
-      <p className="mt-2 flex-1 text-sm text-body">{excerpt}</p>
-      <span className="mt-4 text-sm font-semibold text-brand-700">Read more →</span>
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="text-lg font-bold text-ink group-hover:text-brand-700">{title}</h3>
+        <p className="mt-2 flex-1 text-sm text-body">{excerpt}</p>
+        <span className="mt-4 text-sm font-semibold text-brand-700">Read more →</span>
+      </div>
     </Link>
   );
 }
@@ -94,7 +118,14 @@ export default function BlogIndexPage() {
                 <SectionHeading eyebrow="For" title={audienceLabels[audience]} />
                 <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {items.map((p) => (
-                    <PostCard key={p.slug} slug={p.slug} title={p.title} excerpt={p.excerpt} />
+                    <PostCard
+                      key={p.slug}
+                      slug={p.slug}
+                      title={p.title}
+                      excerpt={p.excerpt}
+                      image={p.image}
+                      imageAlt={p.imageAlt}
+                    />
                   ))}
                 </div>
               </Container>

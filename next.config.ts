@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "lh3.googleusercontent.com" }, // GBP photos
+      { protocol: "https", hostname: "jrsmxpbxgsboyoxffejg.supabase.co" }, // content pipeline media
     ],
   },
   // 301/308 migration redirects from the old WordPress site.
