@@ -74,7 +74,7 @@ const aboutVideos: RealVideo[] = [
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Downtown Doors, Locksmith & Security Systems NYC is a Brooklyn-based door repair, locksmith, and security company serving homes, businesses, and institutions across the five boroughs.",
+    "Downtown Door Repair & Security is a Brooklyn-based door repair, locksmith, and security company serving homes, businesses, and institutions across the five boroughs.",
   alternates: { canonical: "/about" },
   openGraph: { url: absoluteUrl("/about") },
 };
@@ -103,7 +103,7 @@ export default function AboutPage() {
               <MapPin className="h-4 w-4" aria-hidden />
               the Five Boroughs
             </span>
-            <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Doors, Locksmith &amp; Security Systems NYC</h1>
+            <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Door Repair &amp; Security</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
               We&apos;re a Brooklyn-based door, lock, and security company serving homeowners,
               businesses, and institutions across the five boroughs — from emergency
@@ -120,7 +120,7 @@ export default function AboutPage() {
               <h2 className="text-2xl">Who we are</h2>
               <div className="mt-4 space-y-4 text-lg leading-relaxed text-body">
                 <p>
-                  Downtown Doors, Locksmith &amp; Security Systems NYC handles the full range of door,
+                  Downtown Door Repair &amp; Security handles the full range of door,
                   hardware, locksmith, and security work — repair and installation,
                   emergency response, storefront and commercial doors, locks and smart
                   hardware, and access control, intercoms, and cameras.

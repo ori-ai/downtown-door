@@ -40,7 +40,7 @@ export const localServices: LocalService[] = [
     category: "door",
     parent: "door-repair",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC provides door repair in {n}, {b} — fixing sticking and sagging doors, damaged frames and jambs, worn hinges, and failing closers for homes and businesses. Most repairs are diagnosed on site and finished the same visit when parts are on hand.",
+      "Downtown Door Repair & Security provides door repair in {n}, {b} — fixing sticking and sagging doors, damaged frames and jambs, worn hinges, and failing closers for homes and businesses. Most repairs are diagnosed on site and finished the same visit when parts are on hand.",
     points: [
       "Doors that drag, stick, or won't latch without lifting or slamming",
       "Damaged or racked frames and split jambs, including after a break-in",
@@ -58,7 +58,7 @@ export const localServices: LocalService[] = [
     category: "door",
     parent: "door-installation",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC installs and replaces doors in {n}, {b} — entry and interior doors for homes, and commercial, office, and fire-rated doors for businesses. Every door is measured, fitted, and hung so it seals, swings, and locks correctly from day one.",
+      "Downtown Door Repair & Security installs and replaces doors in {n}, {b} — entry and interior doors for homes, and commercial, office, and fire-rated doors for businesses. Every door is measured, fitted, and hung so it seals, swings, and locks correctly from day one.",
     points: [
       "Entry and interior door replacement for homes and apartments",
       "Commercial, office, and fire-rated door installation for businesses",
@@ -77,7 +77,7 @@ export const localServices: LocalService[] = [
     emergency: true,
     parent: "emergency-door-repair",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC provides emergency door repair in {n}, {b} — when a door won't lock, won't close, or has been damaged in a break-in. We move fast to secure the opening first, then complete a proper repair so your {n} home or business isn't left exposed.",
+      "Downtown Door Repair & Security provides emergency door repair in {n}, {b} — when a door won't lock, won't close, or has been damaged in a break-in. We move fast to secure the opening first, then complete a proper repair so your {n} home or business isn't left exposed.",
     points: [
       "Break-in damage to the door, frame, or lock",
       "A door that won't lock or close and can't be left as-is",
@@ -95,7 +95,7 @@ export const localServices: LocalService[] = [
     category: "door",
     parent: "commercial-storefront-doors",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC repairs commercial doors in {n}, {b} — high-traffic office, retail, and building entrances, hollow-metal and aluminum doors, and the closers, pivots, and panic hardware that go with them. We keep {n} business entrances opening smoothly, closing securely, and meeting code.",
+      "Downtown Door Repair & Security repairs commercial doors in {n}, {b} — high-traffic office, retail, and building entrances, hollow-metal and aluminum doors, and the closers, pivots, and panic hardware that go with them. We keep {n} business entrances opening smoothly, closing securely, and meeting code.",
     points: [
       "High-use office, retail, and building-entrance doors",
       "Worn or leaking commercial closers and pivots",
@@ -113,7 +113,7 @@ export const localServices: LocalService[] = [
     category: "door",
     parent: "door-installation",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC installs commercial doors in {n}, {b} — office, retail, hollow-metal, and fire-rated door assemblies fitted to code, with the closers, panic hardware, and locks a business entrance needs. Doors are measured and hung so they seal and secure from day one.",
+      "Downtown Door Repair & Security installs commercial doors in {n}, {b} — office, retail, hollow-metal, and fire-rated door assemblies fitted to code, with the closers, panic hardware, and locks a business entrance needs. Doors are measured and hung so they seal and secure from day one.",
     points: [
       "Office, retail, and building-entrance door replacement",
       "Fire-rated and code-compliant door assemblies",
@@ -131,7 +131,7 @@ export const localServices: LocalService[] = [
     category: "door",
     parent: "commercial-storefront-doors",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC repairs storefront doors in {n}, {b} — aluminum storefront systems, glass entrances, pivots, closers, and thresholds for retail, restaurants, and offices. We keep your {n} storefront opening smoothly and locking securely at the end of the day.",
+      "Downtown Door Repair & Security repairs storefront doors in {n}, {b} — aluminum storefront systems, glass entrances, pivots, closers, and thresholds for retail, restaurants, and offices. We keep your {n} storefront opening smoothly and locking securely at the end of the day.",
     points: [
       "Aluminum storefront systems and glass entrances",
       "Worn pivots, closers, and sagging or dragging storefront doors",
@@ -149,7 +149,7 @@ export const localServices: LocalService[] = [
     category: "door",
     parent: "commercial-storefront-doors",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC installs storefront doors in {n}, {b} — aluminum storefront entrances, glass doors, and the closers, pivots, and panic hardware retail and restaurant entrances need. Each {n} storefront is fitted to seal, swing, and lock correctly from day one.",
+      "Downtown Door Repair & Security installs storefront doors in {n}, {b} — aluminum storefront entrances, glass doors, and the closers, pivots, and panic hardware retail and restaurant entrances need. Each {n} storefront is fitted to seal, swing, and lock correctly from day one.",
     points: [
       "New aluminum storefront systems and glass entrances",
       "Commercial closers, pivots, and panic/exit hardware",
@@ -167,7 +167,7 @@ export const localServices: LocalService[] = [
     category: "door",
     parent: "commercial-storefront-doors",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC installs and repairs door closers in {n}, {b} — surface and concealed closers for apartment, office, storefront, and fire-rated doors. We set the closing speed and latch so the door shuts fully and securely every time, and meets code where required.",
+      "Downtown Door Repair & Security installs and repairs door closers in {n}, {b} — surface and concealed closers for apartment, office, storefront, and fire-rated doors. We set the closing speed and latch so the door shuts fully and securely every time, and meets code where required.",
     points: [
       "Surface, concealed, and overhead door closers",
       "Closers that slam, leak oil, or no longer pull the door shut",
@@ -185,7 +185,7 @@ export const localServices: LocalService[] = [
     category: "security",
     parent: "security-systems-access-control",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC repairs intercom and buzzer entry systems in {n}, {b} — audio and video intercoms for apartment buildings, offices, and multi-unit properties. We get tenant entry, door-release, and buzzers working again so residents and visitors can get in.",
+      "Downtown Door Repair & Security repairs intercom and buzzer entry systems in {n}, {b} — audio and video intercoms for apartment buildings, offices, and multi-unit properties. We get tenant entry, door-release, and buzzers working again so residents and visitors can get in.",
     points: [
       "Audio and video intercoms and buzzer entry systems",
       "Broken door-release, dead handsets, or failed lobby panels",
@@ -203,7 +203,7 @@ export const localServices: LocalService[] = [
     category: "security",
     parent: "security-systems-access-control",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC installs intercom and buzzer entry systems in {n}, {b} — audio and video intercoms for apartment buildings, offices, and multi-unit properties, integrated with electric strikes or maglocks for secure tenant and visitor entry.",
+      "Downtown Door Repair & Security installs intercom and buzzer entry systems in {n}, {b} — audio and video intercoms for apartment buildings, offices, and multi-unit properties, integrated with electric strikes or maglocks for secure tenant and visitor entry.",
     points: [
       "Audio and video intercom and buzzer entry systems",
       "Apartment, office, and multi-unit tenant entry",
@@ -221,7 +221,7 @@ export const localServices: LocalService[] = [
     category: "locksmith",
     parent: "locksmith-door-hardware",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC provides locksmith service in {n}, {b} — lock repair and rekeying, deadbolt and smart-lock installation, and door hardware for homes and businesses. We make sure your {n} doors lock securely and the right people have access.",
+      "Downtown Door Repair & Security provides locksmith service in {n}, {b} — lock repair and rekeying, deadbolt and smart-lock installation, and door hardware for homes and businesses. We make sure your {n} doors lock securely and the right people have access.",
     points: [
       "Lock repair, rekeying, and replacement",
       "Deadbolt, smart-lock, and keypad-entry installation",
@@ -239,7 +239,7 @@ export const localServices: LocalService[] = [
     category: "locksmith",
     parent: "locksmith-door-hardware",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC is a commercial locksmith in {n}, {b} — master key systems, high-security and commercial-grade locks, panic hardware, and access control for offices, retail, and multi-unit buildings. We control who gets into your {n} property and keep it secure.",
+      "Downtown Door Repair & Security is a commercial locksmith in {n}, {b} — master key systems, high-security and commercial-grade locks, panic hardware, and access control for offices, retail, and multi-unit buildings. We control who gets into your {n} property and keep it secure.",
     points: [
       "Master key systems for multi-unit and commercial buildings",
       "Commercial-grade and high-security lock installation",
@@ -257,7 +257,7 @@ export const localServices: LocalService[] = [
     category: "locksmith",
     parent: "locksmith-door-hardware",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC changes and rekeys locks in {n}, {b} — after a move, a tenant change, a lost key, or a break-in. We rekey or replace your {n} locks quickly so old keys no longer work and your door is secure.",
+      "Downtown Door Repair & Security changes and rekeys locks in {n}, {b} — after a move, a tenant change, a lost key, or a break-in. We rekey or replace your {n} locks quickly so old keys no longer work and your door is secure.",
     points: [
       "Full lock changes and same-lock rekeying",
       "After a move, tenant turnover, lost key, or break-in",
@@ -275,7 +275,7 @@ export const localServices: LocalService[] = [
     category: "security",
     parent: "security-systems-access-control",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC installs access control and keyless entry systems in {n}, {b} — key fob, keypad, and cloud-based credential systems that replace physical keys with managed entry. We wire it into your {n} doors' electric strikes or maglocks so you control exactly who gets in, and when.",
+      "Downtown Door Repair & Security installs access control and keyless entry systems in {n}, {b} — key fob, keypad, and cloud-based credential systems that replace physical keys with managed entry. We wire it into your {n} doors' electric strikes or maglocks so you control exactly who gets in, and when.",
     points: [
       "Key fob, keypad, and mobile-credential entry systems",
       "Cloud-based access control managed remotely by property or business owners",
@@ -293,7 +293,7 @@ export const localServices: LocalService[] = [
     category: "security",
     parent: "cctv-camera-systems",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC installs security camera and CCTV systems in {n}, {b} — HD and IP cameras with recording and remote viewing for homes, businesses, and multi-unit buildings. We place cameras to cover entrances and blind spots around your {n} property and can tie them into your intercom or access control.",
+      "Downtown Door Repair & Security installs security camera and CCTV systems in {n}, {b} — HD and IP cameras with recording and remote viewing for homes, businesses, and multi-unit buildings. We place cameras to cover entrances and blind spots around your {n} property and can tie them into your intercom or access control.",
     points: [
       "HD and IP camera installation with NVR recording",
       "Coverage of entrances, common areas, and blind spots",
@@ -311,7 +311,7 @@ export const localServices: LocalService[] = [
     category: "security",
     parent: "security-gates",
     intro:
-      "Downtown Doors, Locksmith & Security Systems NYC repairs roll-down and security gates in {n}, {b} — rolling steel and open-grille storefront gates, scissor gates, and their motors, springs, tracks, and locks. We get a stuck or failing {n} storefront gate rolling smoothly and locking securely again.",
+      "Downtown Door Repair & Security repairs roll-down and security gates in {n}, {b} — rolling steel and open-grille storefront gates, scissor gates, and their motors, springs, tracks, and locks. We get a stuck or failing {n} storefront gate rolling smoothly and locking securely again.",
     points: [
       "Roll-down gates stuck open, stuck shut, or off their track",
       "Failed or worn gate motors, chains, and tension springs",

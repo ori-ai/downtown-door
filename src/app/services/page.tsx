@@ -31,7 +31,7 @@ export default function ServicesIndexPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl">Our services</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              Downtown Doors, Locksmith &amp; Security Systems NYC covers doors, locks, and building
+              Downtown Door Repair &amp; Security covers doors, locks, and building
               security for homes and businesses across the five boroughs — from a
               single sticking door to a full access-control system.
             </p>

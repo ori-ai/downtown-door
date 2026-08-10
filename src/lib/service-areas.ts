@@ -46,13 +46,13 @@ const brooklyn: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves all of Brooklyn — from brownstone entry doors in the Heights and Park Slope to storefront and loft doors in Williamsburg, DUMBO, and Bushwick. We handle door repair, installation, locksmith work, and security systems for homes and businesses across the borough.",
+    "Downtown Door Repair & Security serves all of Brooklyn — from brownstone entry doors in the Heights and Park Slope to storefront and loft doors in Williamsburg, DUMBO, and Bushwick. We handle door repair, installation, locksmith work, and security systems for homes and businesses across the borough.",
   neighborhoods: [
     {
       slug: "brooklyn-heights",
       name: "Brooklyn Heights",
       intro:
-        "In Brooklyn Heights, Downtown Doors, Locksmith & Security Systems NYC repairs and restores the historic entry doors, brownstone vestibules, and apartment doors the neighborhood is known for — along with locksmith and security work for its townhouses and small businesses.",
+        "In Brooklyn Heights, Downtown Door Repair & Security repairs and restores the historic entry doors, brownstone vestibules, and apartment doors the neighborhood is known for — along with locksmith and security work for its townhouses and small businesses.",
       localContext:
         "Brooklyn Heights is dense with landmarked brownstones and pre-war co-ops, so much of the work here is careful repair and hardware matching on older doors and frames rather than wholesale replacement — plus rekeying and buzzer/intercom entry for multi-unit buildings.",
     },
@@ -68,7 +68,7 @@ const brooklyn: AreaHub = {
       slug: "williamsburg",
       name: "Williamsburg",
       intro:
-        "In Williamsburg, Downtown Doors, Locksmith & Security Systems NYC handles everything from loft and converted-warehouse doors to the storefront and restaurant entrances along Bedford and Berry — repair, installation, locksmith, and commercial security systems.",
+        "In Williamsburg, Downtown Door Repair & Security handles everything from loft and converted-warehouse doors to the storefront and restaurant entrances along Bedford and Berry — repair, installation, locksmith, and commercial security systems.",
       localContext:
         "Williamsburg's converted industrial buildings and heavy commercial foot traffic drive a lot of storefront door, closer, and access-control work, alongside residential locks for its newer apartment stock.",
     },
@@ -84,7 +84,7 @@ const brooklyn: AreaHub = {
       slug: "bushwick",
       name: "Bushwick",
       intro:
-        "In Bushwick, Downtown Doors, Locksmith & Security Systems NYC serves apartment and multi-family entry doors, warehouse and studio spaces, and the neighborhood's growing storefronts — repair, installation, locksmith, and security work.",
+        "In Bushwick, Downtown Door Repair & Security serves apartment and multi-family entry doors, warehouse and studio spaces, and the neighborhood's growing storefronts — repair, installation, locksmith, and security work.",
       localContext:
         "Bushwick's mix of multi-family buildings and converted commercial spaces means frequent rekeying, buzzer/intercom entry, and security upgrades, along with repair of high-traffic entry and storefront doors.",
     },
@@ -92,7 +92,7 @@ const brooklyn: AreaHub = {
       slug: "greenpoint",
       name: "Greenpoint",
       intro:
-        "In Greenpoint, Downtown Doors, Locksmith & Security Systems NYC works on the neighborhood's rowhouse and multi-family entry doors, converted-warehouse spaces, and the storefronts along Manhattan and Franklin — door repair, installation, locksmith, and commercial security.",
+        "In Greenpoint, Downtown Door Repair & Security works on the neighborhood's rowhouse and multi-family entry doors, converted-warehouse spaces, and the storefronts along Manhattan and Franklin — door repair, installation, locksmith, and commercial security.",
       localContext:
         "Greenpoint pairs older frame and masonry rowhouses with a growing base of converted industrial buildings, so the work ranges from careful repair of aging wood doors and frames to commercial closers, intercom entry, and access control for its waterfront conversions.",
     },
@@ -108,7 +108,7 @@ const brooklyn: AreaHub = {
       slug: "carroll-gardens",
       name: "Carroll Gardens",
       intro:
-        "In Carroll Gardens, Downtown Doors, Locksmith & Security Systems NYC handles brownstone and rowhouse entry doors, garden-apartment doors, and the Smith and Court Street storefronts — repair, installation, locksmith, and commercial security.",
+        "In Carroll Gardens, Downtown Door Repair & Security handles brownstone and rowhouse entry doors, garden-apartment doors, and the Smith and Court Street storefronts — repair, installation, locksmith, and commercial security.",
       localContext:
         "Carroll Gardens' deep-set brownstones and busy restaurant corridors mean a mix of high-use residential entry doors and storefront closers, along with lock upgrades and intercom entry for its multi-family buildings.",
     },
@@ -124,7 +124,7 @@ const brooklyn: AreaHub = {
       slug: "boerum-hill",
       name: "Boerum Hill",
       intro:
-        "In Boerum Hill, Downtown Doors, Locksmith & Security Systems NYC services brownstone and rowhouse entry doors, apartment doors, and the Atlantic and Smith Street storefronts — repair, installation, locksmith, and commercial security.",
+        "In Boerum Hill, Downtown Door Repair & Security services brownstone and rowhouse entry doors, apartment doors, and the Atlantic and Smith Street storefronts — repair, installation, locksmith, and commercial security.",
       localContext:
         "Boerum Hill's mix of historic rowhouses and Atlantic Avenue retail means repair and hardware matching on older doors plus storefront closers, rekeying, and intercom entry for its small businesses and multi-unit buildings.",
     },
@@ -140,7 +140,7 @@ const brooklyn: AreaHub = {
       slug: "crown-heights",
       name: "Crown Heights",
       intro:
-        "In Crown Heights, Downtown Doors, Locksmith & Security Systems NYC serves multi-family and brownstone entry doors, apartment doors, and the Franklin and Nostrand Avenue storefronts — repair, installation, locksmith, and security work.",
+        "In Crown Heights, Downtown Door Repair & Security serves multi-family and brownstone entry doors, apartment doors, and the Franklin and Nostrand Avenue storefronts — repair, installation, locksmith, and security work.",
       localContext:
         "Crown Heights' large stock of pre-war multi-family buildings and rowhouses means frequent rekeying, buzzer and intercom entry, and lock upgrades, along with repair of high-use entry and storefront doors on its commercial avenues.",
     },
@@ -162,7 +162,7 @@ const manhattan: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves Manhattan — with a focus on Lower Manhattan and the surrounding neighborhoods. We repair and install residential and commercial doors and provide locksmith and security-system services for apartments, offices, and storefronts across the borough.",
+    "Downtown Door Repair & Security serves Manhattan — with a focus on Lower Manhattan and the surrounding neighborhoods. We repair and install residential and commercial doors and provide locksmith and security-system services for apartments, offices, and storefronts across the borough.",
   neighborhoods: [
     {
       slug: "tribeca",
@@ -176,7 +176,7 @@ const manhattan: AreaHub = {
       slug: "financial-district",
       name: "Financial District (FiDi)",
       intro:
-        "In the Financial District, Downtown Doors, Locksmith & Security Systems NYC handles office and commercial building doors, residential conversions, and street-level retail — repair, installation, locksmith, and access-control systems.",
+        "In the Financial District, Downtown Door Repair & Security handles office and commercial building doors, residential conversions, and street-level retail — repair, installation, locksmith, and access-control systems.",
       localContext:
         "FiDi's office towers and residential conversions rely heavily on commercial door hardware, panic/exit devices, and access control, alongside apartment locks and buzzer entry for its growing residential base.",
     },
@@ -192,7 +192,7 @@ const manhattan: AreaHub = {
       slug: "chelsea",
       name: "Chelsea",
       intro:
-        "In Chelsea, Downtown Doors, Locksmith & Security Systems NYC works on residential building doors, gallery and office entrances, and retail storefronts — repair, installation, locksmith, and commercial security systems.",
+        "In Chelsea, Downtown Door Repair & Security works on residential building doors, gallery and office entrances, and retail storefronts — repair, installation, locksmith, and commercial security systems.",
       localContext:
         "Chelsea's mix of galleries, offices, and residential buildings drives storefront door, closer, and access-control work, along with apartment locks and intercom entry across the neighborhood.",
     },
@@ -208,7 +208,7 @@ const manhattan: AreaHub = {
       slug: "west-village",
       name: "West Village",
       intro:
-        "In the West Village, Downtown Doors, Locksmith & Security Systems NYC handles townhouse and brownstone entry doors, apartment doors, and the neighborhood's small storefronts and restaurants — repair, installation, locksmith, and security work.",
+        "In the West Village, Downtown Door Repair & Security handles townhouse and brownstone entry doors, apartment doors, and the neighborhood's small storefronts and restaurants — repair, installation, locksmith, and security work.",
       localContext:
         "The West Village's historic townhouses and narrow retail streets call for careful repair and hardware matching on older doors, plus rekeying, storefront closers, and intercom entry for its restaurants, shops, and multi-unit buildings.",
     },
@@ -224,7 +224,7 @@ const manhattan: AreaHub = {
       slug: "east-village",
       name: "East Village",
       intro:
-        "In the East Village, Downtown Doors, Locksmith & Security Systems NYC services tenement and walk-up entry doors, apartment doors, and the neighborhood's bars, restaurants, and storefronts — repair, installation, locksmith, and security.",
+        "In the East Village, Downtown Door Repair & Security services tenement and walk-up entry doors, apartment doors, and the neighborhood's bars, restaurants, and storefronts — repair, installation, locksmith, and security.",
       localContext:
         "The East Village's older tenements and walk-ups mean frequent rekeying, buzzer and intercom entry, and repair of high-use entry doors, plus storefront closers and security for its dense strip of bars, restaurants, and shops.",
     },
@@ -240,7 +240,7 @@ const manhattan: AreaHub = {
       slug: "midtown",
       name: "Midtown",
       intro:
-        "In Midtown, Downtown Doors, Locksmith & Security Systems NYC handles commercial and office building doors, residential tower entrances, and street-level retail — door repair, installation, locksmith, and access-control systems for one of the city's busiest commercial districts.",
+        "In Midtown, Downtown Door Repair & Security handles commercial and office building doors, residential tower entrances, and street-level retail — door repair, installation, locksmith, and access-control systems for one of the city's busiest commercial districts.",
       localContext:
         "Midtown's office towers and high-traffic retail rely heavily on commercial door hardware, closers, and panic/exit devices, alongside access control, intercom entry, and cameras for its offices, lobbies, and storefronts.",
     },
@@ -254,13 +254,13 @@ const queens: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves Queens — from the pre-war apartment buildings and rowhouses of Astoria and Jackson Heights to the high-rise towers of Long Island City and the dense retail corridors of Flushing and Elmhurst. We handle door repair, installation, locksmith work, and security systems across the borough's homes, apartment buildings, and businesses.",
+    "Downtown Door Repair & Security serves Queens — from the pre-war apartment buildings and rowhouses of Astoria and Jackson Heights to the high-rise towers of Long Island City and the dense retail corridors of Flushing and Elmhurst. We handle door repair, installation, locksmith work, and security systems across the borough's homes, apartment buildings, and businesses.",
   neighborhoods: [
     {
       slug: "astoria",
       name: "Astoria",
       intro:
-        "In Astoria, Downtown Doors, Locksmith & Security Systems NYC services the neighborhood's pre-war multi-family apartment buildings, rowhouses, and the restaurant and retail strips along Broadway and 30th Avenue — door repair, installation, locksmith, and security work.",
+        "In Astoria, Downtown Door Repair & Security services the neighborhood's pre-war multi-family apartment buildings, rowhouses, and the restaurant and retail strips along Broadway and 30th Avenue — door repair, installation, locksmith, and security work.",
       localContext:
         "Astoria's mix of older walk-up apartment buildings and a busy, restaurant-heavy commercial strip means frequent buzzer and intercom repair, rekeying for turnover-heavy rentals, and storefront closer and lock work for its restaurants and shops.",
     },
@@ -276,7 +276,7 @@ const queens: AreaHub = {
       slug: "flushing",
       name: "Flushing",
       intro:
-        "In Flushing, Downtown Doors, Locksmith & Security Systems NYC handles apartment and co-op building doors, storefront entrances along Main Street and Roosevelt Avenue, and office doors — repair, installation, locksmith, and commercial security.",
+        "In Flushing, Downtown Door Repair & Security handles apartment and co-op building doors, storefront entrances along Main Street and Roosevelt Avenue, and office doors — repair, installation, locksmith, and commercial security.",
       localContext:
         "Flushing's dense mixed-use retail corridor and older apartment and co-op stock drive heavy storefront gate and door work alongside rekeying, buzzer entry, and lock upgrades for its multi-family buildings.",
     },
@@ -292,7 +292,7 @@ const queens: AreaHub = {
       slug: "forest-hills",
       name: "Forest Hills",
       intro:
-        "In Forest Hills, Downtown Doors, Locksmith & Security Systems NYC works on the Tudor-style homes of Forest Hills Gardens, large pre-war apartment buildings along Queens Boulevard, and the Austin Street storefronts — repair, installation, locksmith, and security.",
+        "In Forest Hills, Downtown Door Repair & Security works on the Tudor-style homes of Forest Hills Gardens, large pre-war apartment buildings along Queens Boulevard, and the Austin Street storefronts — repair, installation, locksmith, and security.",
       localContext:
         "Forest Hills pairs historic Tudor-style houses with big pre-war apartment buildings on Queens Boulevard, so the work ranges from careful residential door and hardware repair to rekeying and intercom entry for its large co-ops and rentals.",
     },
@@ -308,7 +308,7 @@ const queens: AreaHub = {
       slug: "elmhurst",
       name: "Elmhurst",
       intro:
-        "In Elmhurst, Downtown Doors, Locksmith & Security Systems NYC handles dense multi-family apartment buildings, the storefronts along Broadway and Grand Avenue, and neighborhood offices — door repair, installation, locksmith, and commercial security.",
+        "In Elmhurst, Downtown Door Repair & Security handles dense multi-family apartment buildings, the storefronts along Broadway and Grand Avenue, and neighborhood offices — door repair, installation, locksmith, and commercial security.",
       localContext:
         "Elmhurst's dense stock of older multi-family walk-ups and a busy commercial strip drive frequent rekeying and buzzer entry, along with storefront closer and lock work for the neighborhood's shops.",
     },
@@ -324,7 +324,7 @@ const queens: AreaHub = {
       slug: "woodside",
       name: "Woodside",
       intro:
-        "In Woodside, Downtown Doors, Locksmith & Security Systems NYC services two-family homes, multi-family walk-up buildings, and the retail strip along Roosevelt Avenue — door repair, installation, locksmith, and security work.",
+        "In Woodside, Downtown Door Repair & Security services two-family homes, multi-family walk-up buildings, and the retail strip along Roosevelt Avenue — door repair, installation, locksmith, and security work.",
       localContext:
         "Woodside's mix of two-family houses and older walk-up apartment buildings means regular door and lock repair for owner-occupied homes alongside rekeying and buzzer entry for its rental units.",
     },
@@ -346,13 +346,13 @@ const theBronx: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves the Bronx — from the co-ops and single-family homes of Riverdale and Throggs Neck to the dense apartment buildings along the Grand Concourse and the busy retail corridor of Fordham Road. We provide door repair, installation, locksmith work, and security systems for homes and businesses across the borough.",
+    "Downtown Door Repair & Security serves the Bronx — from the co-ops and single-family homes of Riverdale and Throggs Neck to the dense apartment buildings along the Grand Concourse and the busy retail corridor of Fordham Road. We provide door repair, installation, locksmith work, and security systems for homes and businesses across the borough.",
   neighborhoods: [
     {
       slug: "riverdale",
       name: "Riverdale",
       intro:
-        "In Riverdale, Downtown Doors, Locksmith & Security Systems NYC services single-family homes, co-op and condo towers, and the retail strip along Riverdale Avenue — door repair, installation, locksmith, and security work.",
+        "In Riverdale, Downtown Door Repair & Security services single-family homes, co-op and condo towers, and the retail strip along Riverdale Avenue — door repair, installation, locksmith, and security work.",
       localContext:
         "Riverdale's mix of single-family houses and larger co-op and condo buildings means both homeowner door and lock service and lobby-level access control, intercom entry, and rekeying for its apartment towers.",
     },
@@ -368,7 +368,7 @@ const theBronx: AreaHub = {
       slug: "mott-haven",
       name: "Mott Haven",
       intro:
-        "In Mott Haven, Downtown Doors, Locksmith & Security Systems NYC handles converted industrial loft buildings, rowhouses, and newer waterfront residential development — door repair, installation, locksmith, and access-control systems.",
+        "In Mott Haven, Downtown Door Repair & Security handles converted industrial loft buildings, rowhouses, and newer waterfront residential development — door repair, installation, locksmith, and access-control systems.",
       localContext:
         "Mott Haven's converted warehouse and loft buildings alongside newer residential construction call for commercial-grade hardware, access control, and intercom entry, plus door and lock service for its rowhouses.",
     },
@@ -384,7 +384,7 @@ const theBronx: AreaHub = {
       slug: "concourse",
       name: "Concourse",
       intro:
-        "In Concourse, Downtown Doors, Locksmith & Security Systems NYC works on the historic apartment buildings along the Grand Concourse and neighboring multi-family walk-ups — door repair, installation, locksmith, and security systems.",
+        "In Concourse, Downtown Door Repair & Security works on the historic apartment buildings along the Grand Concourse and neighboring multi-family walk-ups — door repair, installation, locksmith, and security systems.",
       localContext:
         "The Grand Concourse's historic apartment buildings and dense surrounding walk-ups mean a lot of lobby door and buzzer repair, rekeying after tenant turnover, and intercom entry work.",
     },
@@ -400,7 +400,7 @@ const theBronx: AreaHub = {
       slug: "kingsbridge",
       name: "Kingsbridge",
       intro:
-        "In Kingsbridge, Downtown Doors, Locksmith & Security Systems NYC services multi-family apartment buildings and the commercial strip along Kingsbridge Road and Broadway — door repair, installation, locksmith, and security.",
+        "In Kingsbridge, Downtown Door Repair & Security services multi-family apartment buildings and the commercial strip along Kingsbridge Road and Broadway — door repair, installation, locksmith, and security.",
       localContext:
         "Kingsbridge's multi-family apartment stock and busy commercial strip drive regular buzzer and intercom repair, rekeying, and storefront door and lock work for its shops.",
     },
@@ -416,7 +416,7 @@ const theBronx: AreaHub = {
       slug: "parkchester",
       name: "Parkchester",
       intro:
-        "In Parkchester, Downtown Doors, Locksmith & Security Systems NYC services the neighborhood's large cooperative apartment complex and surrounding multi-family buildings and retail — door repair, installation, locksmith, and access-control systems.",
+        "In Parkchester, Downtown Door Repair & Security services the neighborhood's large cooperative apartment complex and surrounding multi-family buildings and retail — door repair, installation, locksmith, and access-control systems.",
       localContext:
         "Parkchester's large-scale cooperative apartment development and surrounding retail mean a steady flow of unit and lobby door repair, rekeying, buzzer entry, and access-control work.",
     },
@@ -438,13 +438,13 @@ const statenIsland: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves Staten Island — from the rowhouses and multi-family buildings near St. George and Stapleton to the single-family homes that make up much of the island's South Shore, including Great Kills and Tottenville. We provide door repair, installation, locksmith work, and security systems for homes and businesses across the borough.",
+    "Downtown Door Repair & Security serves Staten Island — from the rowhouses and multi-family buildings near St. George and Stapleton to the single-family homes that make up much of the island's South Shore, including Great Kills and Tottenville. We provide door repair, installation, locksmith work, and security systems for homes and businesses across the borough.",
   neighborhoods: [
     {
       slug: "st-george",
       name: "St. George",
       intro:
-        "In St. George, Downtown Doors, Locksmith & Security Systems NYC services the neighborhood's rowhouses, multi-family buildings, and the commercial corridor near the ferry terminal — door repair, installation, locksmith, and security work.",
+        "In St. George, Downtown Door Repair & Security services the neighborhood's rowhouses, multi-family buildings, and the commercial corridor near the ferry terminal — door repair, installation, locksmith, and security work.",
       localContext:
         "St. George's mix of older rowhouses, multi-family walk-ups, and newer residential development near the ferry terminal means both careful residential door repair and buzzer/intercom and lock work for its apartment buildings.",
     },
@@ -460,7 +460,7 @@ const statenIsland: AreaHub = {
       slug: "west-brighton",
       name: "West Brighton",
       intro:
-        "In West Brighton, Downtown Doors, Locksmith & Security Systems NYC services single- and two-family homes and the local retail strip along Forest Avenue — door repair, installation, locksmith, and security work.",
+        "In West Brighton, Downtown Door Repair & Security services single- and two-family homes and the local retail strip along Forest Avenue — door repair, installation, locksmith, and security work.",
       localContext:
         "West Brighton's largely single- and two-family homes mean most of our work here is residential — entry-door repair, lock changes, and security upgrades — with storefront service along Forest Avenue.",
     },
@@ -476,7 +476,7 @@ const statenIsland: AreaHub = {
       slug: "new-dorp",
       name: "New Dorp",
       intro:
-        "In New Dorp, Downtown Doors, Locksmith & Security Systems NYC services single-family homes and the retail strip along New Dorp Lane — door repair, installation, locksmith, and security work.",
+        "In New Dorp, Downtown Door Repair & Security services single-family homes and the retail strip along New Dorp Lane — door repair, installation, locksmith, and security work.",
       localContext:
         "New Dorp's largely single-family, post-war housing stock keeps the work mostly residential entry-door repair, lock changes, and security upgrades, with storefront service along New Dorp Lane.",
     },
@@ -492,7 +492,7 @@ const statenIsland: AreaHub = {
       slug: "tottenville",
       name: "Tottenville",
       intro:
-        "In Tottenville, Downtown Doors, Locksmith & Security Systems NYC services the single-family homes of Staten Island's southernmost neighborhood and its small Main Street commercial strip — door repair, installation, locksmith, and security work.",
+        "In Tottenville, Downtown Door Repair & Security services the single-family homes of Staten Island's southernmost neighborhood and its small Main Street commercial strip — door repair, installation, locksmith, and security work.",
       localContext:
         "Tottenville's single-family housing stock and small-town commercial strip along Main Street mean the work here is mostly residential entry-door repair, lock changes, and security upgrades.",
     },
@@ -508,7 +508,7 @@ const statenIsland: AreaHub = {
       slug: "eltingville",
       name: "Eltingville",
       intro:
-        "In Eltingville, Downtown Doors, Locksmith & Security Systems NYC services single-family and townhouse developments and the retail strip near the Eltingville Transit Center — door repair, installation, locksmith, and security work.",
+        "In Eltingville, Downtown Door Repair & Security services single-family and townhouse developments and the retail strip near the Eltingville Transit Center — door repair, installation, locksmith, and security work.",
       localContext:
         "Eltingville's single-family and townhouse developments, plus the retail near the transit center, drive a mix of residential entry-door and lock work and occasional storefront service.",
     },
@@ -529,7 +529,7 @@ const nassauCounty: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves Nassau County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
+    "Downtown Door Repair & Security serves Nassau County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
     {
       slug: "hempstead",
@@ -551,7 +551,7 @@ const nassauCounty: AreaHub = {
       slug: "freeport",
       name: "Freeport",
       intro:
-        "In Freeport, Downtown Doors, Locksmith & Security Systems NYC handles locksmith, security, and door work for homes and the businesses along the Nautical Mile and Main Street.",
+        "In Freeport, Downtown Door Repair & Security handles locksmith, security, and door work for homes and the businesses along the Nautical Mile and Main Street.",
       localContext:
         "Freeport's residential neighborhoods and waterfront commercial strip both need reliable lock, access-control, and door hardware service.",
     },
@@ -589,7 +589,7 @@ const westchesterCounty: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves Westchester County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
+    "Downtown Door Repair & Security serves Westchester County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
     {
       slug: "yonkers",
@@ -611,7 +611,7 @@ const westchesterCounty: AreaHub = {
       slug: "new-rochelle",
       name: "New Rochelle",
       intro:
-        "In New Rochelle, Downtown Doors, Locksmith & Security Systems NYC handles locksmith, security, and door work for homes and the businesses downtown.",
+        "In New Rochelle, Downtown Door Repair & Security handles locksmith, security, and door work for homes and the businesses downtown.",
       localContext:
         "New Rochelle's mix of coastal homes, apartment buildings, and a growing downtown commercial district means both residential and commercial lock and security work.",
     },
@@ -649,7 +649,7 @@ const rocklandCounty: AreaHub = {
   state: "NY",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves Rockland County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
+    "Downtown Door Repair & Security serves Rockland County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
     {
       slug: "nyack",
@@ -663,7 +663,7 @@ const rocklandCounty: AreaHub = {
       slug: "spring-valley",
       name: "Spring Valley",
       intro:
-        "In Spring Valley, Downtown Doors, Locksmith & Security Systems NYC services homes, apartment buildings, and businesses -- locksmith, rekeying, and security systems.",
+        "In Spring Valley, Downtown Door Repair & Security services homes, apartment buildings, and businesses -- locksmith, rekeying, and security systems.",
       localContext:
         "Spring Valley's mix of multi-family housing and commercial strips drives frequent rekeying, lock installs, and storefront security service.",
     },
@@ -709,7 +709,7 @@ const bergenCounty: AreaHub = {
   state: "NJ",
   published: true,
   intro:
-    "Downtown Doors, Locksmith & Security Systems NYC serves Bergen County, NJ for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
+    "Downtown Door Repair & Security serves Bergen County, NJ for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
     {
       slug: "hackensack",
@@ -739,7 +739,7 @@ const bergenCounty: AreaHub = {
       slug: "englewood",
       name: "Englewood",
       intro:
-        "In Englewood, Downtown Doors, Locksmith & Security Systems NYC services homes and the businesses downtown -- locksmith work, security systems, and door repair.",
+        "In Englewood, Downtown Door Repair & Security services homes and the businesses downtown -- locksmith work, security systems, and door repair.",
       localContext:
         "Englewood's mix of larger private homes and a walkable downtown commercial district means both residential security upgrades and storefront lock service.",
     },

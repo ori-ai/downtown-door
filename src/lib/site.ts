@@ -25,12 +25,12 @@ export const SITE_URL =
 const PHONE_DIGITS = "3478518615";
 
 export const siteConfig = {
-  name: "Downtown Doors, Locksmith & Security Systems NYC",
-  shortName: "Downtown Doors",
-  legalName: "Downtown Doors, Locksmith & Security Systems NYC",
-  tagline: "Locksmith & Security Systems Experts — Also Door Repair — The Five Boroughs",
+  name: "Downtown Door Repair & Security",
+  shortName: "Downtown Door Repair",
+  legalName: "Downtown Door Repair & Security",
+  tagline: "Door Repair, Locksmith & Security Systems Experts — The Five Boroughs",
   description:
-    "Downtown Doors, Locksmith & Security Systems NYC provides locksmith services, security systems, access control, and intercom installation across the five boroughs — plus door repair, installation, and replacement — for homeowners, businesses, and institutional clients.",
+    "Downtown Door Repair & Security provides door repair, locksmith services, security systems, access control, and intercom installation for homeowners, businesses, and institutional clients across the five boroughs.",
 
   url: SITE_URL,
 

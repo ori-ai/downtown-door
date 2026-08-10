@@ -10,7 +10,7 @@ import { Container, Section, SectionHeading } from "@/components/ui/section";
 export const metadata: Metadata = {
   title: "Hardware Brands We Install",
   description:
-    "Mul-T-Lock, Schlage, ENFORCER, Rosslare, Seco-Larm, and other real hardware brands Downtown Doors, Locksmith & Security Systems NYC installs and services across the five boroughs.",
+    "Mul-T-Lock, Schlage, ENFORCER, Rosslare, Seco-Larm, and other real hardware brands Downtown Door Repair & Security installs and services across the five boroughs.",
   alternates: { canonical: "/brands" },
   openGraph: { url: absoluteUrl("/brands") },
 };

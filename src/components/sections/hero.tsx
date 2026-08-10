@@ -54,7 +54,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-6 font-display text-[1.7rem] font-bold uppercase leading-[1.15] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[2.6rem]">
-            Downtown Doors, <span className="text-brand-400">Locksmith &amp; Security Systems NYC</span>
+            Downtown Door Repair <span className="text-brand-400">&amp; Security</span>
           </h1>
 
           <p className="mt-5 font-display text-sm font-medium uppercase tracking-[0.12em] text-brand-100 md:text-base">
