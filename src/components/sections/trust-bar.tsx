@@ -17,7 +17,7 @@ export async function TrustBar() {
         ? `NYC DCA Lic. #${siteConfig.credentials.licenseNumber}`
         : "Licensed & Insured",
     },
-    { icon: MapPin, label: "Serving Brooklyn & Manhattan" },
+    { icon: MapPin, label: "Serving the Five Boroughs" },
     { icon: Building2, label: "Homes · Businesses · Institutions" },
     reviews
       ? {

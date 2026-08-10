@@ -54,7 +54,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-6 font-display text-[2rem] font-bold uppercase leading-[1.1] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[3.2rem]">
-            Doors repaired.
+            Locks changed.
             <br />
             Buildings <span className="text-brand-400">secured.</span>
           </h1>
@@ -64,9 +64,9 @@ export function Hero() {
           </p>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-body drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
-            Door repair, installation, locksmith, and commercial security across
-            Brooklyn &amp; Manhattan — for homeowners and businesses that need it fast,
-            and institutions that need a vendor they can vet.
+            Locksmith, security systems, access control, and intercom work across
+            the five boroughs — plus door repair — for homeowners and businesses
+            that need it fast, and institutions that need a vendor they can vet.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">

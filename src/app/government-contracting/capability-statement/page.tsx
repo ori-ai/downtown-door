@@ -13,7 +13,7 @@ import { BidForm } from "@/components/forms/bid-form";
 export const metadata: Metadata = {
   title: "Capability Statement",
   description:
-    "Request the Downtown Doors & Security capability statement — company overview, services, licensing, insurance, and how to engage us on institutional projects.",
+    "Request the Downtown Doors & Security Systems NYC capability statement — company overview, services, licensing, insurance, and how to engage us on institutional projects.",
   alternates: { canonical: "/government-contracting/capability-statement" },
   openGraph: { url: absoluteUrl("/government-contracting/capability-statement") },
 };

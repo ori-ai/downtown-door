@@ -174,7 +174,7 @@ export default async function NeighborhoodPage({
             className="relative h-[20rem] overflow-hidden rounded-xl border border-brand-800 bg-surface bg-cover bg-center shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)] lg:h-[26rem]"
             style={{ backgroundImage: `url('${localPhoto}')` }}
             role="img"
-            aria-label={`Door, lock, and security work by Downtown Doors & Security in ${neighborhood.name}, ${hub.name}`}
+            aria-label={`Door, lock, and security work by Downtown Doors & Security Systems NYC in ${neighborhood.name}, ${hub.name}`}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a1330] via-transparent to-transparent" />
             <div className="absolute inset-x-4 bottom-4 rounded-lg border border-brand-800 bg-[#0a1330]/80 px-4 py-2.5 text-sm font-medium text-ink backdrop-blur-sm">
@@ -203,7 +203,7 @@ export default async function NeighborhoodPage({
               <p className="mt-4 text-lg leading-relaxed text-body">
                 Whether it&apos;s a single sticking apartment door, a fire door that needs to pass
                 inspection, a storefront gate that won&apos;t roll, or a full building access-control and
-                camera system, Downtown Doors &amp; Security handles it across {neighborhood.name}{" "}
+                camera system, Downtown Doors &amp; Security Systems NYC handles it across {neighborhood.name}{" "}
                 and the rest of {hub.name} — licensed, insured, and usually the same day.
               </p>
 

@@ -7,64 +7,92 @@ type PhotoSlide = { type: "photo"; src: string; label: string; dwellMs: number }
 type VideoSlide = { type: "video"; src: string; poster: string; label: string; dwellMs: number };
 type Slide = PhotoSlide | VideoSlide;
 
-// Photo dwell — long enough to actually register before the crossfade starts
-// (owner feedback: slides were "switching out too soon" at 3200ms).
+// Photo dwell — long enough to actually register before the crossfade starts.
 const PHOTO_DWELL_MS = 4400;
 
 // Deliberate, unhurried crossfade — not an abrupt cut.
 const CROSSFADE_MS = 1500;
 
-const OPENER_PHOTO: PhotoSlide = {
+/**
+ * Hero rotation — the owner's own hand-picked set of source files
+ * (2026-08-07/08). Every video is trimmed to its single best continuous
+ * moment after a full second-by-second review of the source clip (not a
+ * blind time-range guess) — dwell equals that trimmed clip's own real
+ * duration, so it plays once, fully, then advances. One source clip
+ * (storefront framing/IMG_4178) was dropped: reviewed frame-by-frame, the
+ * whole 11s source is a static, distant, low-visibility shot — no trim of
+ * it reads well as hero content, so it's out rather than forced in.
+ */
+const ACCESS_STRIKE: PhotoSlide = {
   type: "photo",
-  src: "/images/real/real-storefront-door-repair-candid.jpg",
-  label: "Storefront door repair, on site",
+  src: "/images/real/final_access-strike-install.jpg",
+  label: "Electric strike & access wiring",
   dwellMs: PHOTO_DWELL_MS,
 };
 
-const OPENER_VIDEO: VideoSlide = {
+const GLASS_DOOR_VIDEO: VideoSlide = {
   type: "video",
   src: "/videos/final_glass-hardware-install.mp4",
   poster: "/videos/final_glass-hardware-install-poster.jpg",
   label: "Access-control hardware install",
-  dwellMs: 5000,
+  dwellMs: 3500,
 };
 
-// Owner's own photo — Mul-T-Lock branded workwear, on the job. Placed early
-// in the rotation (right after the opener) per the owner's explicit request.
-const OWNER_SHIRT_PHOTO: PhotoSlide = {
+const GLASS_HANDLE: PhotoSlide = {
   type: "photo",
-  src: "/images/real/real-ori-multilock-tee-jobsite.jpg",
-  label: "On site, Mul-T-Lock gear",
+  src: "/images/real/real-glass-handle-install-1stave.jpg",
+  label: "Glass door hardware, NYC storefront",
   dwellMs: PHOTO_DWELL_MS,
 };
 
-const REST: Slide[] = [
-  { type: "photo", src: "/images/real/final_access-strike-install.jpg", label: "Electric strike & access wiring", dwellMs: PHOTO_DWELL_MS },
-  { type: "video", src: "/videos/final_storefront-night-unlock.mp4", poster: "/videos/final_storefront-night-unlock-poster.jpg", label: "Storefront service call, NYC", dwellMs: 6000 },
-  { type: "photo", src: "/images/real/final_enforcer-exit-button.jpg", label: "Exit device & access control", dwellMs: PHOTO_DWELL_MS },
-  { type: "video", src: "/videos/real-knob-install-quick.mp4", poster: "/videos/real-knob-install-quick-poster.jpg", label: "Hardware install, tested on site", dwellMs: 4800 },
-  { type: "photo", src: "/images/real/real-key-cutting-workbench.jpg", label: "On-site key cutting", dwellMs: PHOTO_DWELL_MS },
-  { type: "photo", src: "/images/real/real-cctv-camera.jpg", label: "Security cameras & CCTV", dwellMs: PHOTO_DWELL_MS },
-];
+const TOOLS_FLATLAY: PhotoSlide = {
+  type: "photo",
+  src: "/images/real/real-tools-flatlay-prep.jpg",
+  label: "Ready for the job",
+  dwellMs: PHOTO_DWELL_MS,
+};
 
-/**
- * Hero rotation — owner-specified source files first and foremost, filled
- * out with a few already-vetted supporting shots for rhythm.
- *
- * Mobile opens on a static photo (index 0 is always cheap and instant for
- * LCP — no video ever considered for that slot on small screens, regardless
- * of connection quality). Desktop opens on the glass-door install video of
- * the owner instead, per his review notes — everything past index 0 is
- * already lazy either way, so this only changes what's *first*.
- *
- * Every video's dwell time is its OWN real duration (verified against the
- * source files via ffprobe — 5000ms / 6000ms / 4800ms are exact, not
- * estimates) — each clip plays exactly once, fully, then advances. No
- * arbitrary fixed timer, and the crossfade never cuts a clip short since it
- * only starts once dwellMs (== the clip's real length) has elapsed.
- */
-const MOBILE_SLIDES: Slide[] = [OPENER_PHOTO, OPENER_VIDEO, OWNER_SHIRT_PHOTO, ...REST];
-const DESKTOP_SLIDES: Slide[] = [OPENER_VIDEO, OWNER_SHIRT_PHOTO, OPENER_PHOTO, ...REST];
+const KEYPAD_VIDEO: VideoSlide = {
+  type: "video",
+  src: "/videos/final_access-keypad-storefront.mp4",
+  poster: "/videos/final_access-keypad-storefront-poster.jpg",
+  label: "Access control, storefront entry",
+  dwellMs: 2503,
+};
+
+const GATE_WIRING: PhotoSlide = {
+  type: "photo",
+  src: "/images/real/real-gate-operator-wiring.jpg",
+  label: "Gate operator wiring",
+  dwellMs: PHOTO_DWELL_MS,
+};
+
+const WAREHOUSE: PhotoSlide = {
+  type: "photo",
+  src: "/images/real/real-access-control-warehouse.jpg",
+  label: "Stocked and ready — real hardware",
+  dwellMs: PHOTO_DWELL_MS,
+};
+
+const KEYS_HANDFUL: PhotoSlide = {
+  type: "photo",
+  src: "/images/real/real-schlage-keys-handful.jpg",
+  label: "Locksmith work, done right",
+  dwellMs: PHOTO_DWELL_MS,
+};
+
+// Mobile opens on a static photo (index 0 is always cheap and instant for
+// LCP — no video ever considered for that slot on small screens). Desktop
+// opens on the glass-door install video instead, per the owner's review —
+// everything past index 0 is already lazy either way.
+const MOBILE_SLIDES: Slide[] = [
+  ACCESS_STRIKE, GLASS_DOOR_VIDEO, GLASS_HANDLE,
+  TOOLS_FLATLAY, KEYPAD_VIDEO, GATE_WIRING, WAREHOUSE, KEYS_HANDFUL,
+];
+const DESKTOP_SLIDES: Slide[] = [
+  GLASS_DOOR_VIDEO, ACCESS_STRIKE, GLASS_HANDLE,
+  TOOLS_FLATLAY, KEYPAD_VIDEO, GATE_WIRING, WAREHOUSE, KEYS_HANDFUL,
+];
 
 export function HeroMedia() {
   const [index, setIndex] = React.useState(0);

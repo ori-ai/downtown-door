@@ -61,9 +61,9 @@ export async function POST(request: Request) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      company: "Downtown Doors (Commercial Bid)", source: "website",
+      company: "Downtown Doors & Security Systems NYC", source: "website-bid",
       name: data.contactName, phone: data.phone, email: data.email,
-      service: data.orgType, message: data.message,
+      service: data.orgType, message: `[Commercial Bid Inquiry] ${data.message}`,
     }),
   }).catch(() => {});
   return NextResponse.json({ ok: true, delivered: result.delivered });

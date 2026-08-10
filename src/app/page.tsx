@@ -28,12 +28,24 @@ import { CtaBand } from "@/components/sections/cta-band";
 
 const homeFaqs = [
   {
-    q: "What areas does Downtown Doors & Security serve?",
-    a: "We serve Brooklyn and Manhattan for door repair, installation, locksmith, and security-system work. Expansion to Queens, the Bronx, Staten Island, Nassau, Westchester, and Bergen County (NJ) is planned.",
+    q: "What areas does Downtown Doors & Security Systems NYC serve?",
+    a: "We serve all five NYC boroughs — Brooklyn, Manhattan, Queens, the Bronx, and Staten Island — for locksmith, security-system, and door work, plus Westchester, Rockland, and Nassau counties, and Bergen County, NJ, by request.",
+  },
+  {
+    q: "Do you offer 24/7 emergency locksmith service near me?",
+    a: "Yes. We respond around the clock across the five boroughs for lockouts, broken keys, and lock changes after a break-in — no appointment needed for an emergency call.",
+  },
+  {
+    q: "How fast can you install commercial access control in NYC?",
+    a: "Most single-door commercial access control or intercom installs are quoted and scheduled within a few days of an on-site assessment — larger multi-door or building-wide systems take longer depending on wiring and panel count.",
+  },
+  {
+    q: "How much does an intercom repair cost?",
+    a: "It depends on whether it's a wiring issue, a panel or unit failure, or a full video-intercom upgrade — we diagnose on site and give a plain-language price before any work begins.",
   },
   {
     q: "Do you offer emergency door repair?",
-    a: "Yes. We provide emergency door repair across Brooklyn and Manhattan when a door won't lock, won't close, or has been damaged in a break-in — securing the opening first, then completing a full repair.",
+    a: "Yes. We provide emergency door repair across the five boroughs when a door won't lock, won't close, or has been damaged in a break-in — securing the opening first, then completing a full repair.",
   },
   {
     q: "Do you work with government agencies, schools, and institutions?",
@@ -79,8 +91,8 @@ export default function HomePage() {
           <MotionReveal>
             <SectionHeading
               eyebrow="What we do"
-              title="Door, lock & security services"
-              intro="Residential and commercial work across Brooklyn and Manhattan — from a single sticking door to a full building access-control system."
+              title="Locksmith, security & access-control services"
+              intro="Residential and commercial work across the five boroughs — from a lockout or intercom repair to a full building access-control system. Door repair, too."
             />
           </MotionReveal>
           <MotionStagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -213,8 +225,8 @@ export default function HomePage() {
           <Reveal>
             <SectionHeading
               eyebrow="Where we work"
-              title="Serving Brooklyn & Manhattan"
-              intro="Local, neighborhood-level service. More boroughs and counties are coming in Phase 2."
+              title="Serving the five boroughs"
+              intro="Local, neighborhood-level service across Brooklyn, Manhattan, Queens, the Bronx & Staten Island — plus Westchester, Rockland, Nassau & Bergen County, NJ, by request."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -254,7 +266,7 @@ export default function HomePage() {
               <div className="absolute inset-y-0 right-0 hidden w-1/2 md:block">
                 <Image
                   src="/images/real/real-storefront-door.jpg"
-                  alt="Commercial glass storefront door with door closer, installed by Downtown Doors & Security in NYC"
+                  alt="Commercial glass storefront door with door closer, installed by Downtown Doors & Security Systems NYC in NYC"
                   fill
                   sizes="50vw"
                   className="object-cover opacity-40"

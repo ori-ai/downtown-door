@@ -32,7 +32,7 @@ const displayFont = Orbitron({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Door Repair, Locksmith & Security — Brooklyn & Manhattan`,
+    default: `${siteConfig.name} | Locksmith & Security Systems — Also Door Repair — Five Boroughs`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,

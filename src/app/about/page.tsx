@@ -74,7 +74,7 @@ const aboutVideos: RealVideo[] = [
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Downtown Doors & Security is a Brooklyn-based door repair, locksmith, and security company serving homes, businesses, and institutions across Brooklyn and Manhattan.",
+    "Downtown Doors & Security Systems NYC is a Brooklyn-based door repair, locksmith, and security company serving homes, businesses, and institutions across Brooklyn and Manhattan.",
   alternates: { canonical: "/about" },
   openGraph: { url: absoluteUrl("/about") },
 };
@@ -103,7 +103,7 @@ export default function AboutPage() {
               <MapPin className="h-4 w-4" aria-hidden />
               Brooklyn &amp; Manhattan
             </span>
-            <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Doors &amp; Security</h1>
+            <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Doors &amp; Security Systems NYC</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
               We&apos;re a Brooklyn-based door, lock, and security company serving homeowners,
               businesses, and institutions across Brooklyn and Manhattan — from emergency
@@ -120,7 +120,7 @@ export default function AboutPage() {
               <h2 className="text-2xl">Who we are</h2>
               <div className="mt-4 space-y-4 text-lg leading-relaxed text-body">
                 <p>
-                  Downtown Doors &amp; Security handles the full range of door,
+                  Downtown Doors &amp; Security Systems NYC handles the full range of door,
                   hardware, locksmith, and security work — repair and installation,
                   emergency response, storefront and commercial doors, locks and smart
                   hardware, and access control, intercoms, and cameras.
@@ -265,7 +265,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <CtaBand title="Work with us" subtitle={`Serving Brooklyn & Manhattan. Call ${siteConfig.phone.display} or request a quote.`} />
+      <CtaBand title="Work with us" subtitle={`Serving the five boroughs. Call ${siteConfig.phone.display} or request a quote.`} />
     </>
   );
 }

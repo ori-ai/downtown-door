@@ -25,12 +25,12 @@ export const SITE_URL =
 const PHONE_DIGITS = "3478518615";
 
 export const siteConfig = {
-  name: "Downtown Doors & Security",
+  name: "Downtown Doors & Security Systems NYC",
   shortName: "Downtown Doors",
-  legalName: "Downtown Doors & Security",
-  tagline: "Door Repair, Locksmith & Security Experts — Brooklyn & Manhattan",
+  legalName: "Downtown Doors & Security Systems NYC",
+  tagline: "Locksmith & Security Systems Experts — Also Door Repair — The Five Boroughs",
   description:
-    "Downtown Doors & Security provides door repair, installation, locksmith and commercial security systems across Brooklyn and Manhattan — for homeowners, businesses, and institutional clients.",
+    "Downtown Doors & Security Systems NYC provides locksmith services, security systems, access control, and intercom installation across the five boroughs — plus door repair, installation, and replacement — for homeowners, businesses, and institutional clients.",
 
   url: SITE_URL,
 
@@ -112,8 +112,22 @@ export const siteConfig = {
   // (with reviews/hours attached), matching the NAP the GBP listing carries.
   gbpMapsUri: "https://maps.google.com/maps?cid=11493909136321818550",
 
-  // --- Service area (Phase 1) ------------------------------------------------
-  serviceAreaPhase1: ["Brooklyn", "Manhattan"] as const,
+  // --- Service area ------------------------------------------------------------
+  // Matches the live Google Business Profile serviceArea exactly (hard SEO
+  // requirement — schema/GBP must agree). Brooklyn/Manhattan/Queens/the Bronx/
+  // Staten Island have dedicated neighborhood pages (src/lib/service-areas.ts);
+  // the four counties are dispatch-only for now (no dedicated pages yet).
+  serviceArea: [
+    "Brooklyn",
+    "Manhattan",
+    "Queens",
+    "The Bronx",
+    "Staten Island",
+    "Westchester County",
+    "Rockland County",
+    "Nassau County",
+    "Bergen County, NJ",
+  ] as const,
 
   // --- Social ----------------------------------------------------------------
   social: {

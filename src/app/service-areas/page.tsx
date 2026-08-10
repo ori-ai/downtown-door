@@ -8,9 +8,9 @@ import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { CtaBand } from "@/components/sections/cta-band";
 
 export const metadata: Metadata = {
-  title: "Service Areas — NYC Door Repair & Security",
+  title: "Service Areas — NYC Locksmith & Security Systems",
   description:
-    "Downtown Doors & Security serves Brooklyn, Manhattan, Queens, the Bronx, and Staten Island, with neighborhood-level door repair, locksmith, and security service.",
+    "Downtown Doors & Security Systems NYC serves all five NYC boroughs with neighborhood-level locksmith, security-system, and door repair service, plus Westchester, Rockland, and Nassau counties, and Bergen County, NJ, by request.",
   alternates: { canonical: "/service-areas" },
   openGraph: { url: absoluteUrl("/service-areas") },
 };
@@ -37,9 +37,10 @@ export default function ServiceAreasIndexPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl">Service areas</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              We currently serve {boroughList} with neighborhood-level door
-              repair, installation, locksmith, and security service. Expansion to
-              nearby counties is planned for Phase 2.
+              We currently serve {boroughList} with neighborhood-level locksmith,
+              security-system, and door repair service — plus Westchester, Rockland,
+              and Nassau counties, and Bergen County, NJ, by request. Dedicated pages
+              for those counties are coming in Phase 2.
             </p>
           </div>
         </Container>

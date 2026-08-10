@@ -11,7 +11,7 @@ import { ContactTabs } from "@/components/forms/contact-tabs";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Downtown Doors & Security in Brooklyn & Manhattan. Request a quote for residential or commercial work, or submit a bid inquiry for institutional projects.",
+    "Contact Downtown Doors & Security Systems NYC — locksmith, security systems, and door repair across the five boroughs. Request a quote for residential or commercial work, or submit a bid inquiry for institutional projects.",
   alternates: { canonical: "/contact" },
   openGraph: { url: absoluteUrl("/contact") },
 };

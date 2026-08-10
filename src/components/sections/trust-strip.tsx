@@ -12,7 +12,7 @@ const markers = [
   },
   {
     title: "Same-day emergency",
-    desc: "Door won't lock or close? We secure the opening first — same day, Brooklyn & Manhattan.",
+    desc: "Locked out or need a lock changed? Same-day service across the five boroughs.",
   },
   {
     title: "On-site diagnosis",
