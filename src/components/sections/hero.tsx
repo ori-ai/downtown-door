@@ -53,14 +53,12 @@ export function Hero() {
             NYC · Since day one
           </span>
 
-          <h1 className="mt-6 font-display text-[2rem] font-bold uppercase leading-[1.1] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[3.2rem]">
-            Locks changed.
-            <br />
-            Buildings <span className="text-brand-400">secured.</span>
+          <h1 className="mt-6 font-display text-[1.7rem] font-bold uppercase leading-[1.15] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[2.6rem]">
+            Downtown Doors, <span className="text-brand-400">Locksmith &amp; Security Systems NYC</span>
           </h1>
 
           <p className="mt-5 font-display text-sm font-medium uppercase tracking-[0.12em] text-brand-100 md:text-base">
-            Done right — the first time.
+            Locks changed. Buildings secured. Done right — the first time.
           </p>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-body drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]">

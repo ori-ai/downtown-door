@@ -45,7 +45,7 @@ const icons: Record<string, LucideIcon> = {
 export const metadata: Metadata = {
   title: "Government & Institutional Contracting",
   description:
-    "Downtown Doors & Security Systems NYC serves NYC public schools, hospitals, and municipal agencies — with the licensing, insurance, compliance, and capability institutional door and security projects require.",
+    "Downtown Doors, Locksmith & Security Systems NYC serves NYC public schools, hospitals, and municipal agencies — with the licensing, insurance, compliance, and capability institutional door and security projects require.",
   alternates: { canonical: "/government-contracting" },
   openGraph: { url: absoluteUrl("/government-contracting") },
 };
@@ -86,7 +86,7 @@ export default function GovernmentContractingPage() {
             </h1>
             {/* Answer-first (GEO/AEO) */}
             <p className="mt-5 text-lg leading-relaxed text-brand-100">
-              Downtown Doors &amp; Security Systems NYC supports facilities and procurement
+              Downtown Doors, Locksmith &amp; Security Systems NYC supports facilities and procurement
               teams at NYC public schools, hospitals, and municipal agencies — providing
               door repair, replacement, and security systems backed by the licensing,
               insurance, compliance, and references institutional buyers require.

@@ -21,7 +21,7 @@ const reviewStrip = [
 export const metadata: Metadata = {
   title: "Reviews",
   description:
-    "Read what customers say about Downtown Doors & Security Systems NYC. Reviews are pulled live from our Google Business Profile.",
+    "Read what customers say about Downtown Doors, Locksmith & Security Systems NYC. Reviews are pulled live from our Google Business Profile.",
   alternates: { canonical: "/reviews" },
   openGraph: { url: absoluteUrl("/reviews") },
 };
@@ -65,7 +65,7 @@ export default async function ReviewsPage() {
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {reviewStrip.map((src) => (
               <div key={src} className="relative aspect-square overflow-hidden rounded-xl border border-line ring-soft">
-                <Image src={src} alt="Real job, Downtown Doors & Security Systems NYC" fill sizes="(max-width: 640px) 50vw, 20vw" className="object-cover" />
+                <Image src={src} alt="Real job, Downtown Doors, Locksmith & Security Systems NYC" fill sizes="(max-width: 640px) 50vw, 20vw" className="object-cover" />
               </div>
             ))}
           </div>

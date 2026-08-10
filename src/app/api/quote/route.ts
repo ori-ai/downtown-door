@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      company: "Downtown Doors & Security Systems NYC", source: "website-quote",
+      company: "Downtown Doors, Locksmith & Security Systems NYC", source: "website-quote",
       name: data.name, phone: data.phone, email: data.email,
       service: (data as { service?: string }).service, message: (data as { message?: string }).message,
     }),

@@ -12,7 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Institutional Case Studies & References",
   description:
-    "Past institutional door and security project references from Downtown Doors & Security Systems NYC, provided to procurement teams on request.",
+    "Past institutional door and security project references from Downtown Doors, Locksmith & Security Systems NYC, provided to procurement teams on request.",
   alternates: { canonical: "/government-contracting/case-studies" },
   openGraph: { url: absoluteUrl("/government-contracting/case-studies") },
 };

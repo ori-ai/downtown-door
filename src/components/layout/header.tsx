@@ -22,7 +22,7 @@ function Wordmark() {
           Downtown Doors
         </span>
         <span className="text-[0.7rem] font-medium uppercase tracking-[0.16em] text-muted">
-          &amp; Security Systems NYC
+          Locksmith &amp; Security Systems NYC
         </span>
       </span>
     </Link>
