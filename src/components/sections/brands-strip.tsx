@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { supplierBrands } from "@/lib/brands";
 import { Container } from "@/components/ui/section";
 import { cn } from "@/lib/utils";
@@ -7,6 +8,8 @@ import { cn } from "@/lib/utils";
  * confirmed visible in our own jobsite and workshop photos (see
  * `src/lib/brands.ts` for the evidence trail). Never a competing
  * locksmith/security SERVICE business — those are excluded by design.
+ * Brands with a landing page (src/app/brands/[slug]) link there; the rest
+ * (tool brands like DeWalt/Milwaukee) render as plain text.
  */
 export function BrandsStrip({ className }: { className?: string }) {
   return (
@@ -21,7 +24,13 @@ export function BrandsStrip({ className }: { className?: string }) {
               key={b.name}
               className="font-display text-sm font-bold uppercase tracking-wide text-body/80"
             >
-              {b.name}
+              {b.page ? (
+                <Link href={`/brands/${b.page.slug}`} className="hover:text-brand-700">
+                  {b.name}
+                </Link>
+              ) : (
+                b.name
+              )}
             </li>
           ))}
         </ul>

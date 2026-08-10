@@ -4,6 +4,7 @@ import { services } from "@/lib/services";
 import { publishedHubs, allPublishedNeighborhoods } from "@/lib/service-areas";
 import { localServices } from "@/lib/local-services";
 import { posts } from "@/lib/blog";
+import { brandPages } from "@/lib/brands";
 
 /**
  * Sitemap. Only PUBLISHED, indexable URLs are listed — Phase 2 (reserved)
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "/", priority: 1.0, changeFrequency: "weekly" },
     { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/brands", priority: 0.6, changeFrequency: "monthly" },
     { path: "/service-areas", priority: 0.8, changeFrequency: "monthly" },
     { path: "/government-contracting", priority: 0.9, changeFrequency: "monthly" },
     { path: "/government-contracting/capability-statement", priority: 0.7, changeFrequency: "monthly" },
@@ -37,6 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const s of services) {
     entries.push({ url: url(`/services/${s.slug}`), changeFrequency: "monthly", priority: 0.8 });
+  }
+  for (const b of brandPages) {
+    entries.push({ url: url(`/brands/${b.page.slug}`), changeFrequency: "monthly", priority: 0.6 });
   }
   for (const h of publishedHubs) {
     entries.push({ url: url(`/service-areas/${h.slug}`), changeFrequency: "monthly", priority: 0.7 });

@@ -24,6 +24,7 @@ import type {
 import { siteConfig, formattedAddress, emailAddress } from "./site";
 import { absoluteUrl } from "./utils";
 import type { Service } from "./services";
+import type { SupplierBrand, BrandPage } from "./brands";
 
 const ORG_ID = `${siteConfig.url}/#business`;
 
@@ -112,6 +113,27 @@ export function localBusinessSchema(): WithContext<HomeAndConstructionBusiness> 
   // NOTE: aggregateRating intentionally omitted — wired only from live GBP data.
 
   return schema;
+}
+
+/** Service schema for a single brand landing page (e.g. Mul-T-Lock installation). */
+export function brandSchema(brand: SupplierBrand & { page: BrandPage }): WithContext<ServiceSchema> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${brand.name} Installation & Service`,
+    description: brand.page.metaDescription,
+    serviceType: `${brand.name} installation and repair`,
+    brand: { "@type": "Brand", name: brand.name },
+    provider: {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": ORG_ID,
+      name: siteConfig.name,
+      telephone: `+1${siteConfig.phone.digits}`,
+      address: postalAddress(),
+    },
+    areaServed: [...siteConfig.serviceArea],
+    url: absoluteUrl(`/brands/${brand.page.slug}`),
+  };
 }
 
 /** Service schema for a single Path A service page. */

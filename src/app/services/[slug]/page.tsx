@@ -129,7 +129,7 @@ export default async function ServicePage({
             ) : (
               <span className="inline-flex items-center gap-2 rounded-full border border-brand-800 bg-brand-950/50 px-3.5 py-1.5 text-sm font-medium text-brand-300">
                 <MapPin className="h-4 w-4" aria-hidden />
-                Brooklyn &amp; Manhattan
+                Five Boroughs
               </span>
             )}
             <h1 className="mt-4 text-4xl md:text-5xl">{service.title}</h1>

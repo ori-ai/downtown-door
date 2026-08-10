@@ -13,7 +13,7 @@ import { MotionReveal } from "@/components/motion/scroll-fx";
  */
 export function CtaBand({
   title = "Need it handled today?",
-  subtitle = "Call for same-day service across Brooklyn and Manhattan, or send a few details and we'll get right back to you.",
+  subtitle = "Call for same-day service across the five boroughs, or send a few details and we'll get right back to you.",
   eyebrow = "Same-day availability",
 }: {
   title?: string;

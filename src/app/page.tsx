@@ -117,7 +117,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="The work we do"
               title="One team for doors, hardware & security"
-              intro="Real jobs across Brooklyn and Manhattan — doors repaired and installed, commercial exit hardware, gates, locks, and security, done on site."
+              intro="Real jobs across the five boroughs — doors repaired and installed, commercial exit hardware, gates, locks, and security, done on site."
             />
           </MotionReveal>
           <MotionStagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

@@ -9,7 +9,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 export const metadata: Metadata = {
   title: "Door, Locksmith & Security Services",
   description:
-    "Door repair and installation, emergency repair, commercial storefront doors, locksmith and hardware, and security & access control across Brooklyn and Manhattan.",
+    "Door repair and installation, emergency repair, commercial storefront doors, locksmith and hardware, and security & access control across the five boroughs.",
   alternates: { canonical: "/services" },
   openGraph: { url: absoluteUrl("/services") },
 };
@@ -32,7 +32,7 @@ export default function ServicesIndexPage() {
             <h1 className="text-4xl md:text-5xl">Our services</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
               Downtown Doors &amp; Security Systems NYC covers doors, locks, and building
-              security for homes and businesses across Brooklyn and Manhattan — from a
+              security for homes and businesses across the five boroughs — from a
               single sticking door to a full access-control system.
             </p>
           </div>

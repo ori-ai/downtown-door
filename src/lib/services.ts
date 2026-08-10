@@ -52,11 +52,11 @@ const allServices: Service[] = [
     shortTitle: "Door Repair",
     category: "door",
     icon: "Wrench",
-    metaTitle: "Door Repair in Brooklyn & Manhattan | Downtown Doors",
+    metaTitle: "Door Repair in Five Boroughs | Downtown Doors",
     metaDescription:
-      "Fast, reliable door repair for homes and businesses across Brooklyn and Manhattan — misaligned doors, damaged frames, failing closers, and hardware.",
+      "Fast, reliable door repair for homes and businesses across the five boroughs — misaligned doors, damaged frames, failing closers, and hardware.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC repairs residential and commercial doors across Brooklyn and Manhattan — fixing misaligned or sticking doors, damaged frames and jambs, failing hinges and closers, and worn hardware. Most repairs are diagnosed on-site and completed the same visit whenever parts are on hand.",
+      "Downtown Doors & Security Systems NYC repairs residential and commercial doors across the five boroughs — fixing misaligned or sticking doors, damaged frames and jambs, failing hinges and closers, and worn hardware. Most repairs are diagnosed on-site and completed the same visit whenever parts are on hand.",
     heroTagline: "Doors that stick, sag, or won't latch — fixed right the first time.",
     whatItIs: [
       "Door repair covers everything that keeps a door from opening, closing, sealing, or locking the way it should: sagging or dragging doors, racked frames, split jambs, loose or bent hinges, misaligned strike plates, and closers that slam or no longer pull the door shut.",
@@ -116,7 +116,7 @@ const allServices: Service[] = [
     faqs: [
       {
         q: "Can you repair my door the same day?",
-        a: "Most common door repairs across Brooklyn and Manhattan are completed on the first visit when the needed parts are on hand. For specialty hardware or custom doors we confirm parts first, then schedule promptly.",
+        a: "Most common door repairs across the five boroughs are completed on the first visit when the needed parts are on hand. For specialty hardware or custom doors we confirm parts first, then schedule promptly.",
       },
       {
         q: "Should I repair or replace my door?",
@@ -135,11 +135,11 @@ const allServices: Service[] = [
     shortTitle: "Door Installation",
     category: "door",
     icon: "DoorOpen",
-    metaTitle: "Door Installation in Brooklyn & Manhattan | Downtown Doors",
+    metaTitle: "Door Installation in Five Boroughs | Downtown Doors",
     metaDescription:
-      "Professional door installation for homes and businesses in Brooklyn and Manhattan — entry doors, interior doors, storefront and commercial doors, done to spec.",
+      "Professional door installation for homes and businesses in the five boroughs — entry doors, interior doors, storefront and commercial doors, done to spec.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC installs and replaces residential and commercial doors throughout Brooklyn and Manhattan — entry and interior doors for homes, and storefront, office, and fire-rated doors for businesses. Every install is measured, fitted, and hung so the door seals, swings, and locks correctly from day one.",
+      "Downtown Doors & Security Systems NYC installs and replaces residential and commercial doors throughout the five boroughs — entry and interior doors for homes, and storefront, office, and fire-rated doors for businesses. Every install is measured, fitted, and hung so the door seals, swings, and locks correctly from day one.",
     heroTagline: "New doors, measured and hung to fit — not forced into place.",
     whatItIs: [
       "Door installation is more than hanging a slab: it's measuring the opening, checking the frame is square and plumb, fitting the door with correct clearances, and setting the hardware so the door seals against weather and locks securely.",
@@ -202,11 +202,11 @@ const allServices: Service[] = [
     category: "door",
     emergency: true,
     icon: "AlarmClock",
-    metaTitle: "Emergency Door Repair in Brooklyn & Manhattan | 24/7 Response",
+    metaTitle: "Emergency Door Repair in Five Boroughs | 24/7 Response",
     metaDescription:
-      "Emergency door repair across Brooklyn and Manhattan — break-in damage, doors that won't lock or close, and storefront security restored fast.",
+      "Emergency door repair across the five boroughs — break-in damage, doors that won't lock or close, and storefront security restored fast.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC provides emergency door repair across Brooklyn and Manhattan when a door won't lock, won't close, or has been damaged in a break-in. We respond quickly to secure the opening first, then complete a proper repair — so your home or business isn't left exposed.",
+      "Downtown Doors & Security Systems NYC provides emergency door repair across the five boroughs when a door won't lock, won't close, or has been damaged in a break-in. We respond quickly to secure the opening first, then complete a proper repair — so your home or business isn't left exposed.",
     heroTagline: "Door won't lock or close? We secure it fast.",
     whatItIs: [
       "Emergency door repair is about getting a compromised door secure again quickly — after a break-in, an accident, vandalism, or a failure that leaves a door stuck open or unable to lock.",
@@ -270,11 +270,11 @@ const allServices: Service[] = [
     category: "door",
     icon: "Store",
     metaTitle:
-      "Commercial & Storefront Door Repair in Brooklyn & Manhattan | Downtown Doors",
+      "Commercial & Storefront Door Repair in Five Boroughs | Downtown Doors",
     metaDescription:
-      "Storefront and commercial door repair and installation across Brooklyn and Manhattan — aluminum storefronts, glass doors, closers, panic bars, and pivots.",
+      "Storefront and commercial door repair and installation across the five boroughs — aluminum storefronts, glass doors, closers, panic bars, and pivots.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC repairs and installs commercial and storefront doors throughout Brooklyn and Manhattan — aluminum storefront systems, glass entrances, high-traffic office doors, closers, pivots, and panic hardware. We keep business entrances opening smoothly, closing securely, and meeting code.",
+      "Downtown Doors & Security Systems NYC repairs and installs commercial and storefront doors throughout the five boroughs — aluminum storefront systems, glass entrances, high-traffic office doors, closers, pivots, and panic hardware. We keep business entrances opening smoothly, closing securely, and meeting code.",
     heroTagline: "Keep your business entrance working — and secure.",
     whatItIs: [
       "Commercial and storefront doors take far more use than residential doors, so they wear differently — pivots, closers, and panic hardware are common failure points, and a stuck or unsecured entrance directly affects the business.",
@@ -321,7 +321,7 @@ const allServices: Service[] = [
     faqs: [
       {
         q: "Do you work on aluminum storefront doors?",
-        a: "Yes — aluminum storefront systems are one of the most common doors we service across Brooklyn and Manhattan, including closers, pivots, thresholds, and glass.",
+        a: "Yes — aluminum storefront systems are one of the most common doors we service across the five boroughs, including closers, pivots, thresholds, and glass.",
       },
       {
         q: "Can you install panic bars and exit hardware to code?",
@@ -337,11 +337,11 @@ const allServices: Service[] = [
     category: "locksmith",
     icon: "KeyRound",
     metaTitle:
-      "Locksmith & Door Hardware in Brooklyn & Manhattan | Downtown Doors",
+      "Locksmith & Door Hardware in Five Boroughs | Downtown Doors",
     metaDescription:
-      "Locksmith and door hardware services across Brooklyn and Manhattan — lock repair and rekeying, deadbolts, smart locks, master key systems, closers, and hinges.",
+      "Locksmith and door hardware services across the five boroughs — lock repair and rekeying, deadbolts, smart locks, master key systems, closers, and hinges.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC handles locksmith and door hardware work across Brooklyn and Manhattan — lock repair and rekeying, deadbolt and smart-lock installation, master key systems, and hardware like closers, hinges, and panic bars. We make sure your doors lock securely and the right people have access.",
+      "Downtown Doors & Security Systems NYC handles locksmith and door hardware work across the five boroughs — lock repair and rekeying, deadbolt and smart-lock installation, master key systems, and hardware like closers, hinges, and panic bars. We make sure your doors lock securely and the right people have access.",
     heroTagline: "Locks, keys, and hardware — installed and working securely.",
     whatItIs: [
       "This covers the lock and hardware side of a door: repairing or rekeying locks, installing deadbolts and smart locks, setting up master key systems for buildings, and replacing the closers, hinges, panic bars, and strikes that let a door function and lock properly.",
@@ -403,11 +403,11 @@ const allServices: Service[] = [
     category: "security",
     icon: "ShieldCheck",
     metaTitle:
-      "Security Systems & Access Control in Brooklyn & Manhattan | Downtown Doors",
+      "Security Systems & Access Control in Five Boroughs | Downtown Doors",
     metaDescription:
-      "Access control, intercoms, and camera systems for businesses and buildings across Brooklyn and Manhattan — keyless entry, cloud access control, and CCTV.",
+      "Access control, intercoms, and camera systems for businesses and buildings across the five boroughs — keyless entry, cloud access control, and CCTV.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC designs and installs commercial security systems across Brooklyn and Manhattan — access control and keyless entry, intercom and buzzer systems, magnetic locks and electric strikes, and camera/CCTV systems. We help businesses and buildings control who gets in and keep a record of it.",
+      "Downtown Doors & Security Systems NYC designs and installs commercial security systems across the five boroughs — access control and keyless entry, intercom and buzzer systems, magnetic locks and electric strikes, and camera/CCTV systems. We help businesses and buildings control who gets in and keep a record of it.",
     heroTagline: "Control who gets in — and keep a record of it.",
     whatItIs: [
       "Security and access control is about managing entry to a building or space: who can open which doors, when, and with what credential — plus the cameras and intercoms that let you see and speak to visitors.",
@@ -477,11 +477,11 @@ const allServices: Service[] = [
     shortTitle: "Fire Doors",
     category: "door",
     icon: "Flame",
-    metaTitle: "Fire Door Repair & Inspection in Brooklyn & Manhattan | Downtown Doors",
+    metaTitle: "Fire Door Repair & Inspection in Five Boroughs | Downtown Doors",
     metaDescription:
       "Fire door repair, inspection, and code compliance for NYC buildings — self-closing hardware, gaps, labels, and latching fixed so doors pass FDNY and annual inspection.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC repairs and services fire-rated doors across Brooklyn and Manhattan so they meet code and pass inspection. We correct the common failures inspectors flag — doors that don't self-close and latch, oversized clearances, damaged or missing labels, painted-over hardware, and worn closers — on apartment, stairwell, and commercial fire doors.",
+      "Downtown Doors & Security Systems NYC repairs and services fire-rated doors across the five boroughs so they meet code and pass inspection. We correct the common failures inspectors flag — doors that don't self-close and latch, oversized clearances, damaged or missing labels, painted-over hardware, and worn closers — on apartment, stairwell, and commercial fire doors.",
     heroTagline: "Fire doors that self-close, latch, and pass inspection.",
     whatItIs: [
       "A fire-rated door only protects an exit if it fully closes and latches on its own, seals within code clearances, and keeps its rated hardware and label intact. Over time closers weaken, gaps open up, hardware gets swapped, and labels get painted over — and the door fails inspection.",
@@ -519,9 +519,9 @@ const allServices: Service[] = [
     icon: "LogOut",
     metaTitle: "Panic Bar & Exit Device Repair & Installation in NYC | Downtown Doors",
     metaDescription:
-      "Panic bar and exit-device repair and installation across Brooklyn and Manhattan — crash bars, rim and mortise exit devices, and delayed-egress hardware to code.",
+      "Panic bar and exit-device repair and installation across the five boroughs — crash bars, rim and mortise exit devices, and delayed-egress hardware to code.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC installs and repairs panic bars and exit devices across Brooklyn and Manhattan — the push-bar crash devices required on many commercial and assembly exits. We service rim, mortise, surface and concealed vertical-rod devices, and alarmed or delayed-egress exit hardware so required exits open instantly and meet code.",
+      "Downtown Doors & Security Systems NYC installs and repairs panic bars and exit devices across the five boroughs — the push-bar crash devices required on many commercial and assembly exits. We service rim, mortise, surface and concealed vertical-rod devices, and alarmed or delayed-egress exit hardware so required exits open instantly and meet code.",
     heroTagline: "Exits that open on a push — and pass code.",
     whatItIs: [
       "Panic (exit) hardware lets anyone leave through a door with a single push, no knowledge or key — required on many exits from assembly, commercial, and educational spaces. When the device sticks, dogs down, or won't latch, the exit is both a code violation and a security gap.",
@@ -556,11 +556,11 @@ const allServices: Service[] = [
     shortTitle: "Door Closers",
     category: "door",
     icon: "Wrench",
-    metaTitle: "Door Closer Repair & Installation in Brooklyn & Manhattan | Downtown Doors",
+    metaTitle: "Door Closer Repair & Installation in Five Boroughs | Downtown Doors",
     metaDescription:
       "Door closer repair and installation across NYC — surface, concealed, and overhead closers adjusted or replaced so doors close fully, latch, and meet fire code.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC repairs and installs door closers across Brooklyn and Manhattan — the surface, concealed, and overhead devices that pull a door shut. We fix closers that slam, drift, leak oil, or no longer latch, and set the closing and latching speed so apartment, office, storefront, and fire doors close fully and securely.",
+      "Downtown Doors & Security Systems NYC repairs and installs door closers across the five boroughs — the surface, concealed, and overhead devices that pull a door shut. We fix closers that slam, drift, leak oil, or no longer latch, and set the closing and latching speed so apartment, office, storefront, and fire doors close fully and securely.",
     heroTagline: "Doors that close fully — no slam, no drift.",
     whatItIs: [
       "A door closer controls how a door shuts: its speed, its final latch, and its back-check. When it fails, doors slam, drift open, don't latch, or leak hydraulic fluid — and on a fire door, a failed closer is a code violation.",
@@ -595,11 +595,11 @@ const allServices: Service[] = [
     shortTitle: "Security Gates",
     category: "security",
     icon: "Store",
-    metaTitle: "Security Gate & Roll-Down Gate Repair in Brooklyn & Manhattan | Downtown Doors",
+    metaTitle: "Security Gate & Roll-Down Gate Repair in Five Boroughs | Downtown Doors",
     metaDescription:
       "Roll-down and security gate repair and installation across NYC — rolling steel gates, scissor gates, motors, springs, locks, and open-grille storefront gates.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC repairs and installs security gates and roll-down gates across Brooklyn and Manhattan — rolling steel and open-grille storefront gates, scissor gates, their motors, springs, and locks. We keep the gate that protects your storefront rolling smoothly and locking securely.",
+      "Downtown Doors & Security Systems NYC repairs and installs security gates and roll-down gates across the five boroughs — rolling steel and open-grille storefront gates, scissor gates, their motors, springs, and locks. We keep the gate that protects your storefront rolling smoothly and locking securely.",
     heroTagline: "Roll-down gates that open smooth and lock tight.",
     whatItIs: [
       "A storefront's roll-down or scissor gate is its first line of security — and when the motor, spring, track, or lock fails, the gate jams open, jams shut, or won't secure at closing.",
@@ -636,9 +636,9 @@ const allServices: Service[] = [
     icon: "Radio",
     metaTitle: "Intercom & Buzzer System Repair & Installation in NYC | Downtown Doors",
     metaDescription:
-      "Intercom and buzzer system repair and installation across Brooklyn and Manhattan — audio and video intercoms, door-release, and smartphone entry for buildings.",
+      "Intercom and buzzer system repair and installation across the five boroughs — audio and video intercoms, door-release, and smartphone entry for buildings.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC installs and repairs intercom and buzzer entry systems across Brooklyn and Manhattan — audio and video intercoms for apartment buildings, offices, and multi-unit properties, integrated with electric strikes and maglocks so tenants and visitors can be seen, spoken to, and let in.",
+      "Downtown Doors & Security Systems NYC installs and repairs intercom and buzzer entry systems across the five boroughs — audio and video intercoms for apartment buildings, offices, and multi-unit properties, integrated with electric strikes and maglocks so tenants and visitors can be seen, spoken to, and let in.",
     heroTagline: "See, speak to, and buzz in visitors — reliably.",
     whatItIs: [
       "An intercom is how a building controls its front door: tenants answer, see or hear the visitor, and release the door. When the panel, handset, wiring, or door-release fails, tenants can't let anyone in — or the door won't secure.",
@@ -673,11 +673,11 @@ const allServices: Service[] = [
     shortTitle: "Cameras & CCTV",
     category: "security",
     icon: "Camera",
-    metaTitle: "Security Camera & CCTV Installation in Brooklyn & Manhattan | Downtown Doors",
+    metaTitle: "Security Camera & CCTV Installation in Five Boroughs | Downtown Doors",
     metaDescription:
       "Security camera and CCTV installation across NYC — HD and IP cameras, NVR recording, remote viewing, and entrance monitoring for homes, businesses, and buildings.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC installs security camera and CCTV systems across Brooklyn and Manhattan — HD and IP cameras with recording and remote viewing for homes, businesses, and multi-unit buildings. We cover entrances, common areas, and blind spots, and integrate cameras with your door and access-control system.",
+      "Downtown Doors & Security Systems NYC installs security camera and CCTV systems across the five boroughs — HD and IP cameras with recording and remote viewing for homes, businesses, and multi-unit buildings. We cover entrances, common areas, and blind spots, and integrate cameras with your door and access-control system.",
     heroTagline: "See and record every entrance — from anywhere.",
     whatItIs: [
       "A camera system lets you monitor and record who comes and goes — at the front door, in the lobby, at the loading area, and over common spaces — and review footage after an incident.",
@@ -712,11 +712,11 @@ const allServices: Service[] = [
     shortTitle: "Master Key Systems",
     category: "locksmith",
     icon: "KeyRound",
-    metaTitle: "Master Key Systems in Brooklyn & Manhattan | Downtown Doors",
+    metaTitle: "Master Key Systems in Five Boroughs | Downtown Doors",
     metaDescription:
       "Master key system design and installation across NYC — one key for management, individual keys per door, and clear access tiers for buildings and businesses.",
     answerFirst:
-      "Downtown Doors & Security Systems NYC designs and installs master key systems across Brooklyn and Manhattan — so building management or ownership carries one key that opens every door, while each tenant, office, or area keeps its own key. We set up the access hierarchy for multi-unit residential, commercial, and mixed-use buildings.",
+      "Downtown Doors & Security Systems NYC designs and installs master key systems across the five boroughs — so building management or ownership carries one key that opens every door, while each tenant, office, or area keeps its own key. We set up the access hierarchy for multi-unit residential, commercial, and mixed-use buildings.",
     heroTagline: "One key for management — the right key for everyone else.",
     whatItIs: [
       "A master key system organizes access: a master key opens many doors, sub-master keys open a floor or wing, and each door keeps its own change key. It replaces a ring of dozens of keys with a clean, controlled hierarchy.",

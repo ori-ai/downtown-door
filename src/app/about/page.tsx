@@ -74,7 +74,7 @@ const aboutVideos: RealVideo[] = [
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Downtown Doors & Security Systems NYC is a Brooklyn-based door repair, locksmith, and security company serving homes, businesses, and institutions across Brooklyn and Manhattan.",
+    "Downtown Doors & Security Systems NYC is a Brooklyn-based door repair, locksmith, and security company serving homes, businesses, and institutions across the five boroughs.",
   alternates: { canonical: "/about" },
   openGraph: { url: absoluteUrl("/about") },
 };
@@ -101,12 +101,12 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-800 bg-brand-950/50 px-3 py-1 text-sm font-medium text-brand-700">
               <MapPin className="h-4 w-4" aria-hidden />
-              Brooklyn &amp; Manhattan
+              the Five Boroughs
             </span>
             <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Doors &amp; Security Systems NYC</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
               We&apos;re a Brooklyn-based door, lock, and security company serving homeowners,
-              businesses, and institutions across Brooklyn and Manhattan — from emergency
+              businesses, and institutions across the five boroughs — from emergency
               repairs to full building security systems.
             </p>
           </div>

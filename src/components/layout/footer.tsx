@@ -38,7 +38,7 @@ export function Footer() {
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-body">
               Door repair, installation, locksmith, and commercial security systems
-              for homes, businesses, and institutions across Brooklyn and Manhattan.
+              for homes, businesses, and institutions across the five boroughs.
             </p>
 
             <address className="mt-6 space-y-2 text-sm not-italic text-body">
