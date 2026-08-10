@@ -16,6 +16,7 @@ import { ServiceCard } from "@/components/ui/service-card";
 import { FaqList } from "@/components/ui/faq";
 import { CtaBand } from "@/components/sections/cta-band";
 import { JsonLd } from "@/components/json-ld";
+import { QuoteForm } from "@/components/forms/quote-form";
 
 export function generateStaticParams() {
   return brandPages.map((b) => ({ slug: b.page.slug }));
@@ -79,9 +80,9 @@ export default async function BrandPage({
                 <Phone className="h-4.5 w-4.5" aria-hidden />
                 {siteConfig.phone.display}
               </a>
-              <Link href="/contact" className={buttonVariants({ variant: "outline", size: "lg" })}>
+              <a href="#quote-form" className={buttonVariants({ variant: "outline", size: "lg" })}>
                 Request a quote
-              </Link>
+              </a>
             </div>
           </div>
         </Container>
@@ -110,10 +111,10 @@ export default async function BrandPage({
                     plain language, and give you clear pricing before any work begins.
                   </p>
                   <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                    <Link href="/contact" className={buttonVariants({ size: "lg" })}>
+                    <a href="#quote-form" className={buttonVariants({ size: "lg" })}>
                       Request your on-site quote
                       <ArrowRight className="h-4.5 w-4.5" aria-hidden />
-                    </Link>
+                    </a>
                     <a
                       href={siteConfig.phone.href}
                       className={buttonVariants({ variant: "outline", size: "lg", className: "border-brand-700 bg-brand-950/40 text-ink hover:bg-brand-900/50" })}
@@ -122,6 +123,17 @@ export default async function BrandPage({
                       {siteConfig.phone.display}
                     </a>
                   </div>
+                </div>
+              </div>
+
+              {/* Inline quote form — converts right here, no navigating away */}
+              <div id="quote-form" className="mt-10 scroll-mt-24 rounded-2xl border border-line bg-surface p-6 sm:p-8">
+                <h2 className="text-2xl">Request your on-site quote</h2>
+                <p className="mt-2 text-sm text-body">
+                  Tell us what&apos;s going on — we&apos;ll get back to you with next steps and honest pricing.
+                </p>
+                <div className="mt-6">
+                  <QuoteForm />
                 </div>
               </div>
 
@@ -143,9 +155,9 @@ export default async function BrandPage({
                   <Phone className="h-4.5 w-4.5" aria-hidden />
                   {siteConfig.phone.display}
                 </a>
-                <Link href="/contact" className={buttonVariants({ variant: "outline", className: "mt-2.5 w-full" })}>
+                <a href="#quote-form" className={buttonVariants({ variant: "outline", className: "mt-2.5 w-full" })}>
                   Request a quote
-                </Link>
+                </a>
                 <div className="mt-5 flex items-center gap-2 border-t border-line pt-4 text-sm text-body">
                   <ShieldCheck className="h-4.5 w-4.5 text-brand-600" aria-hidden />
                   Licensed &amp; Insured
@@ -186,7 +198,7 @@ export default async function BrandPage({
         </Section>
       ) : null}
 
-      <CtaBand />
+      <CtaBand quoteHref="#quote-form" />
     </>
   );
 }

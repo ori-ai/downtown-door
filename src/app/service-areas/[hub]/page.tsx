@@ -12,6 +12,7 @@ import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { buttonVariants } from "@/components/ui/button";
 import { ServiceCard } from "@/components/ui/service-card";
 import { CtaBand } from "@/components/sections/cta-band";
+import { QuoteForm } from "@/components/forms/quote-form";
 
 export const dynamicParams = false;
 
@@ -172,7 +173,23 @@ export default async function HubPage({
         </Container>
       </Section>
 
-      <CtaBand title={`Door or security help in ${hub.name}?`} />
+      {/* Inline quote form — converts right here, no navigating away */}
+      <Section topBorder className="bg-surface">
+        <Container>
+          <div id="quote-form" className="mx-auto max-w-2xl scroll-mt-24 rounded-2xl border border-line bg-surface p-6 sm:p-8">
+            <SectionHeading
+              eyebrow="Get started"
+              title={`Request your on-site quote — ${hub.name}`}
+              intro="Tell us what's going on — we'll get back to you with next steps and honest pricing."
+            />
+            <div className="mt-6">
+              <QuoteForm />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <CtaBand title={`Door or security help in ${hub.name}?`} quoteHref="#quote-form" />
     </>
   );
 }

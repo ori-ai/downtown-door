@@ -22,6 +22,7 @@ import { ServiceCard } from "@/components/ui/service-card";
 import { FaqList } from "@/components/ui/faq";
 import { CtaBand } from "@/components/sections/cta-band";
 import { JsonLd } from "@/components/json-ld";
+import { QuoteForm } from "@/components/forms/quote-form";
 
 /** Category-relevant hero imagery — real, no-person job photos, one per service. */
 const serviceHeroImage: Record<string, string> = {
@@ -255,6 +256,17 @@ export default async function ServicePage({
                 </div>
               </div>
 
+              {/* Inline quote form — converts right here, no navigating away */}
+              <div id="quote-form" className="mt-10 scroll-mt-24 rounded-2xl border border-line bg-surface p-6 sm:p-8">
+                <h2 className="text-2xl">Request your on-site quote</h2>
+                <p className="mt-2 text-sm text-body">
+                  Tell us what&apos;s going on — we&apos;ll get back to you with next steps and honest pricing.
+                </p>
+                <div className="mt-6">
+                  <QuoteForm defaultService={service.title} />
+                </div>
+              </div>
+
               {/* FAQ */}
               <div className="mt-10">
                 <h2 className="text-2xl">Frequently asked</h2>
@@ -275,9 +287,9 @@ export default async function ServicePage({
                   <Phone className="h-4.5 w-4.5" aria-hidden />
                   {siteConfig.phone.display}
                 </a>
-                <Link href="/contact" className={buttonVariants({ variant: "outline", className: "mt-2.5 w-full" })}>
+                <a href="#quote-form" className={buttonVariants({ variant: "outline", className: "mt-2.5 w-full" })}>
                   Request a quote
-                </Link>
+                </a>
                 <div className="mt-5 flex items-center gap-2 border-t border-line pt-4 text-sm text-body">
                   <ShieldCheck className="h-4.5 w-4.5 text-brand-600" aria-hidden />
                   Licensed &amp; Insured
@@ -319,7 +331,7 @@ export default async function ServicePage({
         </Section>
       ) : null}
 
-      <CtaBand />
+      <CtaBand quoteHref="#quote-form" />
     </>
   );
 }

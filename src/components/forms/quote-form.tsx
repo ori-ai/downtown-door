@@ -109,7 +109,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
       </div>
       <div>
         <Label htmlFor="q-address">Address / neighborhood</Label>
-        <Input id="q-address" name="address" placeholder="Where's the job? (Brooklyn or Manhattan)" />
+        <Input id="q-address" name="address" placeholder="Where's the job? (neighborhood or town)" />
       </div>
       <div>
         <Label htmlFor="q-message" required>What do you need?</Label>

@@ -26,6 +26,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { MotionReveal, MotionStagger, MotionStaggerItem } from "@/components/motion/scroll-fx";
 import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/sections/cta-band";
+import { QuoteForm } from "@/components/forms/quote-form";
 
 const homeFaqs = [
   {
@@ -94,6 +95,7 @@ export default function HomePage() {
       <CtaBand
         title="Not sure what you need?"
         subtitle="Tell us what's going on — we'll help you figure it out, price it honestly, and get it scheduled."
+        quoteHref="#quote-form"
       />
 
       {/* ---------------- MEDIA SHOWCASE ---------------- */}
@@ -208,6 +210,7 @@ export default function HomePage() {
       <CtaBand
         title="See real jobs, then call us for yours."
         subtitle="Same crew, same quality — from a sticking door to a full building security upgrade."
+        quoteHref="#quote-form"
         eyebrow="Real crew, real photos"
       />
 
@@ -335,15 +338,31 @@ export default function HomePage() {
                     <Phone className="h-4.5 w-4.5" aria-hidden />
                     {siteConfig.phone.display}
                   </a>
-                  <Link
-                    href="/contact"
+                  <a
+                    href="#quote-form"
                     className={buttonVariants({ variant: "outline", size: "lg", className: "border-white/30 bg-transparent text-white hover:bg-white/10 hover:border-white/50" })}
                   >
                     Contact us
-                  </Link>
+                  </a>
                 </div>
               </div>
             </MotionReveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Inline quote form — converts right here, no navigating away */}
+      <Section topBorder>
+        <Container>
+          <div id="quote-form" className="mx-auto max-w-2xl scroll-mt-24 rounded-2xl border border-line bg-surface p-6 sm:p-8">
+            <SectionHeading
+              eyebrow="Get started"
+              title="Request your on-site quote"
+              intro="Tell us what's going on — we'll get back to you with next steps and honest pricing."
+            />
+            <div className="mt-6">
+              <QuoteForm />
+            </div>
           </div>
         </Container>
       </Section>

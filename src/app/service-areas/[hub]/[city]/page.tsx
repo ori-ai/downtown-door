@@ -17,6 +17,7 @@ import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { buttonVariants } from "@/components/ui/button";
 import { ServiceCard } from "@/components/ui/service-card";
 import { CtaBand } from "@/components/sections/cta-band";
+import { QuoteForm } from "@/components/forms/quote-form";
 
 export const dynamicParams = false;
 
@@ -153,14 +154,14 @@ export default async function NeighborhoodPage({
               {neighborhood.name}, {hub.name}
             </span>
             <h1 className="mt-4 font-display text-3xl font-bold uppercase leading-[1.12] tracking-[0.005em] text-ink md:text-5xl">
-              Door &amp; Security in {neighborhood.name}
+              Locksmith &amp; Security in {neighborhood.name}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-body">{neighborhood.intro}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className={buttonVariants({ size: "lg" })}>
+              <a href="#quote-form" className={buttonVariants({ size: "lg" })}>
                 Request your on-site quote
                 <ArrowRight className="h-4.5 w-4.5" aria-hidden />
-              </Link>
+              </a>
               <a
                 href={siteConfig.phone.href}
                 className={buttonVariants({ variant: "outline", size: "lg", className: "border-brand-700 bg-brand-950/40 text-ink hover:bg-brand-900/50" })}
@@ -292,7 +293,23 @@ export default async function NeighborhoodPage({
         </Container>
       </Section>
 
-      <CtaBand title={`Need a door or lock handled in ${neighborhood.name}?`} />
+      {/* Inline quote form — converts right here, no navigating away */}
+      <Section topBorder className="bg-surface">
+        <Container>
+          <div id="quote-form" className="mx-auto max-w-2xl scroll-mt-24 rounded-2xl border border-line bg-surface p-6 sm:p-8">
+            <SectionHeading
+              eyebrow="Get started"
+              title={`Request your on-site quote — ${neighborhood.name}`}
+              intro="Tell us what's going on — we'll get back to you with next steps and honest pricing."
+            />
+            <div className="mt-6">
+              <QuoteForm />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <CtaBand title={`Need a door or lock handled in ${neighborhood.name}?`} quoteHref="#quote-form" />
     </>
   );
 }

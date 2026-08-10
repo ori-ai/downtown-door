@@ -15,10 +15,13 @@ export function CtaBand({
   title = "Need it handled today?",
   subtitle = "Call for same-day service across the five boroughs, or send a few details and we'll get right back to you.",
   eyebrow = "Same-day availability",
+  quoteHref = "/contact",
 }: {
   title?: string;
   subtitle?: string;
   eyebrow?: string;
+  /** Where "Get a quote" points — pass "#quote-form" on pages with an inline form. */
+  quoteHref?: string;
 }) {
   return (
     <Section topBorder>
@@ -66,7 +69,7 @@ export function CtaBand({
                   {siteConfig.phone.display}
                 </a>
                 <Link
-                  href="/contact"
+                  href={quoteHref}
                   className={buttonVariants({
                     variant: "outline",
                     size: "lg",
