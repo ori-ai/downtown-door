@@ -269,7 +269,7 @@ export default async function ServicePage({
               <div className="rounded-2xl border border-line bg-surface p-6">
                 <h2 className="text-lg font-bold text-ink">Talk to us</h2>
                 <p className="mt-2 text-sm text-body">
-                  Serving Brooklyn &amp; Manhattan. Call for same-day help or request a quote.
+                  Serving the five boroughs. Call for same-day help or request a quote.
                 </p>
                 <a href={siteConfig.phone.href} className={buttonVariants({ className: "mt-4 w-full" })}>
                   <Phone className="h-4.5 w-4.5" aria-hidden />
