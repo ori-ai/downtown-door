@@ -34,8 +34,8 @@ export default function CaseStudiesPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl">Our work</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              A look at real commercial clients we&apos;ve worked with across Brooklyn and
-              Manhattan — storefront doors, security cameras, lock rekeys, gate repair, and
+              A look at real commercial clients we&apos;ve worked with across the five
+              boroughs — storefront doors, security cameras, lock rekeys, gate repair, and
               intercom systems.
             </p>
           </div>

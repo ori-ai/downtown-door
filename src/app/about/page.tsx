@@ -134,8 +134,8 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Based in Brooklyn, we handle door repair and installation, locksmith and
-                  door hardware, and commercial security and access control across Brooklyn
-                  and Manhattan — for homeowners, businesses, and institutional clients alike.
+                  door hardware, and commercial security and access control across the five
+                  boroughs — for homeowners, businesses, and institutional clients alike.
                 </p>
               </div>
             </div>
