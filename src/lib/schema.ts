@@ -10,6 +10,7 @@
  */
 
 import type {
+  BlogPosting,
   BreadcrumbList,
   FAQPage,
   GeoCoordinates,
@@ -123,6 +124,67 @@ export function serviceSchema(service: Service): WithContext<ServiceSchema> {
     },
     areaServed: [...siteConfig.serviceAreaPhase1],
     url: absoluteUrl(`/services/${service.slug}`),
+  };
+}
+
+/**
+ * Service schema for a single local-service × neighborhood keyword page
+ * (/service-areas/[hub]/[city]/[service]). Distinct from serviceSchema() above
+ * (which describes the general /services/[slug] page) -- this one scopes
+ * areaServed to the specific neighborhood/city rather than the whole phase-1
+ * area, which is the more precise, correct signal for a page about doing this
+ * exact service in this exact place.
+ */
+export function localServiceAreaSchema(params: {
+  serviceName: string;
+  description: string;
+  areaName: string; // e.g. "Williamsburg, Brooklyn"
+  path: string; // e.g. "/service-areas/brooklyn/williamsburg/door-repair"
+}): WithContext<ServiceSchema> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: params.serviceName,
+    description: params.description,
+    serviceType: params.serviceName,
+    provider: {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": ORG_ID,
+      name: siteConfig.name,
+      telephone: `+1${siteConfig.phone.digits}`,
+      address: postalAddress(),
+    },
+    areaServed: { "@type": "Place", name: params.areaName },
+    url: absoluteUrl(params.path),
+  };
+}
+
+/** BlogPosting schema for a single /blog/[slug] article. */
+export function blogPostingSchema(params: {
+  title: string;
+  description: string;
+  datePublished: string; // ISO date
+  path: string; // e.g. "/blog/door-repair-nyc-guide"
+}): WithContext<BlogPosting> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: params.title,
+    description: params.description,
+    datePublished: params.datePublished,
+    dateModified: params.datePublished,
+    url: absoluteUrl(params.path),
+    mainEntityOfPage: absoluteUrl(params.path),
+    author: {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": ORG_ID,
+      name: siteConfig.name,
+    },
+    publisher: {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": ORG_ID,
+      name: siteConfig.name,
+    },
   };
 }
 

@@ -8,7 +8,7 @@ import { localServices, getLocalService } from "@/lib/local-services";
 import { getService } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
-import { faqSchema } from "@/lib/schema";
+import { faqSchema, localServiceAreaSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container, Section } from "@/components/ui/section";
@@ -70,9 +70,19 @@ export default async function LocalServicePage({
   const siblingKeywords = localServices.filter((s) => s.slug !== svc.slug).slice(0, 8);
   const nearby = r.hub.neighborhoods.filter((x) => x.slug !== neighborhood.slug);
 
+  const path = `/service-areas/${r.hub.slug}/${neighborhood.slug}/${svc.slug}`;
+
   return (
     <>
       <JsonLd data={faqSchema(faqs)} />
+      <JsonLd
+        data={localServiceAreaSchema({
+          serviceName: svc.name,
+          description: fill(svc.intro, n, b),
+          areaName: `${n}, ${b}`,
+          path,
+        })}
+      />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },

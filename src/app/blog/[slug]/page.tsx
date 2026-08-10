@@ -5,6 +5,8 @@ import { ArrowLeft } from "lucide-react";
 
 import { posts, getPost, audienceLabels } from "@/lib/blog";
 import { absoluteUrl } from "@/lib/utils";
+import { blogPostingSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container, Section } from "@/components/ui/section";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -42,6 +44,14 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <JsonLd
+        data={blogPostingSchema({
+          title: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          path: `/blog/${post.slug}`,
+        })}
+      />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
