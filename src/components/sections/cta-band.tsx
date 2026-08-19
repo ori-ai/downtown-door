@@ -16,12 +16,15 @@ export function CtaBand({
   subtitle = "Call for same-day service across the five boroughs, or send a few details and we'll get right back to you.",
   eyebrow = "Same-day availability",
   quoteHref = "/contact",
+  phone = siteConfig.phone,
 }: {
   title?: string;
   subtitle?: string;
   eyebrow?: string;
   /** Where "Get a quote" points — pass "#quote-form" on pages with an inline form. */
   quoteHref?: string;
+  /** Override the CTA phone number/link — defaults to the primary site number. */
+  phone?: { display: string; href: string };
 }) {
   return (
     <Section topBorder>
@@ -58,7 +61,7 @@ export function CtaBand({
               </div>
               <div className="flex w-full flex-col gap-2.5 sm:flex-row md:w-auto">
                 <a
-                  href={siteConfig.phone.href}
+                  href={phone.href}
                   className={buttonVariants({
                     size: "lg",
                     className:
@@ -66,7 +69,7 @@ export function CtaBand({
                   })}
                 >
                   <Phone className="h-4.5 w-4.5" aria-hidden />
-                  {siteConfig.phone.display}
+                  {phone.display}
                 </a>
                 <Link
                   href={quoteHref}

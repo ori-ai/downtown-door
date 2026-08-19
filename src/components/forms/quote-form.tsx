@@ -11,7 +11,14 @@ import { Turnstile } from "@/components/forms/turnstile";
 
 type Errors = Partial<Record<string, string>>;
 
-export function QuoteForm({ defaultService }: { defaultService?: string }) {
+export function QuoteForm({
+  defaultService,
+  phone = siteConfig.phone,
+}: {
+  defaultService?: string;
+  /** Override the "call us" phone number/link — defaults to the primary site number. */
+  phone?: { display: string; href: string };
+}) {
   const [errors, setErrors] = React.useState<Errors>({});
   const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">("idle");
   const [serverError, setServerError] = React.useState<string>("");
@@ -66,8 +73,8 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
         <h3 className="mt-3 text-xl font-bold text-ink">Request received</h3>
         <p className="mt-2 text-body">
           Thanks — we&apos;ll get back to you shortly. For urgent help, call{" "}
-          <a href={siteConfig.phone.href} className="font-semibold text-brand-700">
-            {siteConfig.phone.display}
+          <a href={phone.href} className="font-semibold text-brand-700">
+            {phone.display}
           </a>
           .
         </p>
@@ -125,9 +132,9 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
         <Button type="submit" size="lg" disabled={status === "submitting"}>
           {status === "submitting" ? "Sending…" : "Request a quote"}
         </Button>
-        <a href={siteConfig.phone.href} className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700">
+        <a href={phone.href} className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700">
           <Phone className="h-4 w-4" aria-hidden />
-          or call {siteConfig.phone.display}
+          or call {phone.display}
         </a>
       </div>
     </form>

@@ -96,6 +96,7 @@ export default function HomePage() {
         title="Not sure what you need?"
         subtitle="Tell us what's going on — we'll help you figure it out, price it honestly, and get it scheduled."
         quoteHref="#quote-form"
+        phone={siteConfig.legacyContact.phone}
       />
 
       {/* ---------------- MEDIA SHOWCASE ---------------- */}
@@ -160,12 +161,12 @@ export default function HomePage() {
                   </p>
                 </div>
                 <a
-                  href={siteConfig.phone.href}
+                  href={siteConfig.legacyContact.phone.href}
                   className={buttonVariants({ size: "lg", className: "w-full shrink-0 bg-white text-brand-700 hover:bg-brand-50 sm:w-auto" })}
                   data-analytics="homepage-post-gallery-cta"
                 >
                   <Phone className="h-4.5 w-4.5" aria-hidden />
-                  {siteConfig.phone.display}
+                  {siteConfig.legacyContact.phone.display}
                 </a>
               </div>
             </div>
@@ -212,6 +213,7 @@ export default function HomePage() {
         subtitle="Same crew, same quality — from a sticking door to a full building security upgrade."
         quoteHref="#quote-form"
         eyebrow="Real crew, real photos"
+        phone={siteConfig.legacyContact.phone}
       />
 
       {/* ---------------- SERVICE AREAS ---------------- */}
@@ -332,11 +334,11 @@ export default function HomePage() {
                 </p>
                 <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
                   <a
-                    href={siteConfig.phone.href}
+                    href={siteConfig.legacyContact.phone.href}
                     className={buttonVariants({ size: "lg", className: "bg-white text-brand-700 shadow-lg shadow-black/30 hover:bg-brand-50" })}
                   >
                     <Phone className="h-4.5 w-4.5" aria-hidden />
-                    {siteConfig.phone.display}
+                    {siteConfig.legacyContact.phone.display}
                   </a>
                   <a
                     href="#quote-form"
@@ -361,7 +363,7 @@ export default function HomePage() {
               intro="Tell us what's going on — we'll get back to you with next steps and honest pricing."
             />
             <div className="mt-6">
-              <QuoteForm />
+              <QuoteForm phone={siteConfig.legacyContact.phone} />
             </div>
           </div>
         </Container>
