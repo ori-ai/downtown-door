@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, AlertTriangle } from "lucide-react";
 
-import { siteConfig, formattedAddress, emailAddress } from "@/lib/site";
+import { siteConfig, formattedLocation, emailAddress } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container, Section } from "@/components/ui/section";
@@ -92,13 +92,29 @@ export default async function ContactPage({
                       {emailAddress("general")}
                     </a>
                   </li>
-                  <li className="flex items-center gap-2.5 text-body">
-                    <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-950/60 text-brand-300">
-                      <MapPin className="h-4.5 w-4.5" aria-hidden />
-                    </span>
-                    {formattedAddress()}
-                  </li>
+                  {siteConfig.locations.map((loc) => (
+                    <li key={loc.street} className="flex items-start gap-2.5 text-body">
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-950/60 text-brand-300">
+                        <MapPin className="h-4.5 w-4.5" aria-hidden />
+                      </span>
+                      <span>
+                        <span className="block text-xs font-semibold uppercase tracking-wide text-muted">
+                          {loc.label}
+                        </span>
+                        {formattedLocation(loc)}
+                        <a href={loc.phone.href} className="block font-semibold hover:text-brand-700">
+                          {loc.phone.display}
+                        </a>
+                      </span>
+                    </li>
+                  ))}
                 </ul>
+                <p className="mt-4 border-t border-line pt-3 text-xs text-muted">
+                  Also reachable at{" "}
+                  <a href={`mailto:${siteConfig.legacyContact.email}`} className="hover:text-brand-700">
+                    {siteConfig.legacyContact.email}
+                  </a>
+                </p>
               </div>
 
               {/* Emergency line */}

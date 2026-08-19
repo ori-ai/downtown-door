@@ -50,23 +50,55 @@ export const siteConfig = {
     bids: "bids", // dedicated institutional/procurement inbox alias
   },
 
-  // --- Address (from brief — matches Google Business Profile target) ----------
+  // --- Legacy contact (still on the physical sign & business cards) ----------
+  // Both route to the current phone/email above — kept visible on the site so
+  // NAP stays consistent with existing print/signage until those are reprinted.
+  legacyContact: {
+    phone: { digits: "3475148770", display: "(347) 514-8770", href: "tel:+13475148770" },
+    email: "info@downtowndoorrepairnyc.com",
+  },
+
+  // --- Address (MAIN OFFICE — per Ori 2026-08-19; see `locations` for both) ---
   address: {
-    street: "170 Hicks St",
+    street: "232 Leonard St",
     city: "Brooklyn",
     region: "NY",
     regionName: "New York",
-    postalCode: "11201",
+    postalCode: "11211",
     country: "US",
-    neighborhood: "Brooklyn Heights",
+    neighborhood: "Williamsburg",
   },
 
-  // Approximate geo for 170 Hicks St, Brooklyn Heights. // VERIFY exact coords
-  // against the Google Business Profile pin before launch.
+  // Approximate geo for 232 Leonard St, Williamsburg. // VERIFY exact coords
+  // against the Google Business Profile pin.
   geo: {
-    lat: 40.6962,
-    lng: -73.9961,
+    lat: 40.7127,
+    lng: -73.9486,
   },
+
+  // --- Office locations (both offices, each with its own line) ----------------
+  // Rendered wherever locations are listed (footer, contact page). The first
+  // entry is the main office and doubles as `address` above — keep in sync.
+  locations: [
+    {
+      label: "Main Office",
+      street: "232 Leonard St",
+      city: "Brooklyn",
+      region: "NY",
+      postalCode: "11211",
+      neighborhood: "Williamsburg",
+      phone: { digits: "3475194918", display: "(347) 519-4918", href: "tel:+13475194918" },
+    },
+    {
+      label: "Brooklyn Heights Office",
+      street: "170 Hicks St",
+      city: "Brooklyn",
+      region: "NY",
+      postalCode: "11201",
+      neighborhood: "Brooklyn Heights",
+      phone: { digits: "3475148770", display: "(347) 514-8770", href: "tel:+13475148770" },
+    },
+  ],
 
   // --- Hours -----------------------------------------------------------------
   // PLACEHOLDER — confirm real office hours + 24/7 emergency coverage.
@@ -167,8 +199,15 @@ export function emailAddress(box: "general" | "bids" = "general"): string {
   return `${siteConfig.email[box]}@${domain}`;
 }
 
-/** One-line postal address, e.g. "170 Hicks St, Brooklyn, NY 11201". */
+/** One-line postal address of the main office, e.g. "232 Leonard St, Brooklyn, NY 11211". */
 export function formattedAddress(): string {
   const a = siteConfig.address;
   return `${a.street}, ${a.city}, ${a.region} ${a.postalCode}`;
+}
+
+export type OfficeLocation = (typeof siteConfig.locations)[number];
+
+/** One-line postal address for a specific office location. */
+export function formattedLocation(loc: OfficeLocation): string {
+  return `${loc.street}, ${loc.city}, ${loc.region} ${loc.postalCode}`;
 }

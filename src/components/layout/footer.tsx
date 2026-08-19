@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { siteConfig, formattedAddress, emailAddress } from "@/lib/site";
+import { siteConfig, formattedLocation, emailAddress } from "@/lib/site";
 import { footerNav } from "@/lib/nav";
 import { Container } from "@/components/ui/section";
 import { Logomark } from "@/components/ui/logomark";
@@ -50,10 +50,24 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-brand-600" aria-hidden />
                 {emailAddress("general")}
               </a>
-              <span className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden />
-                {formattedAddress()}
-              </span>
+              <a href={`mailto:${siteConfig.legacyContact.email}`} className="flex items-center gap-2 hover:text-brand-700">
+                <Mail className="h-4 w-4 text-brand-600" aria-hidden />
+                {siteConfig.legacyContact.email}
+              </a>
+              {siteConfig.locations.map((loc) => (
+                <span key={loc.street} className="flex items-start gap-2 pt-1.5">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden />
+                  <span>
+                    <span className="block text-xs font-semibold uppercase tracking-wide text-muted">
+                      {loc.label}
+                    </span>
+                    {formattedLocation(loc)}
+                    <a href={loc.phone.href} className="block hover:text-brand-700">
+                      {loc.phone.display}
+                    </a>
+                  </span>
+                </span>
+              ))}
             </address>
 
             <p className="mt-5 inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-body">

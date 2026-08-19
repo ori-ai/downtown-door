@@ -54,7 +54,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-6 font-display text-[1.7rem] font-bold uppercase leading-[1.15] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[2.6rem]">
-            Downtown Door Repair <span className="text-brand-400">&amp; Security</span>
+            Downtown Door Repair <span className="text-brand-400">&amp; Security</span> - Brooklyn
           </h1>
 
           <p className="mt-5 font-display text-sm font-medium uppercase tracking-[0.12em] text-brand-100 md:text-base">
@@ -76,11 +76,11 @@ export function Hero() {
               <ArrowRight className="h-4.5 w-4.5" aria-hidden />
             </Link>
             <a
-              href={siteConfig.phone.href}
+              href={siteConfig.legacyContact.phone.href}
               className={buttonVariants({ variant: "outline", size: "lg", className: "justify-center border-white/25 bg-[#0a1330]/40 text-ink backdrop-blur-sm hover:bg-brand-900/60" })}
             >
               <Phone className="h-4.5 w-4.5" aria-hidden />
-              {siteConfig.phone.display}
+              {siteConfig.legacyContact.phone.display}
             </a>
           </div>
 
