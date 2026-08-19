@@ -75,13 +75,16 @@ export function Hero() {
               Request your on-site quote
               <ArrowRight className="h-4.5 w-4.5" aria-hidden />
             </Link>
-            <a
-              href={siteConfig.legacyContact.phone.href}
-              className={buttonVariants({ variant: "outline", size: "lg", className: "justify-center border-white/25 bg-[#0a1330]/40 text-ink backdrop-blur-sm hover:bg-brand-900/60" })}
-            >
-              <Phone className="h-4.5 w-4.5" aria-hidden />
-              {siteConfig.legacyContact.phone.display}
-            </a>
+            {siteConfig.locations.map((loc) => (
+              <a
+                key={loc.phone.digits}
+                href={loc.phone.href}
+                className={buttonVariants({ variant: "outline", size: "lg", className: "justify-center border-white/25 bg-[#0a1330]/40 text-ink backdrop-blur-sm hover:bg-brand-900/60" })}
+              >
+                <Phone className="h-4.5 w-4.5" aria-hidden />
+                {loc.phone.display}
+              </a>
+            ))}
           </div>
 
           <ul className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/15 pt-6 text-sm">
