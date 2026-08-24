@@ -27,7 +27,7 @@ const PHONE_DIGITS = "3478518615";
 export const siteConfig = {
   name: "Downtown Door Repair & Security",
   shortName: "Downtown Door Repair",
-  legalName: "Downtown Door Repair & Security",
+  legalName: "Downtown Door Repair & Security INC", // EIN-backed entity name (Ori, 2026-08-24)
   tagline: "Locksmith, Intercom & Access Control Experts — The Five Boroughs",
   description:
     "Downtown Door Repair & Security provides locksmith services, intercom systems, access control, security cameras, and security systems — plus expert door repair — for homeowners, businesses, and institutional clients across the five boroughs. Two walk-in Brooklyn offices, open 24/7.",
@@ -130,9 +130,9 @@ export const siteConfig = {
     licensedInsured: true, // general trade claim shown in trust bar
     licenseNumber: "2109597" as string | null, // NYC DCA (Dept. of Consumer & Worker Protection) license #
     licenseAuthority: "NYC Department of Consumer and Worker Protection (DCA)",
-    insuranceSummary: null as string | null, // VERIFY (GL limits, etc.)
+    insuranceSummary: "General liability insured — COI available on request" as string | null, // Ori, 2026-08-24
     bondingSummary: null as string | null, // VERIFY (bonding capacity)
-    yearEstablished: null as number | null, // VERIFY — do not invent "years in business"
+    yearEstablished: 2025 as number | null, // founded 02/2025 (Ori, 2026-08-24)
     // Institutional certifications — all placeholder until confirmed:
     mwbe: false, // VERIFY (NYC/NYS M/WBE)
     dbe: false, // VERIFY

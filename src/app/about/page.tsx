@@ -224,8 +224,8 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-bold text-ink">Licensed &amp; Insured</h3>
                 <p className="mt-1 text-sm text-body">
-                  NYC DCWP License #{siteConfig.credentials.licenseNumber}. Certificate of
-                  insurance (COI) available on request.
+                  {siteConfig.legalName} — founded February 2025. NYC DCWP License
+                  #{siteConfig.credentials.licenseNumber}. {siteConfig.credentials.insuranceSummary}.
                 </p>
               </div>
             </div>

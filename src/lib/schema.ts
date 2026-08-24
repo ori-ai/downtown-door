@@ -113,6 +113,7 @@ export function organizationSchema(): WithContext<Organization> {
     "@id": ORG_ID,
     name: siteConfig.name,
     legalName: siteConfig.legalName,
+    foundingDate: "2025-02", // founded February 2025
     description: siteConfig.description,
     url: siteConfig.url,
     telephone: `+1${siteConfig.phone.digits}`,
