@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 import { siteConfig } from "@/lib/site";
-import { localBusinessSchema } from "@/lib/schema";
+import { businessGraphSchemas } from "@/lib/schema";
 import { JsonLd } from "@/components/json-ld";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -32,7 +32,7 @@ const displayFont = Orbitron({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Locksmith & Security Systems — Also Door Repair — Five Boroughs`,
+    default: `Brooklyn Locksmith, Intercom & Access Control | ${siteConfig.name}`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
@@ -66,8 +66,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bodyFont.variable} ${displayFont.variable} h-full`} data-scroll-behavior="smooth">
       <body className="flex min-h-full flex-col bg-[#0a1330]">
-        {/* Sitewide LocalBusiness structured data (NAP source of truth) */}
-        <JsonLd data={localBusinessSchema()} />
+        {/* Sitewide entity graph: Organization + BOTH offices as
+            ["Locksmith","LocalBusiness"] nodes, each with its own phone,
+            geo, hours and map (NAP source of truth: site.ts + locations.ts) */}
+        {businessGraphSchemas().map((s, i) => (
+          <JsonLd key={i} data={s} />
+        ))}
 
         <a
           href="#main"

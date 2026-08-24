@@ -527,7 +527,7 @@ const nassauCounty: AreaHub = {
   name: "Nassau County",
   kind: "county",
   state: "NY",
-  published: true,
+  published: false,
   intro:
     "Downtown Door Repair & Security serves Nassau County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
@@ -587,7 +587,7 @@ const westchesterCounty: AreaHub = {
   name: "Westchester County",
   kind: "county",
   state: "NY",
-  published: true,
+  published: false,
   intro:
     "Downtown Door Repair & Security serves Westchester County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
@@ -647,7 +647,7 @@ const rocklandCounty: AreaHub = {
   name: "Rockland County",
   kind: "county",
   state: "NY",
-  published: true,
+  published: false,
   intro:
     "Downtown Door Repair & Security serves Rockland County for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
@@ -707,7 +707,7 @@ const bergenCounty: AreaHub = {
   name: "Bergen County",
   kind: "county",
   state: "NJ",
-  published: true,
+  published: false,
   intro:
     "Downtown Door Repair & Security serves Bergen County, NJ for locksmith, security-system, and door work -- available by request alongside our core five-borough coverage.",
   neighborhoods: [
@@ -791,9 +791,62 @@ export function getNeighborhood(
   return { hub, neighborhood };
 }
 
-/** All published (hub, neighborhood) pairs — for static params + sitemap. */
+// --- Indexed neighborhood set (2026-08-24 doorway-page prune) ----------------
+// Only neighborhoods we GENUINELY and routinely service get a dedicated page:
+// all of brownstone Brooklyn around both offices, plus the lower-Manhattan
+// corridor the business has actually worked for years (see old blog archive:
+// Tribeca, FiDi, SoHo, LES). Everything else is dispatch coverage and lives on
+// the borough hub page only. Removed URLs 308 to the parent hub (redirects.ts).
+const INDEXED_NEIGHBORHOODS: Record<string, string[]> = {
+  brooklyn: [
+    "brooklyn-heights",
+    "park-slope",
+    "williamsburg",
+    "dumbo",
+    "bushwick",
+    "greenpoint",
+    "cobble-hill",
+    "carroll-gardens",
+    "fort-greene",
+    "boerum-hill",
+    "downtown-brooklyn",
+    "crown-heights",
+    "bedford-stuyvesant",
+  ],
+  manhattan: [
+    "tribeca",
+    "financial-district",
+    "soho",
+    "lower-east-side",
+    "west-village",
+    "chelsea",
+  ],
+};
+
+export function isIndexedNeighborhood(hubSlug: string, neighborhoodSlug: string): boolean {
+  return INDEXED_NEIGHBORHOODS[hubSlug]?.includes(neighborhoodSlug) ?? false;
+}
+
+/** The neighborhoods of a hub that keep a dedicated page (renders + internal links). */
+export function indexedNeighborhoodsOf(hub: AreaHub): Neighborhood[] {
+  return hub.neighborhoods.filter((n) => isIndexedNeighborhood(hub.slug, n.slug));
+}
+
+/** All published + indexed (hub, neighborhood) pairs — for static params + sitemap. */
 export function allPublishedNeighborhoods(): { hub: string; slug: string }[] {
   return publishedHubs.flatMap((h) =>
-    h.neighborhoods.map((n) => ({ hub: h.slug, slug: n.slug })),
+    indexedNeighborhoodsOf(h).map((n) => ({ hub: h.slug, slug: n.slug })),
+  );
+}
+
+/**
+ * Every (hub, neighborhood) pair that USED to have a URL but was pruned —
+ * redirect sources. Includes the unpublished county hubs' cities.
+ */
+export function prunedNeighborhoods(): { hub: string; slug: string }[] {
+  return areaHubs.flatMap((h) =>
+    h.neighborhoods
+      .filter((n) => !(h.published && isIndexedNeighborhood(h.slug, n.slug)))
+      .map((n) => ({ hub: h.slug, slug: n.slug })),
   );
 }

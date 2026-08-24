@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { migrationRedirects } from "./src/lib/redirects";
+import { migrationRedirects, prunedServiceAreaRedirects } from "./src/lib/redirects";
 
 const nextConfig: NextConfig = {
   // Pin the workspace root so Turbopack ignores stray lockfiles elsewhere.
@@ -16,9 +16,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "jrsmxpbxgsboyoxffejg.supabase.co" }, // content pipeline media
     ],
   },
-  // 301/308 migration redirects from the old WordPress site.
+  // 301/308 migration redirects from the old WordPress site, plus the
+  // 2026-08 doorway-page prune (removed service-area URLs → parent hub).
   async redirects() {
-    return migrationRedirects;
+    return [...migrationRedirects, ...prunedServiceAreaRedirects()];
   },
 };
 

@@ -79,7 +79,7 @@ export const supplierBrands: SupplierBrand[] = [
           a: "In most cases yes — we can swap just the cylinder to a Mul-T-Lock high-security cylinder if your existing hardware supports it, which is faster and cheaper than a full lock replacement.",
         },
       ],
-      relatedServiceSlugs: ["locksmith-door-hardware", "master-key-systems"],
+      relatedServiceSlugs: ["locksmith", "master-key-systems"],
     },
   },
   {
@@ -108,7 +108,7 @@ export const supplierBrands: SupplierBrand[] = [
           a: "Yes. If the lock itself is in good working condition, rekeying is usually faster and cheaper than replacing the hardware.",
         },
       ],
-      relatedServiceSlugs: ["locksmith-door-hardware", "door-installation"],
+      relatedServiceSlugs: ["locksmith", "door-repair"],
     },
   },
   {
@@ -137,7 +137,7 @@ export const supplierBrands: SupplierBrand[] = [
           a: "Yes, a panic bar that doesn't fully latch is both a security gap and a common code violation flagged on inspection. We diagnose and repair this on site.",
         },
       ],
-      relatedServiceSlugs: ["panic-exit-devices", "fire-door-repair"],
+      relatedServiceSlugs: ["panic-hardware", "door-repair"],
     },
   },
   {
@@ -166,7 +166,7 @@ export const supplierBrands: SupplierBrand[] = [
           a: "It scales from a single door to a full building — we design the system to fit how many entry points and users you actually have.",
         },
       ],
-      relatedServiceSlugs: ["security-systems-access-control"],
+      relatedServiceSlugs: ["access-control"],
     },
   },
   {
@@ -195,7 +195,7 @@ export const supplierBrands: SupplierBrand[] = [
           a: "Yes — we can add Seco-Larm sensors and accessories to most existing alarm panels, matched to what the panel already supports.",
         },
       ],
-      relatedServiceSlugs: ["security-systems-access-control", "cctv-camera-systems"],
+      relatedServiceSlugs: ["access-control", "cctv-cameras"],
     },
   },
   { name: "DeWalt" },

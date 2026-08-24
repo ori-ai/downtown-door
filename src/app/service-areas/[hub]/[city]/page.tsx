@@ -6,12 +6,14 @@ import { Phone, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 import {
   allPublishedNeighborhoods,
   getNeighborhood,
-  getHub,
+  indexedNeighborhoodsOf,
 } from "@/lib/service-areas";
+import { faqsFor } from "@/lib/neighborhood-faqs";
 import { services } from "@/lib/services";
-import { localServices } from "@/lib/local-services";
 import { siteConfig } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
+import { faqSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { buttonVariants } from "@/components/ui/button";
@@ -125,12 +127,14 @@ export default async function NeighborhoodPage({
   if (!found) notFound();
   const { hub, neighborhood } = found;
 
-  // Sibling neighborhoods for internal linking.
-  const siblings = hub.neighborhoods.filter((n) => n.slug !== neighborhood.slug);
+  // Sibling neighborhoods for internal linking — indexed (kept) pages only.
+  const siblings = indexedNeighborhoodsOf(hub).filter((n) => n.slug !== neighborhood.slug);
   const localPhoto = areaPhoto(neighborhood.slug);
+  const faqs = faqsFor(hub.slug, neighborhood.slug);
 
   return (
     <>
+      {faqs.length ? <JsonLd data={faqSchema(faqs)} /> : null}
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -269,29 +273,25 @@ export default async function NeighborhoodPage({
         </Container>
       </Section>
 
-      {/* Programmatic keyword links for this neighborhood (local SEO) */}
-      <Section topBorder>
-        <Container>
-          <SectionHeading
-            eyebrow="Popular in this area"
-            title={`${neighborhood.name} services`}
-            intro={`Dedicated door, lock, and security services for ${neighborhood.name}, ${hub.name}.`}
-          />
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {localServices.map((s) => (
-              <li key={s.slug}>
-                <Link
-                  href={`/service-areas/${hub.slug}/${neighborhood.slug}/${s.slug}`}
-                  className="group flex items-center justify-between gap-2 rounded-xl border border-line bg-surface px-4 py-3 text-sm font-medium text-body transition-colors hover:border-brand-500 hover:text-ink"
-                >
-                  {s.name} in {neighborhood.name}
-                  <ArrowRight className="h-4 w-4 shrink-0 text-brand-400 transition-transform group-hover:translate-x-0.5" aria-hidden />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </Section>
+      {/* Neighborhood-specific FAQ — unique content per kept page */}
+      {faqs.length ? (
+        <Section topBorder>
+          <Container>
+            <SectionHeading
+              eyebrow="Common questions"
+              title={`Working in ${neighborhood.name} — FAQ`}
+            />
+            <div className="mt-8 grid max-w-3xl gap-4">
+              {faqs.map((f) => (
+                <div key={f.q} className="rounded-xl border border-line bg-surface p-5">
+                  <h3 className="text-base font-bold text-ink">{f.q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-body">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       {/* Inline quote form — converts right here, no navigating away */}
       <Section topBorder className="bg-surface">

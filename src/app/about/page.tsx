@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { ShieldCheck, Building2, Users, Wrench, HeartHandshake, MapPin, BadgeCheck } from "lucide-react";
 
@@ -72,9 +73,9 @@ const aboutVideos: RealVideo[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Us — Two Brooklyn Offices, One Trade",
   description:
-    "Downtown Door Repair & Security is a Brooklyn-based door repair, locksmith, and security company serving homes, businesses, and institutions across the five boroughs.",
+    "Downtown Door Repair & Security started at 170 Hicks St in Brooklyn Heights and grew into a second office at 232 Leonard St, Williamsburg. Locksmith, intercom, and access-control specialists serving the five boroughs 24/7.",
   alternates: { canonical: "/about" },
   openGraph: { url: absoluteUrl("/about") },
 };
@@ -105,9 +106,9 @@ export default function AboutPage() {
             </span>
             <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Door Repair &amp; Security</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              We&apos;re a Brooklyn-based door, lock, and security company serving homeowners,
-              businesses, and institutions across the five boroughs — from emergency
-              repairs to full building security systems.
+              Locksmith, intercom, and access-control specialists — born in Brooklyn Heights,
+              grown into Williamsburg. Two ground-floor walk-in offices, one licensed trade,
+              serving homeowners, businesses, and institutions across the five boroughs, 24/7.
             </p>
           </div>
         </Container>
@@ -117,25 +118,36 @@ export default function AboutPage() {
         <Container>
           <div className="grid items-start gap-10 lg:grid-cols-2">
             <div className="max-w-xl">
-              <h2 className="text-2xl">Who we are</h2>
+              <h2 className="text-2xl">The real story: two offices, one trade</h2>
               <div className="mt-4 space-y-4 text-lg leading-relaxed text-body">
                 <p>
-                  Downtown Door Repair &amp; Security handles the full range of door,
-                  hardware, locksmith, and security work — repair and installation,
-                  emergency response, storefront and commercial doors, locks and smart
-                  hardware, and access control, intercoms, and cameras.
+                  Downtown Door Repair &amp; Security started at{" "}
+                  <Link href="/locations/brooklyn-heights-170-hicks-st" className="font-semibold text-brand-700 hover:text-brand-800">
+                    170 Hicks St in Brooklyn Heights
+                  </Link>{" "}
+                  — a ground-floor, glass-front office in the middle of brownstone Brooklyn.
+                  The neighborhood shaped the trade: rekeying and restoring locks on landmarked
+                  doors, getting pre-war buzzer and intercom systems working again, and securing
+                  the co-ops and small storefronts around the Heights. Locksmith, intercom, and
+                  access-control work is the core of what we do; door repair is the supporting
+                  craft that makes those installs hold up.
                 </p>
                 <p>
-                  We work for two very different kinds of clients: homeowners and
-                  businesses who need something fixed quickly and correctly, and
-                  institutional clients — schools, hospitals, and municipal facilities —
-                  who need a vendor with the credentials and process to deliver on public
-                  projects. We&apos;re set up to serve both well.
+                  As the work spread across North Brooklyn, we opened our second office at{" "}
+                  <Link href="/locations/williamsburg-232-leonard-st" className="font-semibold text-brand-700 hover:text-brand-800">
+                    232 Leonard St in Williamsburg
+                  </Link>{" "}
+                  — now the main office and dispatch hub. Both locations are real, walk-in
+                  offices: come in for key cutting on our automatic machines, pick up locks and
+                  hardware from stock, sit down for an estimate, or plan a full building
+                  access-control system.
                 </p>
                 <p>
-                  Based in Brooklyn, we handle door repair and installation, locksmith and
-                  door hardware, and commercial security and access control across the five
-                  boroughs — for homeowners, businesses, and institutional clients alike.
+                  We serve two very different kinds of clients with the same crew: homeowners and
+                  businesses who need something secured quickly and correctly, and institutional
+                  clients — schools, hospitals, municipal facilities — who need a licensed,
+                  insured vendor (NYC DCWP #{siteConfig.credentials.licenseNumber}) with the
+                  paperwork and process for public projects.
                 </p>
               </div>
             </div>
@@ -211,7 +223,10 @@ export default function AboutPage() {
               <ShieldCheck className="h-6 w-6 shrink-0 text-brand-600" aria-hidden />
               <div>
                 <h3 className="font-bold text-ink">Licensed &amp; Insured</h3>
-                <p className="mt-1 text-sm text-body">Documentation available on request.</p>
+                <p className="mt-1 text-sm text-body">
+                  NYC DCWP License #{siteConfig.credentials.licenseNumber}. Certificate of
+                  insurance (COI) available on request.
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-3">

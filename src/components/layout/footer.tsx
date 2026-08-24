@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { siteConfig, formattedLocation, emailAddress } from "@/lib/site";
+import { siteConfig, emailAddress } from "@/lib/site";
+import { offices, officeAddress } from "@/lib/locations";
 import { footerNav } from "@/lib/nav";
 import { Container } from "@/components/ui/section";
 import { Logomark } from "@/components/ui/logomark";
@@ -37,10 +38,13 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-body">
-              Door repair, installation, locksmith, and commercial security systems
-              for homes, businesses, and institutions across the five boroughs.
+              Locksmith, intercom systems, access control, cameras, and security
+              systems — plus expert door repair — for homes, businesses, and
+              institutions across the five boroughs.
             </p>
 
+            {/* ONE brand number in the global footer. Each office's direct line
+                lives only on its /locations page (see README phone mapping). */}
             <address className="mt-6 space-y-2 text-sm not-italic text-body">
               <a href={siteConfig.phone.href} className="flex items-center gap-2 hover:text-brand-700">
                 <Phone className="h-4 w-4 text-brand-600" aria-hidden />
@@ -50,21 +54,16 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-brand-600" aria-hidden />
                 {emailAddress("general")}
               </a>
-              <a href={`mailto:${siteConfig.legacyContact.email}`} className="flex items-center gap-2 hover:text-brand-700">
-                <Mail className="h-4 w-4 text-brand-600" aria-hidden />
-                {siteConfig.legacyContact.email}
-              </a>
-              {siteConfig.locations.map((loc) => (
-                <span key={loc.street} className="flex items-start gap-2 pt-1.5">
+              {offices.map((o) => (
+                <span key={o.slug} className="flex items-start gap-2 pt-1.5">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden />
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wide text-muted">
-                      {loc.label}
+                      {o.role === "main" ? "Main Office" : "Brooklyn Heights Office — the original"}
                     </span>
-                    {formattedLocation(loc)}
-                    <a href={loc.phone.href} className="block hover:text-brand-700">
-                      {loc.phone.display}
-                    </a>
+                    <Link href={`/locations/${o.slug}`} className="hover:text-brand-700">
+                      {officeAddress(o)}
+                    </Link>
                   </span>
                 </span>
               ))}

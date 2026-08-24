@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { publishedHubs } from "@/lib/service-areas";
+import { publishedHubs, indexedNeighborhoodsOf } from "@/lib/service-areas";
 import { absoluteUrl } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container, Section, SectionHeading } from "@/components/ui/section";
@@ -58,7 +58,9 @@ export default function ServiceAreasIndexPage() {
                 </div>
                 <p className="mt-2 text-sm text-body">{hub.intro}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
-                  {hub.neighborhoods.map((n) => (
+                  {/* Only genuinely serviced neighborhoods get linked pages;
+                      the rest of the borough is dispatch coverage. */}
+                  {indexedNeighborhoodsOf(hub).map((n) => (
                     <li key={n.slug}>
                       <Link
                         href={`/service-areas/${hub.slug}/${n.slug}`}

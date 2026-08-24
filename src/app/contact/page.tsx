@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, AlertTriangle } from "lucide-react";
 
-import { siteConfig, formattedLocation, emailAddress } from "@/lib/site";
+import Link from "next/link";
+import { siteConfig, emailAddress } from "@/lib/site";
+import { offices, officeAddress } from "@/lib/locations";
 import { absoluteUrl } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container, Section } from "@/components/ui/section";
@@ -92,29 +94,23 @@ export default async function ContactPage({
                       {emailAddress("general")}
                     </a>
                   </li>
-                  {siteConfig.locations.map((loc) => (
-                    <li key={loc.street} className="flex items-start gap-2.5 text-body">
+                  {offices.map((o) => (
+                    <li key={o.slug} className="flex items-start gap-2.5 text-body">
                       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-950/60 text-brand-300">
                         <MapPin className="h-4.5 w-4.5" aria-hidden />
                       </span>
                       <span>
                         <span className="block text-xs font-semibold uppercase tracking-wide text-muted">
-                          {loc.label}
+                          {o.role === "main" ? "Main Office — Williamsburg" : "Brooklyn Heights Office — the original"}
                         </span>
-                        {formattedLocation(loc)}
-                        <a href={loc.phone.href} className="block font-semibold hover:text-brand-700">
-                          {loc.phone.display}
-                        </a>
+                        {officeAddress(o)}
+                        <Link href={`/locations/${o.slug}`} className="block font-semibold text-brand-700 hover:text-brand-800">
+                          Office page, map & walk-in details →
+                        </Link>
                       </span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 border-t border-line pt-3 text-xs text-muted">
-                  Also reachable at{" "}
-                  <a href={`mailto:${siteConfig.legacyContact.email}`} className="hover:text-brand-700">
-                    {siteConfig.legacyContact.email}
-                  </a>
-                </p>
               </div>
 
               {/* Emergency line */}
@@ -136,22 +132,17 @@ export default async function ContactPage({
                 </a>
               </div>
 
-              {/* Hours — placeholder, clearly marked for confirmation */}
+              {/* Hours — the single sitewide hours story (site.ts) */}
               <div className="rounded-2xl border border-line bg-surface p-6">
                 <div className="flex items-center gap-2 text-brand-700">
                   <Clock className="h-5 w-5" aria-hidden />
                   <h2 className="font-bold text-ink">Hours</h2>
                 </div>
-                <div className="mt-3 flex items-center justify-between rounded-lg border border-emergency/30 bg-emergency-tint px-3 py-2">
-                  <dt className="font-bold text-emergency">Emergency service</dt>
-                  <dd className="font-bold text-emergency">24/7</dd>
-                </div>
-                <dl className="mt-3 space-y-1.5 text-sm text-body">
-                  <div className="flex justify-between"><dt>Scheduled — Mon–Fri</dt><dd>8:00 AM – 6:00 PM</dd></div>
-                  <div className="flex justify-between"><dt>Scheduled — Saturday</dt><dd>9:00 AM – 4:00 PM</dd></div>
-                  <div className="flex justify-between"><dt>Scheduled — Sunday</dt><dd>Closed</dd></div>
-                </dl>
-                <p className="mt-2 text-xs text-muted">Emergency repairs answered 24/7. Scheduled/non-emergency work books within the hours above.</p>
+                <p className="mt-3 text-sm font-semibold text-ink">{siteConfig.hours.display}</p>
+                <p className="mt-2 text-xs text-muted">
+                  Every day, around the clock — emergencies dispatched immediately, scheduled work
+                  booked at your convenience. Both offices take walk-ins.
+                </p>
               </div>
             </aside>
           </div>

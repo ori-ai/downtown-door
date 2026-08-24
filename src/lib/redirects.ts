@@ -10,6 +10,8 @@
  * `/brooklyn/:slug` catch-all. Source of truth: docs/migration-inventory.md.
  */
 
+import { prunedNeighborhoods, publishedHubs } from "./service-areas";
+
 type Redirect = { source: string; destination: string; permanent: boolean };
 
 const p = (source: string, destination: string): Redirect => ({ source, destination, permanent: true });
@@ -113,4 +115,38 @@ export const migrationRedirects: Redirect[] = [
 
   // --- Old blog posts → /blog (retarget individually once migrated) ---
   ...oldBlogPosts.map((slug) => p(`/${slug}`, "/blog")),
+
+  // --- 2026-08-24 service restructure: locksmith/intercom/security first, ---
+  // --- door work consolidated into ONE page (not a hub).                  ---
+  p("/services/locksmith-door-hardware", "/services/locksmith"),
+  p("/services/security-systems-access-control", "/services/access-control"),
+  p("/services/cctv-camera-systems", "/services/cctv-cameras"),
+  p("/services/panic-exit-devices", "/services/panic-hardware"),
+  p("/services/door-installation", "/services/door-repair"),
+  p("/services/emergency-door-repair", "/services/door-repair"),
+  p("/services/fire-door-repair", "/services/door-repair"),
+  p("/services/door-closers", "/services/door-repair"),
+  p("/services/commercial-storefront-doors", "/services/door-repair"),
 ];
+
+/**
+ * 2026-08-24 doorway-page prune. The 1,216 templated
+ * /service-areas/{hub}/{city}/{service} pages and the non-core neighborhood
+ * pages were removed (near-duplicate scaled content — a misrepresentation
+ * signal). Every removed URL 308s to its parent hub so nothing 404s.
+ */
+export function prunedServiceAreaRedirects(): Redirect[] {
+  const publishedSlugs = new Set(publishedHubs.map((h) => h.slug));
+
+  const out: Redirect[] = [
+    // Every service×neighborhood page is gone — kept neighborhoods included.
+    p("/service-areas/:hub/:city/:service", "/service-areas/:hub"),
+  ];
+  for (const { hub, slug } of prunedNeighborhoods()) {
+    // County hubs are unpublished (noindex "coming soon") — send their old
+    // city URLs to the service-areas index instead of a noindex page.
+    const dest = publishedSlugs.has(hub) ? `/service-areas/${hub}` : "/service-areas";
+    out.push(p(`/service-areas/${hub}/${slug}`, dest));
+  }
+  return out;
+}

@@ -1,5 +1,5 @@
 import { services, serviceCategories, type ServiceCategory } from "./services";
-import { publishedHubs } from "./service-areas";
+import { publishedHubs, indexedNeighborhoodsOf } from "./service-areas";
 import { brandPages } from "./brands";
 
 export interface NavLink {
@@ -35,7 +35,7 @@ export const serviceLinks: NavLink[] = services.map((s) => ({
 export const areaLinks: NavGroup[] = publishedHubs.map((h) => ({
   label: h.name,
   href: `/service-areas/${h.slug}`,
-  children: h.neighborhoods.map((n) => ({
+  children: indexedNeighborhoodsOf(h).map((n) => ({
     label: n.name,
     href: `/service-areas/${h.slug}/${n.slug}`,
   })),
@@ -48,6 +48,14 @@ export const mainNav: NavGroup[] = [
     label: "Service Areas",
     href: "/service-areas",
     children: publishedHubs.map((h) => ({ label: h.name, href: `/service-areas/${h.slug}` })),
+  },
+  {
+    label: "Locations",
+    href: "/locations",
+    children: [
+      { label: "Brooklyn Heights — 170 Hicks St", href: "/locations/brooklyn-heights-170-hicks-st" },
+      { label: "Williamsburg — 232 Leonard St", href: "/locations/williamsburg-232-leonard-st" },
+    ],
   },
   { label: "Brands", href: "/brands", children: brandPages.map((b) => ({ label: b.name, href: `/brands/${b.page.slug}` })) },
   { label: "Gallery", href: "/gallery" },
@@ -81,6 +89,9 @@ export const footerNav: NavGroup[] = [
     href: "/about",
     children: [
       { label: "About Us", href: "/about" },
+      { label: "Our Locations", href: "/locations" },
+      { label: "Brooklyn Heights — 170 Hicks St", href: "/locations/brooklyn-heights-170-hicks-st" },
+      { label: "Williamsburg — 232 Leonard St", href: "/locations/williamsburg-232-leonard-st" },
       { label: "Our Work", href: "/case-studies" },
       { label: "Gallery", href: "/gallery" },
       { label: "Brands", href: "/brands" },

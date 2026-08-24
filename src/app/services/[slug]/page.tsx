@@ -27,18 +27,16 @@ import { QuoteForm } from "@/components/forms/quote-form";
 /** Category-relevant hero imagery — real, no-person job photos, one per service. */
 const serviceHeroImage: Record<string, string> = {
   "door-repair": "/images/real/real-mortise-repair.jpg",
-  "door-installation": "/images/real/real-office-install.jpg",
-  "emergency-door-repair": "/images/real/real-drill-install.jpg",
-  "commercial-storefront-doors": "/images/real/real-commercial-door.jpg",
-  "locksmith-door-hardware": "/images/real/real-mortise-keys.jpg",
-  "security-systems-access-control": "/images/real/real-access-install.jpg",
-  "fire-door-repair": "/images/real/real-panic-bar-exit.jpg",
-  "panic-exit-devices": "/images/real/real-hero-panicbar.jpg",
-  "door-closers": "/images/real/real-door-closer.jpg",
+  "locksmith": "/images/real/real-mortise-keys.jpg",
+  "access-control": "/images/real/real-access-install.jpg",
+  "panic-hardware": "/images/real/real-hero-panicbar.jpg",
   "security-gates": "/images/real/real-padlocks-gate.jpg",
   "intercom-systems": "/images/real/real-intercom-button.jpg",
-  "cctv-camera-systems": "/images/real/real-cctv-camera.jpg",
+  "cctv-cameras": "/images/real/real-cctv-camera.jpg",
   "master-key-systems": "/images/real/real-keypad-lever-lock.jpg",
+  "magnetic-locks": "/images/real/real-access-wiring-storefront.jpg",
+  "electric-strikes": "/images/real/real-electric-strike.jpg",
+  "high-security-locks": "/images/real/real-high-security-cylinder.jpg",
 };
 
 /**
@@ -49,18 +47,16 @@ const serviceHeroImage: Record<string, string> = {
  */
 const serviceBodyImage: Record<string, { src: string; caption: string }> = {
   "door-repair": { src: "/images/real/real-frame-repair-oscillating.jpg", caption: "Cutting out a damaged frame pocket before rebuilding it" },
-  "door-installation": { src: "/images/real/real-brass-deadbolt-drill.jpg", caption: "Fitting a new deadbolt on a freshly hung door" },
-  "emergency-door-repair": { src: "/images/real/real-strike-plate-drill.jpg", caption: "Re-setting a strike plate after a forced-entry repair" },
-  "commercial-storefront-doors": { src: "/images/real/real-storefront-pull-door.jpg", caption: "Storefront glass door, hardware realigned and tested" },
-  "locksmith-door-hardware": { src: "/images/real/real-key-wall-board.jpg", caption: "Blanks on hand for same-day key cutting" },
-  "security-systems-access-control": { src: "/images/real/real-reader-install-green.jpg", caption: "Card reader wired in on a commercial entry" },
-  "fire-door-repair": { src: "/images/real/real-door-frame-measure.jpg", caption: "Confirming clearances on a fire-rated door frame" },
-  "panic-exit-devices": { src: "/images/real/real-panic-bar-street-install.jpg", caption: "Exit device install on a commercial rear door" },
-  "door-closers": { src: "/images/real/real-door-closer-install.jpg", caption: "New door closer, mounted and adjusted" },
+  "locksmith": { src: "/images/real/real-key-wall-board.jpg", caption: "Blanks on hand for same-day key cutting" },
+  "access-control": { src: "/images/real/real-reader-install-green.jpg", caption: "Card reader wired in on a commercial entry" },
+  "panic-hardware": { src: "/images/real/real-panic-bar-street-install.jpg", caption: "Exit device install on a commercial rear door" },
   "security-gates": { src: "/images/real/real-wood-gate-padlocks.jpg", caption: "Hasp and padlock hardware on a gate install" },
   "intercom-systems": { src: "/images/real/real-intercom-wiring-gray-door.jpg", caption: "Wiring a buzzer entry system at the door" },
-  "cctv-camera-systems": { src: "/images/real/real-dome-camera-mount.jpg", caption: "Dome camera mounted on an exterior door frame" },
+  "cctv-cameras": { src: "/images/real/real-dome-camera-mount.jpg", caption: "Dome camera mounted on an exterior door frame" },
   "master-key-systems": { src: "/images/real/real-milwaukee-toolbox-hardware.jpg", caption: "Cylinders and cut keys for a building master-key set" },
+  "magnetic-locks": { src: "/images/real/real-sensor-wire-install.jpg", caption: "Wiring a release sensor for a magnetic lock" },
+  "electric-strikes": { src: "/images/real/real-electric-strike-install-2.jpg", caption: "Electric strike being fitted into a commercial frame" },
+  "high-security-locks": { src: "/images/real/real-cylinder-install-commercial.jpg", caption: "High-security cylinder going into a commercial mortise body" },
 };
 
 export function generateStaticParams() {
@@ -211,6 +207,31 @@ export default async function ServicePage({
                     {bodyImage.caption}
                   </figcaption>
                 </figure>
+              ) : null}
+
+              {/* Real install photos for THIS service (from the data layer) */}
+              {service.photos?.length ? (
+                <div className="mt-10">
+                  <h2 className="text-2xl">Real installs, real photos</h2>
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    {service.photos.map((ph) => (
+                      <figure key={ph.src} className="overflow-hidden rounded-2xl border border-line ring-soft">
+                        <div className="relative aspect-[4/3]">
+                          <Image
+                            src={ph.src}
+                            alt={ph.alt}
+                            fill
+                            sizes="(max-width: 640px) 100vw, 21rem"
+                            className="object-cover"
+                          />
+                        </div>
+                        <figcaption className="border-t border-line bg-surface px-4 py-2.5 text-xs text-body">
+                          {ph.alt}
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                </div>
               ) : null}
 
               {/* Process */}

@@ -72,3 +72,20 @@ docs/
 
 See **[docs/human-todo.md](docs/human-todo.md)** — domain, API keys, real
 content, NAP/phone confirmation, and the Search Console launch steps.
+
+## Phone number mapping (LOCKED — 2026-08-24 remediation)
+
+One brand number globally; each office's direct line appears ONLY on its own
+location page and in its own schema node. Never show three numbers on one page.
+
+| Number | Role | Where it appears |
+|---|---|---|
+| (347) 851-8615 | Brand line (Dori AI reception, 24/7) | Global header, footer, CTAs, forms, Organization schema |
+| (347) 514-8770 | 170 Hicks St — Brooklyn Heights office (original; matches that GBP) | `/locations/brooklyn-heights-170-hicks-st` + its `Locksmith` schema node only |
+| (347) 519-4918 | 232 Leonard St — Williamsburg main office (matches that GBP) | `/locations/williamsburg-232-leonard-st` + its `Locksmith` schema node only |
+
+Source of truth: `src/lib/site.ts` (brand) + `src/lib/locations.ts` (offices).
+Email: `office@downtowndoorsandsecurity.com` everywhere — the old
+`info@downtowndoorrepairnyc.com` is retired sitewide.
+Hours (confirmed by Ori 2026-08-24): **Open 24/7** — the single story for site,
+location pages, and all schema.

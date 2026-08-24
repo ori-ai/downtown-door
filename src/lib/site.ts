@@ -10,11 +10,11 @@
  * as fact until the client supplies real data. See docs/human-todo.md.
  */
 
-// The live domain is not registered yet — everything canonical derives from
-// this env var. Swapping to the real domain later is a one-line change.
+// Canonical live domain (downtowndoorrepairnyc.com 301s into it).
+// NEXT_PUBLIC_SITE_URL still wins for preview/staging environments.
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://downtowndoorrepair.example"; // PLACEHOLDER until the real domain is registered
+  "https://downtowndoorsandsecurity.com";
 
 // --- Phone -------------------------------------------------------------------
 // Downtown's dedicated AI-reception line: calls are answered by "Dori" (an
@@ -28,9 +28,9 @@ export const siteConfig = {
   name: "Downtown Door Repair & Security",
   shortName: "Downtown Door Repair",
   legalName: "Downtown Door Repair & Security",
-  tagline: "Door Repair, Locksmith & Security Systems Experts — The Five Boroughs",
+  tagline: "Locksmith, Intercom & Access Control Experts — The Five Boroughs",
   description:
-    "Downtown Door Repair & Security provides door repair, locksmith services, security systems, access control, and intercom installation for homeowners, businesses, and institutional clients across the five boroughs.",
+    "Downtown Door Repair & Security provides locksmith services, intercom systems, access control, security cameras, and security systems — plus expert door repair — for homeowners, businesses, and institutional clients across the five boroughs. Two walk-in Brooklyn offices, open 24/7.",
 
   url: SITE_URL,
 
@@ -51,8 +51,9 @@ export const siteConfig = {
   },
 
   // --- Legacy contact (still on the physical sign & business cards) ----------
-  // Both route to the current phone/email above — kept visible on the site so
-  // NAP stays consistent with existing print/signage until those are reprinted.
+  // RETIRED FROM THE UI 2026-08-24 (email-domain + phone consolidation): kept
+  // here only as a record of what the 170 Hicks signage shows. Do NOT render
+  // these anywhere — the sign itself is on the punch list to reprint.
   legacyContact: {
     phone: { digits: "3475148770", display: "(347) 514-8770", href: "tel:+13475148770" },
     email: "info@downtowndoorrepairnyc.com",
@@ -101,14 +102,14 @@ export const siteConfig = {
   ],
 
   // --- Hours -----------------------------------------------------------------
-  // PLACEHOLDER — confirm real office hours + 24/7 emergency coverage.
-  hoursConfirmed: false, // gate: schema openingHours only emitted when true
+  // CONFIRMED by Ori 2026-08-24: "we provide 24/7 availability." This is THE
+  // single hours story — site copy, both location pages, and all schema say
+  // exactly this. If a GBP listing ever shows different hours, fix the GBP or
+  // change it HERE, never in individual components.
+  hoursConfirmed: true, // gate: schema openingHours only emitted when true
   hours: {
-    // Weekday office hours (placeholder)
-    weekdays: { opens: "08:00", closes: "18:00" },
-    saturday: { opens: "09:00", closes: "16:00" },
-    sundayClosed: true,
-    emergency247: true, // VERIFY: emergency repair line availability
+    open247: true,
+    display: "Open 24/7 — calls answered around the clock",
   },
 
   // --- Trust / credentials ----------------------------------------------------

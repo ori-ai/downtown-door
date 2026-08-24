@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MapPin, Clock, ArrowRight } from "lucide-react";
 
-import { areaHubs, getHub } from "@/lib/service-areas";
+import { areaHubs, getHub, indexedNeighborhoodsOf } from "@/lib/service-areas";
 import { services } from "@/lib/services";
 import { absoluteUrl } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
@@ -129,13 +129,15 @@ export default async function HubPage({
         </Container>
       </section>
 
-      {/* Neighborhoods (borough hubs only — county hubs don't have a per-town breakdown yet) */}
-      {hub.neighborhoods.length ? (
+      {/* Dedicated neighborhood pages exist only for the areas we genuinely
+          work day-in-day-out (post-prune). Other neighborhoods are dispatch
+          coverage — named, but not given their own URL. */}
+      {indexedNeighborhoodsOf(hub).length ? (
         <Section>
           <Container>
             <SectionHeading eyebrow="Neighborhoods" title={`Where we work in ${hub.name}`} />
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {hub.neighborhoods.map((n) => (
+              {indexedNeighborhoodsOf(hub).map((n) => (
                 <Link
                   key={n.slug}
                   href={`/service-areas/${hub.slug}/${n.slug}`}
@@ -155,7 +157,28 @@ export default async function HubPage({
             </div>
           </Container>
         </Section>
-      ) : null}
+      ) : (
+        <Section>
+          <Container>
+            <SectionHeading
+              eyebrow="Coverage"
+              title={`Dispatch coverage across ${hub.name}`}
+              intro={`We dispatch techs throughout ${hub.name} from our two Brooklyn offices — call and we'll route the nearest tech.`}
+            />
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {hub.neighborhoods.map((n) => (
+                <li
+                  key={n.slug}
+                  className="inline-flex items-center gap-1 rounded-full border border-line bg-surface px-3 py-1 text-sm text-body"
+                >
+                  <MapPin className="h-3.5 w-3.5 text-brand-500" aria-hidden />
+                  {n.name}
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </Section>
+      )}
 
       {/* Services offered here */}
       <Section topBorder className="bg-surface">

@@ -31,14 +31,54 @@ export interface ReviewSummary {
  * Returns the live review summary, or `null` when no live source is configured.
  * Callers MUST handle null by hiding rating UI — do not substitute a placeholder
  * number.
+ *
+ * LIVE FETCH (implemented 2026-08-24): Google Places API (New), server-side,
+ * revalidated every 6h. Lights up as soon as GOOGLE_PLACES_API_KEY is set in
+ * the environment (Ori: Vercel → env vars). Until then: null, honest UI.
  */
 export async function getGoogleReviews(): Promise<ReviewSummary | null> {
-  if (!siteConfig.reviews.googlePlaceId) {
-    // Not wired yet — stay honest, return nothing.
+  const placeId = siteConfig.reviews.googlePlaceId;
+  const key = process.env.GOOGLE_PLACES_API_KEY;
+  if (!placeId || !key) return null;
+
+  try {
+    const res = await fetch(
+      `https://places.googleapis.com/v1/places/${placeId}?fields=rating,userRatingCount,reviews,googleMapsUri`,
+      {
+        headers: { "X-Goog-Api-Key": key },
+        next: { revalidate: 21600 }, // 6h — reviews don't need realtime
+      },
+    );
+    if (!res.ok) return null;
+    const data = (await res.json()) as {
+      rating?: number;
+      userRatingCount?: number;
+      googleMapsUri?: string;
+      reviews?: {
+        rating?: number;
+        text?: { text?: string };
+        relativePublishTimeDescription?: string;
+        authorAttribution?: { displayName?: string; photoUri?: string };
+      }[];
+    };
+    if (typeof data.rating !== "number" || !data.userRatingCount) return null;
+
+    return {
+      rating: data.rating,
+      count: data.userRatingCount,
+      profileUrl: data.googleMapsUri ?? siteConfig.reviews.profileUrl ?? undefined,
+      reviews: (data.reviews ?? [])
+        .filter((r) => typeof r.rating === "number" && r.text?.text)
+        .map((r) => ({
+          author: r.authorAttribution?.displayName ?? "Google user",
+          rating: r.rating as number,
+          text: r.text?.text as string,
+          relativeTime: r.relativePublishTimeDescription,
+          profilePhoto: r.authorAttribution?.photoUri,
+        })),
+    };
+  } catch {
+    // Network/API failure — hide rating UI rather than show stale/fake data.
     return null;
   }
-
-  // TODO(human): fetch from Google Places / Business Profile using the place id
-  // and a server-side API key (GOOGLE_PLACES_API_KEY). Return real data only.
-  return null;
 }

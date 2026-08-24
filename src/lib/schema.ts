@@ -13,20 +13,30 @@ import type {
   BlogPosting,
   BreadcrumbList,
   FAQPage,
-  GeoCoordinates,
-  HomeAndConstructionBusiness,
+  LocalBusiness,
   OpeningHoursSpecification,
+  Organization,
   PostalAddress,
   Service as ServiceSchema,
   WithContext,
 } from "schema-dts";
 
-import { siteConfig, formattedAddress, emailAddress } from "./site";
+import { siteConfig, emailAddress, formattedAddress } from "./site";
+import { offices, type Office } from "./locations";
 import { absoluteUrl } from "./utils";
 import type { Service } from "./services";
 import type { SupplierBrand, BrandPage } from "./brands";
 
-const ORG_ID = `${siteConfig.url}/#business`;
+/**
+ * Entity graph (2026-08-24 restructure):
+ *   ONE Organization node (#organization) — the brand.
+ *   TWO location nodes (#office-<slug>) — @type ["Locksmith","LocalBusiness"],
+ *   one per physical office, each with its OWN telephone, address, geo, hours,
+ *   image, and hasMap, and parentOrganization → #organization.
+ * Homepage emits all three; each /locations page emits its own office node.
+ */
+const ORG_ID = `${siteConfig.url}/#organization`;
+const officeId = (o: Office) => `${siteConfig.url}/#office-${o.slug}`;
 
 function postalAddress(): PostalAddress {
   const a = siteConfig.address;
@@ -40,79 +50,122 @@ function postalAddress(): PostalAddress {
   };
 }
 
-function geo(): GeoCoordinates {
+function officePostalAddress(o: Office): PostalAddress {
   return {
-    "@type": "GeoCoordinates",
-    latitude: siteConfig.geo.lat,
-    longitude: siteConfig.geo.lng,
+    "@type": "PostalAddress",
+    streetAddress: o.street,
+    addressLocality: o.city,
+    addressRegion: o.region,
+    postalCode: o.postalCode,
+    addressCountry: "US",
   };
 }
 
 function openingHours(): OpeningHoursSpecification[] | undefined {
-  // Do not assert hours we haven't confirmed.
-  if (!siteConfig.hoursConfirmed) return undefined;
-  const h = siteConfig.hours;
-  const specs: OpeningHoursSpecification[] = [
+  // Do not assert hours we haven't confirmed. Confirmed 2026-08-24: 24/7.
+  if (!siteConfig.hoursConfirmed || !siteConfig.hours.open247) return undefined;
+  return [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: h.weekdays.opens,
-      closes: h.weekdays.closes,
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
     },
   ];
-  if (!h.sundayClosed || h.saturday) {
-    specs.push({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday"],
-      opens: h.saturday.opens,
-      closes: h.saturday.closes,
-    });
-  }
-  return specs;
 }
 
-/** Core LocalBusiness (HomeAndConstructionBusiness subtype). */
-export function localBusinessSchema(): WithContext<HomeAndConstructionBusiness> {
-  const sameAs = Object.values(siteConfig.social).filter(Boolean) as string[];
-  const hours = openingHours();
+const KNOWS_ABOUT = [
+  "Locksmith services",
+  "Emergency locksmith",
+  "Intercom systems",
+  "Buzzer systems",
+  "Access control",
+  "Electric strikes",
+  "Magnetic locks",
+  "Card and fob readers",
+  "CCTV",
+  "Security cameras",
+  "Master key systems",
+  "High-security locks",
+  "Panic hardware",
+  "Security systems",
+  "Door repair",
+  "Commercial storefront doors",
+] as const;
 
-  const schema: WithContext<HomeAndConstructionBusiness> = {
+/** The single parent Organization node — the brand itself. */
+export function organizationSchema(): WithContext<Organization> {
+  const sameAs = [
+    ...(Object.values(siteConfig.social).filter(Boolean) as string[]),
+    ...siteConfig.otherProfiles.map((p) => p.url),
+  ];
+  const schema: WithContext<Organization> = {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
+    "@type": "Organization",
     "@id": ORG_ID,
     name: siteConfig.name,
+    legalName: siteConfig.legalName,
     description: siteConfig.description,
     url: siteConfig.url,
     telephone: `+1${siteConfig.phone.digits}`,
     email: emailAddress("general"),
-    image: absoluteUrl("/og.jpg"),
-    address: postalAddress(),
-    geo: geo(),
-    areaServed: [...siteConfig.serviceArea],
-    knowsAbout: [
-      "Locksmith services",
-      "Emergency locksmith",
-      "Access control",
-      "Intercom systems",
-      "Electric strikes",
-      "Magnetic locks",
-      "Buzzer systems",
-      "CCTV",
-      "Master key systems",
-      "Security systems",
-      "Door repair",
-      "Door installation",
-      "Commercial storefront doors",
-    ],
-    // priceRange is a coarse signal Google expects for LocalBusiness.
-    priceRange: "$$",
+    logo: absoluteUrl("/og.jpg"),
   };
-
-  if (hours) schema.openingHoursSpecification = hours;
   if (sameAs.length) schema.sameAs = sameAs;
-  // NOTE: aggregateRating intentionally omitted — wired only from live GBP data.
-
   return schema;
+}
+
+/**
+ * One physical office as ["Locksmith","LocalBusiness"] with its OWN phone,
+ * geo, hours, photos and map link, tied to the parent Organization.
+ * `image` is only emitted once real office photos exist — never stock.
+ */
+export function officeSchema(o: Office): WithContext<LocalBusiness> {
+  const hours = openingHours();
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": ["Locksmith", "LocalBusiness"],
+    "@id": officeId(o),
+    name: `${siteConfig.name} — ${o.shortLabel}`,
+    description: o.intro,
+    url: absoluteUrl(`/locations/${o.slug}`),
+    telephone: `+1${o.phone.digits}`,
+    email: emailAddress("general"),
+    address: officePostalAddress(o),
+    geo: { "@type": "GeoCoordinates", latitude: o.geo.lat, longitude: o.geo.lng },
+    hasMap: o.hasMap,
+    areaServed: [...siteConfig.serviceArea],
+    knowsAbout: [...KNOWS_ABOUT],
+    priceRange: "$$",
+    parentOrganization: { "@id": ORG_ID },
+  } as unknown as WithContext<LocalBusiness> & Record<string, unknown>;
+
+  if (o.photos.length) schema.image = o.photos.map((p) => absoluteUrl(p.src));
+  if (hours) schema.openingHoursSpecification = hours;
+  // NOTE: aggregateRating intentionally omitted — wired only from live GBP data.
+  return schema;
+}
+
+/** Homepage graph: the Organization + BOTH office nodes. */
+export function businessGraphSchemas(): (WithContext<Organization> | WithContext<LocalBusiness>)[] {
+  return [organizationSchema(), ...offices.map(officeSchema)];
+}
+
+/**
+ * @deprecated Replaced by businessGraphSchemas()/officeSchema(). Kept only so
+ * stray imports fail loudly in review rather than silently emitting the old
+ * single-location HomeAndConstructionBusiness node.
+ */
+export function localBusinessSchema(): never {
+  throw new Error("localBusinessSchema() was replaced by businessGraphSchemas() — 2026-08-24");
 }
 
 /** Service schema for a single brand landing page (e.g. Mul-T-Lock installation). */
@@ -125,7 +178,7 @@ export function brandSchema(brand: SupplierBrand & { page: BrandPage }): WithCon
     serviceType: `${brand.name} installation and repair`,
     brand: { "@type": "Brand", name: brand.name },
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
       "@id": ORG_ID,
       name: siteConfig.name,
       telephone: `+1${siteConfig.phone.digits}`,
@@ -145,7 +198,7 @@ export function serviceSchema(service: Service): WithContext<ServiceSchema> {
     description: service.metaDescription,
     serviceType: service.title,
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
       "@id": ORG_ID,
       name: siteConfig.name,
       telephone: `+1${siteConfig.phone.digits}`,
@@ -153,38 +206,6 @@ export function serviceSchema(service: Service): WithContext<ServiceSchema> {
     },
     areaServed: [...siteConfig.serviceArea],
     url: absoluteUrl(`/services/${service.slug}`),
-  };
-}
-
-/**
- * Service schema for a single local-service × neighborhood keyword page
- * (/service-areas/[hub]/[city]/[service]). Distinct from serviceSchema() above
- * (which describes the general /services/[slug] page) -- this one scopes
- * areaServed to the specific neighborhood/city rather than the whole phase-1
- * area, which is the more precise, correct signal for a page about doing this
- * exact service in this exact place.
- */
-export function localServiceAreaSchema(params: {
-  serviceName: string;
-  description: string;
-  areaName: string; // e.g. "Williamsburg, Brooklyn"
-  path: string; // e.g. "/service-areas/brooklyn/williamsburg/door-repair"
-}): WithContext<ServiceSchema> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: params.serviceName,
-    description: params.description,
-    serviceType: params.serviceName,
-    provider: {
-      "@type": "HomeAndConstructionBusiness",
-      "@id": ORG_ID,
-      name: siteConfig.name,
-      telephone: `+1${siteConfig.phone.digits}`,
-      address: postalAddress(),
-    },
-    areaServed: { "@type": "Place", name: params.areaName },
-    url: absoluteUrl(params.path),
   };
 }
 
@@ -205,12 +226,12 @@ export function blogPostingSchema(params: {
     url: absoluteUrl(params.path),
     mainEntityOfPage: absoluteUrl(params.path),
     author: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
       "@id": ORG_ID,
       name: siteConfig.name,
     },
     publisher: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
       "@id": ORG_ID,
       name: siteConfig.name,
     },
