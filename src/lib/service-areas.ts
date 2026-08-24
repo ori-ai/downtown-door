@@ -823,6 +823,18 @@ const INDEXED_NEIGHBORHOODS: Record<string, string[]> = {
   ],
 };
 
+/**
+ * REVERIFICATION MODE (2026-08-24, Ori): only the boroughs where the offices
+ * physically are get INDEXED hub pages. Queens/Bronx/SI hubs still render
+ * (honest dispatch coverage) but are noindex + out of the sitemap until the
+ * GBP listings are reinstated.
+ */
+export const INDEXED_HUBS = ["brooklyn", "manhattan"] as const;
+
+export function isIndexedHub(hubSlug: string): boolean {
+  return (INDEXED_HUBS as readonly string[]).includes(hubSlug);
+}
+
 export function isIndexedNeighborhood(hubSlug: string, neighborhoodSlug: string): boolean {
   return INDEXED_NEIGHBORHOODS[hubSlug]?.includes(neighborhoodSlug) ?? false;
 }

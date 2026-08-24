@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MapPin, Clock, ArrowRight } from "lucide-react";
 
-import { areaHubs, getHub, indexedNeighborhoodsOf } from "@/lib/service-areas";
+import { areaHubs, getHub, indexedNeighborhoodsOf, isIndexedHub } from "@/lib/service-areas";
 import { services } from "@/lib/services";
 import { absoluteUrl } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
@@ -41,6 +41,9 @@ export async function generateMetadata({
   return {
     title: `Locksmith & Security Systems in ${hub.name} | Also Door Repair`,
     description: `Locksmith, security systems, access control, and door repair across ${hub.name}. Fast, reliable local service.`,
+    // REVERIFICATION MODE: only Brooklyn + Manhattan hubs are indexed while
+    // the GBP listings are under review (see INDEXED_HUBS).
+    ...(isIndexedHub(hub.slug) ? {} : { robots: { index: false, follow: true } }),
     alternates: { canonical: `/service-areas/${hub.slug}` },
     openGraph: { url: absoluteUrl(`/service-areas/${hub.slug}`) },
   };

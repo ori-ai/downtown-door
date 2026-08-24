@@ -35,8 +35,19 @@ export const siteConfig = {
   url: SITE_URL,
 
   // --- Phone -----------------------------------------------------------------
+  // ⚠️ REVERIFICATION MODE (Ori, 2026-08-24): while the GBP listings are under
+  // suspension/verification review, the site shows ONLY real office numbers.
+  // `phone` (the global surface every component renders) = the Williamsburg
+  // MAIN OFFICE line, which is the number Leonard St's GBP is verifying under.
+  // The Dori AI line is parked in `doriLine` below — to restore it sitewide
+  // after reinstatement, swap `phone` back to `doriLine`'s values.
   phone: {
-    digits: PHONE_DIGITS,
+    digits: "3475194918",
+    display: "(347) 519-4918",
+    href: "tel:+13475194918",
+  },
+  doriLine: {
+    digits: PHONE_DIGITS, // 3478518615 — 24/7 AI reception, restore post-reinstatement
     display: "(347) 851-8615",
     href: `tel:+1${PHONE_DIGITS}`,
   },
@@ -150,16 +161,16 @@ export const siteConfig = {
   // requirement — schema/GBP must agree). Brooklyn/Manhattan/Queens/the Bronx/
   // Staten Island have dedicated neighborhood pages (src/lib/service-areas.ts);
   // the four counties are dispatch-only for now (no dedicated pages yet).
+  // REVERIFICATION MODE: schema claims exactly what the GBPs claim — the five
+  // boroughs only. Counties (Westchester/Rockland/Nassau/Bergen NJ) removed
+  // from ALL structured data 2026-08-24 per Ori; dispatch there continues by
+  // request, it's just not asserted to Google.
   serviceArea: [
     "Brooklyn",
     "Manhattan",
     "Queens",
     "The Bronx",
     "Staten Island",
-    "Westchester County",
-    "Rockland County",
-    "Nassau County",
-    "Bergen County, NJ",
   ] as const,
 
   // --- Social ----------------------------------------------------------------

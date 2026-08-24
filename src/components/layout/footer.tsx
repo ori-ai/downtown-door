@@ -43,17 +43,13 @@ export function Footer() {
               institutions across the five boroughs.
             </p>
 
-            {/* ONE brand number in the global footer. Each office's direct line
-                lives only on its /locations page (see README phone mapping). */}
             <address className="mt-6 space-y-2 text-sm not-italic text-body">
-              <a href={siteConfig.phone.href} className="flex items-center gap-2 hover:text-brand-700">
-                <Phone className="h-4 w-4 text-brand-600" aria-hidden />
-                {siteConfig.phone.display}
-              </a>
               <a href={`mailto:${emailAddress("general")}`} className="flex items-center gap-2 hover:text-brand-700">
                 <Mail className="h-4 w-4 text-brand-600" aria-hidden />
                 {emailAddress("general")}
               </a>
+              {/* REVERIFICATION MODE: each office listed with ITS OWN line —
+                  the exact NAP each GBP carries. */}
               {offices.map((o) => (
                 <span key={o.slug} className="flex items-start gap-2 pt-1.5">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden />
@@ -64,6 +60,9 @@ export function Footer() {
                     <Link href={`/locations/${o.slug}`} className="hover:text-brand-700">
                       {officeAddress(o)}
                     </Link>
+                    <a href={o.phone.href} className="block hover:text-brand-700">
+                      {o.phone.display}
+                    </a>
                   </span>
                 </span>
               ))}

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { services } from "@/lib/services";
-import { publishedHubs, allPublishedNeighborhoods } from "@/lib/service-areas";
+import { publishedHubs, allPublishedNeighborhoods, isIndexedHub } from "@/lib/service-areas";
 import { posts } from "@/lib/blog";
 import { brandPages } from "@/lib/brands";
 
@@ -46,7 +46,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const b of brandPages) {
     entries.push({ url: url(`/brands/${b.page.slug}`), changeFrequency: "monthly", priority: 0.6 });
   }
-  for (const h of publishedHubs) {
+  // REVERIFICATION MODE: only indexed hubs (Brooklyn + Manhattan) are listed.
+  for (const h of publishedHubs.filter((x) => isIndexedHub(x.slug))) {
     entries.push({ url: url(`/service-areas/${h.slug}`), changeFrequency: "monthly", priority: 0.7 });
   }
   // Only genuinely serviced, individually differentiated neighborhoods —

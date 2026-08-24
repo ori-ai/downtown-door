@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
 
-import { siteConfig } from "@/lib/site";
+import { offices } from "@/lib/locations";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
 import { Parallax } from "@/components/motion/scroll-fx";
@@ -75,14 +75,23 @@ export function Hero() {
               Request your on-site quote
               <ArrowRight className="h-4.5 w-4.5" aria-hidden />
             </Link>
-            {/* ONE brand number sitewide — office lines live on /locations pages */}
-            <a
-              href={siteConfig.phone.href}
-              className={buttonVariants({ variant: "outline", size: "lg", className: "justify-center border-white/25 bg-[#0a1330]/40 text-ink backdrop-blur-sm hover:bg-brand-900/60" })}
-            >
-              <Phone className="h-4.5 w-4.5" aria-hidden />
-              {siteConfig.phone.display}
-            </a>
+            {/* REVERIFICATION MODE: both real office lines, labeled by office —
+                the numbers each GBP listing is verified/verifying under. */}
+            {offices.map((o) => (
+              <a
+                key={o.slug}
+                href={o.phone.href}
+                className={buttonVariants({ variant: "outline", size: "lg", className: "justify-center border-white/25 bg-[#0a1330]/40 text-ink backdrop-blur-sm hover:bg-brand-900/60" })}
+              >
+                <Phone className="h-4.5 w-4.5" aria-hidden />
+                <span>
+                  {o.phone.display}
+                  <span className="ml-2 hidden text-xs font-semibold uppercase tracking-wide text-brand-300 sm:inline">
+                    {o.shortLabel}
+                  </span>
+                </span>
+              </a>
+            ))}
           </div>
 
           <ul className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/15 pt-6 text-sm">

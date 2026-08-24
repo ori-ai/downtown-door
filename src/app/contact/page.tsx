@@ -18,9 +18,10 @@ export const metadata: Metadata = {
   openGraph: { url: absoluteUrl("/contact") },
 };
 
-// place_id ties the embed to the actual verified GBP listing pin, not a
-// geocoded guess from the address string.
-const mapSrc = `https://www.google.com/maps?q=place_id:${siteConfig.reviews.googlePlaceId}&output=embed`;
+// REVERIFICATION MODE (2026-08-24): plain-address embed, deliberately NOT tied
+// to a GBP place id while the listings are in suspension/verification review.
+// Restore the place_id embed once both listings are live again.
+const mapSrc = "https://www.google.com/maps?q=" + encodeURIComponent("232 Leonard St, Brooklyn, NY 11211") + "&output=embed";
 
 export default async function ContactPage({
   searchParams,
@@ -79,14 +80,6 @@ export default async function ContactPage({
                 <h2 className="text-lg font-bold text-ink">Reach us directly</h2>
                 <ul className="mt-4 space-y-3 text-sm">
                   <li>
-                    <a href={siteConfig.phone.href} className="flex items-center gap-2.5 text-body hover:text-brand-700">
-                      <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-950/60 text-brand-300">
-                        <Phone className="h-4.5 w-4.5" aria-hidden />
-                      </span>
-                      <span className="font-semibold">{siteConfig.phone.display}</span>
-                    </a>
-                  </li>
-                  <li>
                     <a href={`mailto:${emailAddress("general")}`} className="flex items-center gap-2.5 text-body hover:text-brand-700">
                       <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-950/60 text-brand-300">
                         <Mail className="h-4.5 w-4.5" aria-hidden />
@@ -104,6 +97,9 @@ export default async function ContactPage({
                           {o.role === "main" ? "Main Office — Williamsburg" : "Brooklyn Heights Office — the original"}
                         </span>
                         {officeAddress(o)}
+                        <a href={o.phone.href} className="block font-semibold hover:text-brand-700">
+                          {o.phone.display}
+                        </a>
                         <Link href={`/locations/${o.slug}`} className="block font-semibold text-brand-700 hover:text-brand-800">
                           Office page, map & walk-in details →
                         </Link>
@@ -160,7 +156,7 @@ export default async function ContactPage({
             className="h-full w-full border-0"
           />
           <a
-            href={siteConfig.gbpMapsUri}
+            href={"https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Downtown Door Repair & Security, 232 Leonard St, Brooklyn, NY 11211")}
             target="_blank"
             rel="noopener noreferrer"
             className="absolute bottom-4 right-4 rounded-lg border border-line bg-surface/95 px-4 py-2 text-sm font-medium text-ink shadow-lg backdrop-blur transition hover:bg-brand-600 hover:text-white"

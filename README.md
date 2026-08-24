@@ -78,7 +78,15 @@ content, NAP/phone confirmation, and the Search Console launch steps.
 One brand number globally; each office's direct line appears ONLY on its own
 location page and in its own schema node. Never show three numbers on one page.
 
-| Number | Role | Where it appears |
+**⚠️ REVERIFICATION MODE ACTIVE (2026-08-24):** while the GBP listings are under
+review, the Dori line is HIDDEN sitewide (`siteConfig.doriLine`, parked). Global
+surfaces show the Williamsburg main-office line; hero/footer/contact show both
+office lines labeled. Queens/Bronx/SI hubs are noindex; counties removed from
+schema areaServed. Restore checklist post-reinstatement: swap `siteConfig.phone`
+back to `doriLine`, restore INDEXED_HUBS to all five, re-add counties, re-tie
+contact map to the GBP place id.
+
+| Number | Role | Where it appears (normal mode) |
 |---|---|---|
 | (347) 851-8615 | Brand line (Dori AI reception, 24/7) | Global header, footer, CTAs, forms, Organization schema |
 | (347) 514-8770 | 170 Hicks St — Brooklyn Heights office (original; matches that GBP) | `/locations/brooklyn-heights-170-hicks-st` + its `Locksmith` schema node only |
