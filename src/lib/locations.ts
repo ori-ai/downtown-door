@@ -85,7 +85,24 @@ export const offices: Office[] = [
       "Metered street parking on Hicks St and nearby blocks",
       "Paid garages around Cadman Plaza and Court St",
     ],
-    photos: [], // Ori's interior + exterior signage photos → public/images/offices/170-hicks/
+    photos: [
+      {
+        src: "/images/offices/170-hicks/170-hicks-exterior-signage.jpg",
+        alt: "Downtown Door Repair & Security tech at the 170 Hicks St entrance — full business banner with phone and address on the door",
+      },
+      {
+        src: "/images/offices/170-hicks/170-hicks-street-view.jpg",
+        alt: "170 Hicks St from the corner — Hicks St street sign with the office's banners visible on the brownstone",
+      },
+      {
+        src: "/images/offices/170-hicks/170-hicks-interior-banner.jpg",
+        alt: "Inside the Brooklyn Heights office — company banner with NAP over the tool and hardware staging area",
+      },
+      {
+        src: "/images/offices/170-hicks/170-hicks-branded-tool-kit.jpg",
+        alt: "Branded business cards on the DeWalt tool kits that go out on Brooklyn Heights jobs",
+      },
+    ],
     intro:
       "170 Hicks St is where Downtown Door Repair & Security started — a ground-floor, glass-front office in Brooklyn Heights that still takes walk-ins every day. Come in for keys, locks, and hardware, sit down for an estimate or a security design consult, or have a tech dispatched to your building.",
     story:
