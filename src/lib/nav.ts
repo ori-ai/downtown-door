@@ -49,14 +49,7 @@ export const mainNav: NavGroup[] = [
     href: "/service-areas",
     children: publishedHubs.map((h) => ({ label: h.name, href: `/service-areas/${h.slug}` })),
   },
-  {
-    label: "Locations",
-    href: "/locations",
-    children: [
-      { label: "Brooklyn Heights — 170 Hicks St", href: "/locations/brooklyn-heights-170-hicks-st" },
-      { label: "Williamsburg — 232 Leonard St", href: "/locations/williamsburg-232-leonard-st" },
-    ],
-  },
+  { label: "Visit Us", href: "/locations/west-village-803-greenwich-st" },
   { label: "Brands", href: "/brands", children: brandPages.map((b) => ({ label: b.name, href: `/brands/${b.page.slug}` })) },
   { label: "Gallery", href: "/gallery" },
   { label: "Our Work", href: "/case-studies" },
@@ -89,9 +82,7 @@ export const footerNav: NavGroup[] = [
     href: "/about",
     children: [
       { label: "About Us", href: "/about" },
-      { label: "Our Locations", href: "/locations" },
-      { label: "Brooklyn Heights — 170 Hicks St", href: "/locations/brooklyn-heights-170-hicks-st" },
-      { label: "Williamsburg — 232 Leonard St", href: "/locations/williamsburg-232-leonard-st" },
+      { label: "Visit Us — 803 Greenwich St", href: "/locations/west-village-803-greenwich-st" },
       { label: "Our Work", href: "/case-studies" },
       { label: "Gallery", href: "/gallery" },
       { label: "Brands", href: "/brands" },

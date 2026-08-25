@@ -25,29 +25,21 @@ export const SITE_URL =
 const PHONE_DIGITS = "3478518615";
 
 export const siteConfig = {
-  name: "Downtown Door Repair & Security",
-  shortName: "Downtown Door Repair",
+  name: "Downtown Locksmith & Security Intercoms", // brand renamed by Ori 2026-08-25 (matches storefront sign)
+  shortName: "Downtown Locksmith",
   legalName: "Downtown Door Repair & Security INC", // EIN-backed entity name (Ori, 2026-08-24)
-  tagline: "Locksmith, Intercom & Access Control Experts — The Five Boroughs",
+  tagline: "West Village Locksmith, Intercom & Security Systems — Serving All of NYC",
   description:
-    "Downtown Door Repair & Security provides locksmith services, intercom systems, access control, security cameras, and security systems — plus expert door repair — for homeowners, businesses, and institutional clients across the five boroughs. Two walk-in Brooklyn offices, open 24/7.",
+    "Downtown Locksmith & Security Intercoms provides locksmith services, intercom systems, access control, security cameras, and security systems — plus expert door repair — for homeowners, businesses, and institutional clients across NYC — from our West Village storefront at 803 Greenwich St. Open 24/7.",
 
   url: SITE_URL,
 
   // --- Phone -----------------------------------------------------------------
-  // ⚠️ REVERIFICATION MODE (Ori, 2026-08-24): while the GBP listings are under
-  // suspension/verification review, the site shows ONLY real office numbers.
-  // `phone` (the global surface every component renders) = the Williamsburg
-  // MAIN OFFICE line, which is the number Leonard St's GBP is verifying under.
-  // The Dori AI line is parked in `doriLine` below — to restore it sitewide
-  // after reinstatement, swap `phone` back to `doriLine`'s values.
+  // ONE number sitewide (Ori, 2026-08-25): the Dori 24/7 line — the number on
+  // the 803 Greenwich St storefront sign and the GBP. No other number appears
+  // anywhere on the site.
   phone: {
-    digits: "3475194918",
-    display: "(347) 519-4918",
-    href: "tel:+13475194918",
-  },
-  doriLine: {
-    digits: PHONE_DIGITS, // 3478518615 — 24/7 AI reception, restore post-reinstatement
+    digits: PHONE_DIGITS,
     display: "(347) 851-8615",
     href: `tel:+1${PHONE_DIGITS}`,
   },
@@ -70,45 +62,38 @@ export const siteConfig = {
     email: "info@downtowndoorrepairnyc.com",
   },
 
-  // --- Address (MAIN OFFICE — per Ori 2026-08-19; see `locations` for both) ---
+  // --- Address (THE storefront — Ori 2026-08-25: "the only address") ----------
+  // The company relocated to its West Village storefront. This is the ONE
+  // address on the site, matching the sign and the GBP. Prior Brooklyn office
+  // addresses are retired from every page and from schema (GBPs are managed
+  // by Ori directly — the site asserts only 803 Greenwich).
   address: {
-    street: "232 Leonard St",
-    city: "Brooklyn",
+    street: "803 Greenwich St",
+    city: "New York",
     region: "NY",
     regionName: "New York",
-    postalCode: "11211",
+    postalCode: "10014",
     country: "US",
-    neighborhood: "Williamsburg",
+    neighborhood: "West Village",
   },
 
-  // Approximate geo for 232 Leonard St, Williamsburg. // VERIFY exact coords
-  // against the Google Business Profile pin.
+  // Approximate geo for 803 Greenwich St. // VERIFY against the GBP pin.
   geo: {
-    lat: 40.7127,
-    lng: -73.9486,
+    lat: 40.7376,
+    lng: -74.0055,
   },
 
-  // --- Office locations (both offices, each with its own line) ----------------
-  // Rendered wherever locations are listed (footer, contact page). The first
-  // entry is the main office and doubles as `address` above — keep in sync.
+  // --- Office locations ---------------------------------------------------------
+  // ONE location. Rendered wherever locations are listed (footer, contact page).
   locations: [
     {
-      label: "Main Office",
-      street: "232 Leonard St",
-      city: "Brooklyn",
+      label: "West Village Storefront",
+      street: "803 Greenwich St",
+      city: "New York",
       region: "NY",
-      postalCode: "11211",
-      neighborhood: "Williamsburg",
-      phone: { digits: "3475194918", display: "(347) 519-4918", href: "tel:+13475194918" },
-    },
-    {
-      label: "Brooklyn Heights Office",
-      street: "170 Hicks St",
-      city: "Brooklyn",
-      region: "NY",
-      postalCode: "11201",
-      neighborhood: "Brooklyn Heights",
-      phone: { digits: "3475148770", display: "(347) 514-8770", href: "tel:+13475148770" },
+      postalCode: "10014",
+      neighborhood: "West Village",
+      phone: { digits: PHONE_DIGITS, display: "(347) 851-8615", href: `tel:+1${PHONE_DIGITS}` },
     },
   ],
 
@@ -211,7 +196,7 @@ export function emailAddress(box: "general" | "bids" = "general"): string {
   return `${siteConfig.email[box]}@${domain}`;
 }
 
-/** One-line postal address of the main office, e.g. "232 Leonard St, Brooklyn, NY 11211". */
+/** One-line postal address of the storefront, e.g. "803 Greenwich St, New York, NY 10014". */
 export function formattedAddress(): string {
   const a = siteConfig.address;
   return `${a.street}, ${a.city}, ${a.region} ${a.postalCode}`;

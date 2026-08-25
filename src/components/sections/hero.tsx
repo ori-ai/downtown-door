@@ -50,11 +50,11 @@ export function Hero() {
         <div className="max-w-xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-700/60 bg-[#0a1330]/50 px-3 py-1 font-display text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-brand-300 backdrop-blur-sm">
             <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
-            NYC · Since day one
+            803 Greenwich St · West Village · NYC
           </span>
 
           <h1 className="mt-6 font-display text-[1.7rem] font-bold uppercase leading-[1.15] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[2.6rem]">
-            Downtown Door Repair <span className="text-brand-400">&amp; Security</span> - Brooklyn
+            West Village Locksmith <span className="text-brand-400">&amp; Security Systems</span>
           </h1>
 
           <p className="mt-5 font-display text-sm font-medium uppercase tracking-[0.12em] text-brand-100 md:text-base">
@@ -62,9 +62,9 @@ export function Hero() {
           </p>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-body drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
-            Locksmith, security systems, access control, and intercom work across
-            the five boroughs — plus door repair — for homeowners and businesses
-            that need it fast, and institutions that need a vendor they can vet.
+            Walk into our storefront at 803 Greenwich St for keys, high-security locks,
+            and hardware — or have a tech dispatched anywhere in NYC for locksmith,
+            intercom, access-control, camera, and door work. Open 24/7.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -75,8 +75,7 @@ export function Hero() {
               Request your on-site quote
               <ArrowRight className="h-4.5 w-4.5" aria-hidden />
             </Link>
-            {/* REVERIFICATION MODE: both real office lines, labeled by office —
-                the numbers each GBP listing is verified/verifying under. */}
+            {/* THE one number — (347) 851-8615, same as the storefront sign */}
             {offices.map((o) => (
               <a
                 key={o.slug}

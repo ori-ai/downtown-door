@@ -40,7 +40,7 @@ export function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-body">
               Locksmith, intercom systems, access control, cameras, and security
               systems — plus expert door repair — for homes, businesses, and
-              institutions across the five boroughs.
+              institutions across NYC — from our West Village storefront.
             </p>
 
             <address className="mt-6 space-y-2 text-sm not-italic text-body">
@@ -48,14 +48,12 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-brand-600" aria-hidden />
                 {emailAddress("general")}
               </a>
-              {/* REVERIFICATION MODE: each office listed with ITS OWN line —
-                  the exact NAP each GBP carries. */}
               {offices.map((o) => (
                 <span key={o.slug} className="flex items-start gap-2 pt-1.5">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden />
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wide text-muted">
-                      {o.role === "main" ? "Main Office" : "Brooklyn Heights Office — the original"}
+                      West Village Storefront
                     </span>
                     <Link href={`/locations/${o.slug}`} className="hover:text-brand-700">
                       {officeAddress(o)}

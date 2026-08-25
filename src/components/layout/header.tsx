@@ -19,10 +19,10 @@ function Wordmark() {
       </span>
       <span className="flex flex-col leading-none">
         <span className="font-display text-[1.05rem] font-bold tracking-tight text-ink">
-          Downtown Door Repair
+          Downtown Locksmith
         </span>
         <span className="text-[0.7rem] font-medium uppercase tracking-[0.16em] text-muted">
-          &amp; Security
+          &amp; Security Intercoms
         </span>
       </span>
     </Link>

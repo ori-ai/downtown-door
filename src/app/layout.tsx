@@ -32,7 +32,7 @@ const displayFont = Orbitron({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `Brooklyn Locksmith, Intercom & Access Control | ${siteConfig.name}`,
+    default: `West Village Locksmith, Intercom & Security Systems NYC | ${siteConfig.name}`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,

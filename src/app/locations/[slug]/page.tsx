@@ -38,7 +38,7 @@ export async function generateMetadata({
   const office = getOffice(slug);
   if (!office) return {};
   return {
-    title: `${office.shortLabel} Locksmith & Security Office — ${office.street}, Brooklyn`,
+    title: `West Village Locksmith & Security Storefront — ${office.street}, NYC`,
     description: `${siteConfig.name} at ${officeAddress(office)} — ground-floor walk-in office for locksmith, intercom, access control & security work. ${office.phone.display}. Open 24/7.`,
     alternates: { canonical: `/locations/${office.slug}` },
     openGraph: {
@@ -85,7 +85,7 @@ export default async function LocationPage({
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-800 bg-brand-950/50 px-3 py-1 font-display text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-brand-300">
               <MapPin className="h-3.5 w-3.5" aria-hidden />
-              {office.role === "original" ? "The original location" : "Main office"} — walk-ins welcome
+              The storefront — walk-ins welcome
             </span>
             <h1 className="mt-5 font-display text-3xl font-bold uppercase leading-[1.12] tracking-[0.005em] text-ink md:text-5xl">
               {office.shortLabel} Office — {office.street}
@@ -245,7 +245,7 @@ export default async function LocationPage({
                 </Link>
               ))}
             <Link
-              href={`/service-areas/brooklyn/${office.neighborhood.toLowerCase().replace(/ /g, "-")}`}
+              href={`/service-areas/manhattan/${office.neighborhood.toLowerCase().replace(/ /g, "-")}`}
               className="group rounded-2xl border border-line bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300"
             >
               <h3 className="flex items-center gap-2 text-lg font-bold text-ink">

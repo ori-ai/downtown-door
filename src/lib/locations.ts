@@ -1,33 +1,25 @@
 /**
- * The two physical offices — full data for the /locations/* pages and the
- * per-office JSON-LD (schema.ts officeSchema).
+ * THE storefront — data for the single /locations page and the office JSON-LD
+ * (schema.ts officeSchema).
  *
- * PHONE MAPPING (documented in README.md):
- *   (347) 851-8615 — brand line, global header/footer/CTAs sitewide
- *   (347) 514-8770 — 170 Hicks St (Brooklyn Heights) — ONLY on its location
- *                    page + its schema node
- *   (347) 519-4918 — 232 Leonard St (Williamsburg) — ONLY on its location
- *                    page + its schema node
+ * 2026-08-25 (Ori): the company operates from ONE storefront — 803 Greenwich
+ * St, West Village. The prior Brooklyn office pages are removed from the site
+ * and 308 to this page (GBP listings are managed by Ori directly; the site
+ * asserts only this location). ONE phone sitewide: (347) 851-8615.
  *
- * PHOTOS: real interior/exterior photos of each office go in
- * public/images/offices/<dir>/ and are listed in `photos` below with honest
- * alt text. NO STOCK IMAGERY on location pages, ever. Until Ori's photos are
- * dropped in, `photos` stays empty and the page simply omits the gallery —
- * we never fake it.
- *
- * GEO: approximate street-address coordinates — VERIFY against each GBP pin.
+ * GEO: approximate street-address coordinates — VERIFY against the GBP pin.
  */
 
 import { siteConfig } from "./site";
 
 export interface OfficePhoto {
-  src: string; // under /images/offices/
+  src: string;
   alt: string;
 }
 
 export interface Office {
   slug: string; // /locations/<slug>
-  name: string; // display name of this office
+  name: string;
   role: "main" | "original";
   shortLabel: string;
   street: string;
@@ -37,16 +29,12 @@ export interface Office {
   neighborhood: string;
   phone: { digits: string; display: string; href: string };
   geo: { lat: number; lng: number }; // VERIFY against GBP pin
-  /** Google Maps embed + link (address-query embed needs no API key). */
   mapEmbedSrc: string;
   hasMap: string;
-  /** What you can actually do at this ground-floor, walk-in office. */
   walkInServices: string[];
   transitNotes: string[];
   parkingNotes: string[];
-  /** Real photos only — interior + exterior signage. Empty until supplied. */
   photos: OfficePhoto[];
-  /** Unique intro copy for the page. */
   intro: string;
   story: string;
 }
@@ -55,93 +43,46 @@ const q = (addr: string) => encodeURIComponent(addr);
 
 export const offices: Office[] = [
   {
-    slug: "brooklyn-heights-170-hicks-st",
-    name: "Brooklyn Heights Office — 170 Hicks St",
-    role: "original",
-    shortLabel: "Brooklyn Heights",
-    street: "170 Hicks St",
-    city: "Brooklyn",
+    slug: "west-village-803-greenwich-st",
+    name: "West Village Storefront — 803 Greenwich St",
+    role: "main",
+    shortLabel: "West Village",
+    street: "803 Greenwich St",
+    city: "New York",
     region: "NY",
-    postalCode: "11201",
-    neighborhood: "Brooklyn Heights",
-    phone: { digits: "3475148770", display: "(347) 514-8770", href: "tel:+13475148770" },
-    geo: { lat: 40.6972, lng: -73.9939 }, // VERIFY against GBP pin
-    mapEmbedSrc: `https://www.google.com/maps?q=${q("170 Hicks St, Brooklyn, NY 11201")}&output=embed`,
-    hasMap: `https://www.google.com/maps/search/?api=1&query=${q("Downtown Door Repair & Security, 170 Hicks St, Brooklyn, NY 11201")}`,
+    postalCode: "10014",
+    neighborhood: "West Village",
+    phone: { ...siteConfig.phone },
+    geo: { lat: 40.7376, lng: -74.0055 }, // VERIFY against GBP pin
+    mapEmbedSrc: `https://www.google.com/maps?q=${q("803 Greenwich St, New York, NY 10014")}&output=embed`,
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${q("803 Greenwich St, New York, NY 10014")}`,
     walkInServices: [
       "Walk-in service — no appointment needed",
-      "Key cutting and duplication at the counter",
-      "Lock, cylinder & hardware pickup",
-      "Free in-office estimates",
-      "Security & access-control design consults",
-      "Tech dispatch for on-site jobs",
+      "We make keys — cutting & duplication at the counter",
+      "High-security locks & hardware off the shelf (Mul-T-Lock dealer)",
+      "Intercom & access-control design consults",
+      "Free in-store estimates",
+      "24/7 tech dispatch across NYC",
     ],
     transitNotes: [
-      "Clark St station (2/3) — about a block away at Clark & Henry",
-      "Borough Hall (2/3/4/5) and Court St (R) — short walk",
-      "High St–Brooklyn Bridge (A/C) at Cadman Plaza",
+      "8 Av (L) and 14 St (A/C/E) stations nearby",
+      "14 St / 7 Av (1/2/3) a short walk east",
+      "Christopher St PATH about ten minutes south",
     ],
     parkingNotes: [
-      "Metered street parking on Hicks St and nearby blocks",
-      "Paid garages around Cadman Plaza and Court St",
+      "Metered street parking on Greenwich St and nearby blocks",
+      "Paid garages along West St and around 14th St",
     ],
     photos: [
       {
-        src: "/images/offices/170-hicks/170-hicks-exterior-signage.jpg",
-        alt: "Downtown Door Repair & Security tech at the 170 Hicks St entrance — full business banner with phone and address on the door",
-      },
-      {
-        src: "/images/offices/170-hicks/170-hicks-street-view.jpg",
-        alt: "170 Hicks St from the corner — Hicks St street sign with the office's banners visible on the brownstone",
-      },
-      {
-        src: "/images/offices/170-hicks/170-hicks-interior-banner.jpg",
-        alt: "Inside the Brooklyn Heights office — company banner with NAP over the tool and hardware staging area",
-      },
-      {
-        src: "/images/offices/170-hicks/170-hicks-branded-tool-kit.jpg",
-        alt: "Branded business cards on the DeWalt tool kits that go out on Brooklyn Heights jobs",
+        src: "/images/offices/west-village/803-greenwich-storefront.jpg",
+        alt: "The Downtown storefront at 803 Greenwich St, West Village — locksmith, intercom & security systems, open 24/7",
       },
     ],
     intro:
-      "170 Hicks St is where Downtown Door Repair & Security started — a ground-floor, glass-front office in Brooklyn Heights that still takes walk-ins every day. Come in for keys, locks, and hardware, sit down for an estimate or a security design consult, or have a tech dispatched to your building.",
+      "803 Greenwich St in the West Village is our storefront — a ground-floor shop where you can walk in for keys, high-security locks, and hardware, sit down for an intercom or access-control consult, or have a tech dispatched anywhere in NYC. Open 24/7, one number: (347) 851-8615.",
     story:
-      "This is the original location. Brooklyn Heights' brownstones, pre-war co-ops, and small storefronts shaped the trade we lead with today: locksmith work, intercom entry, and access control, with door repair as the supporting craft.",
-  },
-  {
-    slug: "williamsburg-232-leonard-st",
-    name: "Williamsburg Office — 232 Leonard St",
-    role: "main",
-    shortLabel: "Williamsburg",
-    street: "232 Leonard St",
-    city: "Brooklyn",
-    region: "NY",
-    postalCode: "11211",
-    neighborhood: "Williamsburg",
-    phone: { digits: "3475194918", display: "(347) 519-4918", href: "tel:+13475194918" },
-    geo: { lat: 40.7146, lng: -73.9503 }, // VERIFY against GBP pin
-    mapEmbedSrc: `https://www.google.com/maps?q=${q("232 Leonard St, Brooklyn, NY 11211")}&output=embed`,
-    hasMap: `https://www.google.com/maps/search/?api=1&query=${q("Downtown Door Repair & Security, 232 Leonard St, Brooklyn, NY 11211")}`,
-    walkInServices: [
-      "Walk-in service — no appointment needed",
-      "Key cutting and duplication at the counter",
-      "Lock, cylinder & hardware pickup",
-      "Free in-office estimates",
-      "Security & access-control design consults",
-      "Tech dispatch — main dispatch hub for North Brooklyn",
-    ],
-    transitNotes: [
-      "Graham Ave (L) and Metropolitan Av–Lorimer St (G) stations nearby",
-      "B43 and B48 buses run close to Leonard St",
-    ],
-    parkingNotes: [
-      "Street parking on Leonard St and surrounding blocks (metered and alternate-side)",
-    ],
-    photos: [], // Ori's interior + exterior signage photos → public/images/offices/232-leonard/
-    intro:
-      "232 Leonard St in Williamsburg is our main office — a ground-floor, glass-door location that handles walk-ins, estimates, hardware pickups, design consults, and the bulk of our dispatch. If you're in North Brooklyn, this is the office nearest you.",
-    story:
-      "Opened after the original Brooklyn Heights office to keep up with North Brooklyn's converted lofts, multi-family buildings, and storefronts, Williamsburg is now the operational hub — same trade, same license, second front door.",
+      "The trade was built in Brooklyn — locksmith work, intercom entry, and access control for brownstones, co-ops, and storefronts — and now operates from its West Village home. Same licensed company (NYC DCWP #2109597), same crew, one front door.",
   },
 ];
 
@@ -154,5 +95,5 @@ export function officeAddress(o: Office): string {
   return `${o.street}, ${o.city}, ${o.region} ${o.postalCode}`;
 }
 
-/** Hours are shared by both offices (single hours story sitewide). */
+/** Hours are shared (single hours story sitewide). */
 export const officeHours = siteConfig.hours;

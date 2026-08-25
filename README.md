@@ -73,27 +73,16 @@ docs/
 See **[docs/human-todo.md](docs/human-todo.md)** — domain, API keys, real
 content, NAP/phone confirmation, and the Search Console launch steps.
 
-## Phone number mapping (LOCKED — 2026-08-24 remediation)
+## NAP (LOCKED — 2026-08-25 relocation)
 
-One brand number globally; each office's direct line appears ONLY on its own
-location page and in its own schema node. Never show three numbers on one page.
+**ONE storefront, ONE number, sitewide:**
 
-**⚠️ REVERIFICATION MODE ACTIVE (2026-08-24):** while the GBP listings are under
-review, the Dori line is HIDDEN sitewide (`siteConfig.doriLine`, parked). Global
-surfaces show the Williamsburg main-office line; hero/footer/contact show both
-office lines labeled. Queens/Bronx/SI hubs are noindex; counties removed from
-schema areaServed. Restore checklist post-reinstatement: swap `siteConfig.phone`
-back to `doriLine`, restore INDEXED_HUBS to all five, re-add counties, re-tie
-contact map to the GBP place id.
+- **Address:** 803 Greenwich St, New York, NY 10014 (West Village) — the ONLY address on the site and in schema.
+- **Phone:** (347) 851-8615 (Dori 24/7 AI reception) — the ONLY number on the site, matching the storefront sign and GBP.
+- **Email:** office@downtowndoorsandsecurity.com.
+- **Hours:** Open 24/7 (single story sitewide).
 
-| Number | Role | Where it appears (normal mode) |
-|---|---|---|
-| (347) 851-8615 | Brand line (Dori AI reception, 24/7) | Global header, footer, CTAs, forms, Organization schema |
-| (347) 514-8770 | 170 Hicks St — Brooklyn Heights office (original; matches that GBP) | `/locations/brooklyn-heights-170-hicks-st` + its `Locksmith` schema node only |
-| (347) 519-4918 | 232 Leonard St — Williamsburg main office (matches that GBP) | `/locations/williamsburg-232-leonard-st` + its `Locksmith` schema node only |
-
-Source of truth: `src/lib/site.ts` (brand) + `src/lib/locations.ts` (offices).
-Email: `office@downtowndoorsandsecurity.com` everywhere — the old
-`info@downtowndoorrepairnyc.com` is retired sitewide.
-Hours (confirmed by Ori 2026-08-24): **Open 24/7** — the single story for site,
-location pages, and all schema.
+The prior Brooklyn office pages (170 Hicks St, 232 Leonard St) are removed and
+308 to /locations/west-village-803-greenwich-st. Their GBP listings are managed
+by Ori directly — the site asserts only 803 Greenwich. Source of truth:
+`src/lib/site.ts` + `src/lib/locations.ts`.

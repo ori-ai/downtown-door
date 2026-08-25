@@ -10,7 +10,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 export const metadata: Metadata = {
   title: "Service Areas — NYC Locksmith & Security Systems",
   description:
-    "Downtown Door Repair & Security serves all five NYC boroughs with neighborhood-level locksmith, security-system, and door repair service, plus Westchester, Rockland, and Nassau counties, and Bergen County, NJ, by request.",
+    "Downtown Locksmith & Security Intercoms serves all five NYC boroughs with neighborhood-level locksmith, security-system, and door repair service, plus Westchester, Rockland, and Nassau counties, and Bergen County, NJ, by request.",
   alternates: { canonical: "/service-areas" },
   openGraph: { url: absoluteUrl("/service-areas") },
 };

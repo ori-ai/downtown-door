@@ -14,7 +14,7 @@ import { MotionReveal, MotionStagger, MotionStaggerItem } from "@/components/mot
 export const metadata: Metadata = {
   title: "Our Work — Commercial Clients",
   description:
-    "Real commercial clients Downtown Door Repair & Security has worked with across the five boroughs — storefront doors, security cameras, lock rekeys, gate repair, and intercom systems.",
+    "Real commercial clients Downtown Locksmith & Security Intercoms has worked with across the five boroughs — storefront doors, security cameras, lock rekeys, gate repair, and intercom systems.",
   alternates: { canonical: "/case-studies" },
   openGraph: { url: absoluteUrl("/case-studies") },
 };

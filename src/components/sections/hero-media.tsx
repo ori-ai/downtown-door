@@ -23,6 +23,15 @@ const CROSSFADE_MS = 1500;
  * whole 11s source is a static, distant, low-visibility shot — no trim of
  * it reads well as hero content, so it's out rather than forced in.
  */
+// The West Village storefront — Ori's pick (2026-08-25) for the opening hero
+// frame on every device, shown before any video starts.
+const STOREFRONT_803: PhotoSlide = {
+  type: "photo",
+  src: "/images/offices/west-village/803-greenwich-storefront.jpg",
+  label: "803 Greenwich St — West Village storefront",
+  dwellMs: 5200,
+};
+
 const ACCESS_STRIKE: PhotoSlide = {
   type: "photo",
   src: "/images/real/final_access-strike-install.jpg",
@@ -86,11 +95,11 @@ const KEYS_HANDFUL: PhotoSlide = {
 // opens on the glass-door install video instead, per the owner's review —
 // everything past index 0 is already lazy either way.
 const MOBILE_SLIDES: Slide[] = [
-  ACCESS_STRIKE, GLASS_DOOR_VIDEO, GLASS_HANDLE,
+  STOREFRONT_803, ACCESS_STRIKE, GLASS_DOOR_VIDEO, GLASS_HANDLE,
   TOOLS_FLATLAY, KEYPAD_VIDEO, GATE_WIRING, WAREHOUSE, KEYS_HANDFUL,
 ];
 const DESKTOP_SLIDES: Slide[] = [
-  GLASS_DOOR_VIDEO, ACCESS_STRIKE, GLASS_HANDLE,
+  STOREFRONT_803, GLASS_DOOR_VIDEO, ACCESS_STRIKE, GLASS_HANDLE,
   TOOLS_FLATLAY, KEYPAD_VIDEO, GATE_WIRING, WAREHOUSE, KEYS_HANDFUL,
 ];
 

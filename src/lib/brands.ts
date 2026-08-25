@@ -57,12 +57,12 @@ export const supplierBrands: SupplierBrand[] = [
     name: "Mul-T-Lock",
     page: {
       slug: "mul-t-lock",
-      metaTitle: "Mul-T-Lock Installation & Rekeying in Five Boroughs | Downtown Doors",
+      metaTitle: "Mul-T-Lock Installation & Rekeying in Five Boroughs | Downtown Locksmith",
       metaDescription:
         "Mul-T-Lock high-security cylinder installation, rekeying, and key control for homes and businesses across the five boroughs — pick-resistant, patented-key hardware.",
       category: "locksmith",
       answerFirst:
-        "Downtown Door Repair & Security installs and services Mul-T-Lock high-security hardware — pick-resistant cylinders, interchangeable-core systems, and patented key control that stops unauthorized key duplication at the hardware store. We stock Mul-T-Lock hardware and carry it on the truck for same-visit installs and rekeys.",
+        "Downtown Locksmith & Security Intercoms installs and services Mul-T-Lock high-security hardware — pick-resistant cylinders, interchangeable-core systems, and patented key control that stops unauthorized key duplication at the hardware store. We stock Mul-T-Lock hardware and carry it on the truck for same-visit installs and rekeys.",
       whatWeService: [
         "High-security cylinder installation and upgrades for existing doors",
         "Rekeying to Mul-T-Lock so old keys stop working immediately",
@@ -86,12 +86,12 @@ export const supplierBrands: SupplierBrand[] = [
     name: "Schlage",
     page: {
       slug: "schlage",
-      metaTitle: "Schlage Lock Installation & Repair in Five Boroughs | Downtown Doors",
+      metaTitle: "Schlage Lock Installation & Repair in Five Boroughs | Downtown Locksmith",
       metaDescription:
         "Schlage deadbolt, lever, and smart lock installation, repair, and rekeying for homes and businesses across the five boroughs.",
       category: "locksmith",
       answerFirst:
-        "Downtown Door Repair & Security installs, repairs, and rekeys Schlage locks — deadbolts, levers, and smart/keyless models — for residential and commercial doors across the five boroughs. We carry Schlage cylinders and key blanks on the truck for same-visit work.",
+        "Downtown Locksmith & Security Intercoms installs, repairs, and rekeys Schlage locks — deadbolts, levers, and smart/keyless models — for residential and commercial doors across the five boroughs. We carry Schlage cylinders and key blanks on the truck for same-visit work.",
       whatWeService: [
         "Deadbolt and lever installation, residential and commercial",
         "Rekeying existing Schlage locks",
@@ -115,12 +115,12 @@ export const supplierBrands: SupplierBrand[] = [
     name: "ENFORCER",
     page: {
       slug: "enforcer",
-      metaTitle: "ENFORCER Panic Bar & Exit Device Installation | Downtown Doors",
+      metaTitle: "ENFORCER Panic Bar & Exit Device Installation | Downtown Locksmith",
       metaDescription:
         "ENFORCER panic bar and exit device installation and repair for commercial doors across the five boroughs — code-required push-bar hardware.",
       category: "security",
       answerFirst:
-        "Downtown Door Repair & Security installs and repairs ENFORCER panic bars and exit devices — the push-bar hardware required on many commercial and assembly exits so occupants can get out instantly in an emergency, no key or knowledge needed.",
+        "Downtown Locksmith & Security Intercoms installs and repairs ENFORCER panic bars and exit devices — the push-bar hardware required on many commercial and assembly exits so occupants can get out instantly in an emergency, no key or knowledge needed.",
       whatWeService: [
         "Exit device installation on commercial and assembly-occupancy doors",
         "Repair of panic bars that stick, don't latch, or fail to release",
@@ -144,12 +144,12 @@ export const supplierBrands: SupplierBrand[] = [
     name: "Rosslare",
     page: {
       slug: "rosslare",
-      metaTitle: "Rosslare Access Control & Card Reader Installation | Downtown Doors",
+      metaTitle: "Rosslare Access Control & Card Reader Installation | Downtown Locksmith",
       metaDescription:
         "Rosslare card reader and keypad access-control installation for offices and multi-unit buildings across the five boroughs.",
       category: "security",
       answerFirst:
-        "Downtown Door Repair & Security installs Rosslare card readers and keypads as part of commercial access-control systems — letting property owners and businesses manage who can open a door with a credential instead of a physical key.",
+        "Downtown Locksmith & Security Intercoms installs Rosslare card readers and keypads as part of commercial access-control systems — letting property owners and businesses manage who can open a door with a credential instead of a physical key.",
       whatWeService: [
         "Card reader and keypad installation, wired into your door's electric strike or maglock",
         "Access-control system design for offices and multi-unit buildings",
@@ -173,12 +173,12 @@ export const supplierBrands: SupplierBrand[] = [
     name: "Seco-Larm",
     page: {
       slug: "seco-larm",
-      metaTitle: "Seco-Larm Door Sensors & Alarm Accessories Installation | Downtown Doors",
+      metaTitle: "Seco-Larm Door Sensors & Alarm Accessories Installation | Downtown Locksmith",
       metaDescription:
         "Seco-Larm door/window sensor, magnetic door holder, and alarm-accessory installation for homes and businesses across the five boroughs.",
       category: "security",
       answerFirst:
-        "Downtown Door Repair & Security installs Seco-Larm door and window sensors, magnetic door holders, and alarm accessories as part of a security or access-control system — the components that tell an alarm panel when a door has been opened.",
+        "Downtown Locksmith & Security Intercoms installs Seco-Larm door and window sensors, magnetic door holders, and alarm accessories as part of a security or access-control system — the components that tell an alarm panel when a door has been opened.",
       whatWeService: [
         "Door and window contact sensor installation",
         "Magnetic door holder installation for fire-rated doors",
