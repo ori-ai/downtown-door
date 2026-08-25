@@ -53,8 +53,12 @@ export function Hero() {
             803 Greenwich St · West Village · NYC
           </span>
 
-          <h1 className="mt-6 font-display text-[1.7rem] font-bold uppercase leading-[1.15] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[2.6rem]">
-            West Village Locksmith <span className="text-brand-400">&amp; Security Systems</span>
+          {/* H1 = the storefront sign, verbatim (Ori 2026-08-25) */}
+          <h1 className="mt-6 font-display text-[1.55rem] font-bold uppercase leading-[1.15] tracking-[0.005em] text-ink drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] md:text-[2.35rem]">
+            Downtown Locksmith <span className="text-brand-400">&amp; Security Intercoms</span>
+            <span className="mt-1 block text-[1.05rem] font-semibold tracking-[0.08em] text-brand-100 md:text-[1.45rem]">
+              West Village
+            </span>
           </h1>
 
           <p className="mt-5 font-display text-sm font-medium uppercase tracking-[0.12em] text-brand-100 md:text-base">
