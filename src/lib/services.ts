@@ -56,13 +56,13 @@ const allServices: Service[] = [
     "emergency": true,
     "icon": "KeyRound",
     "metaTitle": "Brooklyn Locksmith — 24/7 Licensed | Downtown",
-    "metaDescription": "Licensed NYC locksmith (DCWP #2109597). 24/7 lockouts, rekeys, lock installs, walk-in key cutting at 803 Greenwich St & 803 Greenwich St. All five boroughs.",
-    "answerFirst": "Downtown Locksmith & Security Intercoms is a licensed NYC locksmith (DCWP license #2109597) operating 24/7 across all five boroughs, with our walk-in storefront — 803 Greenwich St in Brooklyn Heights and 803 Greenwich St in Williamsburg. We handle residential and commercial lockouts, rekeying, mortise and cylindrical lock installation and repair, and on-the-spot key cutting at both office counters. Because we run real storefronts with real machines — not a dispatch number reselling your call to a subcontractor — you get a licensed technician, a written quote before work starts, and hardware we actually stock, including Mul-T-Lock and Maxtek high-security cylinders.",
-    "heroTagline": "Two Brooklyn storefronts. Licensed techs, stocked vans, keys cut while you wait — 24 hours a day.",
+    "metaDescription": "Licensed NYC locksmith (DCWP #2109597). 24/7 lockouts, rekeys, lock installs, key cutting from 170 Hicks St & 232 Leonard St. All five boroughs.",
+    "answerFirst": "Downtown Door Repair & Security is a licensed NYC locksmith (DCWP license #2109597) operating 24/7 across all five boroughs from two Brooklyn offices — 170 Hicks St in Brooklyn Heights and 232 Leonard St in Williamsburg. We handle residential and commercial lockouts, rekeying, mortise and cylindrical lock installation and repair, and key cutting and duplication on our own machines. Because we're a real licensed shop with real offices — not a dispatch number reselling your call to a subcontractor — you get a licensed technician, a written quote before work starts, and hardware we actually stock, including Mul-T-Lock and Maxtek high-security cylinders.",
+    "heroTagline": "Two Brooklyn offices. Licensed techs, stocked vans, keys cut on our own machines — 24 hours a day.",
     "whatItIs": [
       "Locksmith work in New York City is not the same trade it is in the suburbs. Most doors we open, rekey, or rebuild are mortise locks — the tall rectangular lock bodies set into a pocket in the door edge, standard on brownstones, pre-war apartment buildings, and older storefronts. Mortise hardware uses a threaded cylinder that screws into the lock case, which means parts, cams, and spindle lengths have to match, and a tech who only knows cylindrical (knob-and-bore) hardware from a big-box store will get it wrong. We carry mortise cases, cylinders, cams, and trim on the van, and we repair the existing case where possible instead of defaulting to a full replacement.",
       "The everyday work is lockouts, rekeys, and lock changes. A rekey swaps the pins inside your existing cylinder so old keys stop working — usually the right call after a move-in, a lost key, a breakup, or a contractor who never returned the spare. A lock change replaces the hardware itself, which is what you want when the lock is worn, drilled, seized from decades of Brooklyn weather, or simply too low-grade for an entry door. On lockouts we pick or bypass first; drilling is a last resort, and if we do have to drill we tell you before we start and replace the cylinder in the same visit.",
-      "Both offices operate as true walk-in shops. There is an Xhorse automatic key-cutting machine at the counter, so standard house keys, mortise keys, and most commercial keys are cut while you wait — duplicated from your working key or, in many cases, originated to code. We also cut and pin cylinders in-house, which is why a Downtown rekey or master-key change turns around faster than shops that send cylinders out. If you're near Brooklyn Heights or Williamsburg, walking in is almost always cheaper and faster than a service call for key work.",
+      "We cut our own keys. An Xhorse automatic key-cutting machine means standard house keys, mortise keys, and most commercial keys are duplicated from your working key or, in many cases, originated to code — nothing gets sent out. We also cut and pin cylinders in-house, which is why a Downtown rekey or master-key change turns around faster than shops that send cylinders out. Call the Brooklyn Heights or Williamsburg office to arrange key work.",
       "Every job is performed under NYC DCWP license #2109597 — worth checking on any locksmith you call, because unlicensed operators are a real and expensive problem in this city. The classic scam is a $29 quote over the phone that becomes several hundred dollars of 'necessary drilling' at your door. We quote the realistic range before dispatch, confirm it in person before touching the lock, and put the final number in writing."
     ],
     "whenNeeded": [
@@ -73,11 +73,11 @@ const allServices: Service[] = [
       "Broken key snapped off inside the cylinder",
       "Insurance or co-op board requires a specific lock grade on your entry door",
       "Storefront gate or commercial door lock seized or vandalized overnight",
-      "You need duplicate keys cut accurately — walk into either office, no appointment"
+      "You need duplicate keys cut accurately — call either office"
     ],
     "process": [
       {
-        "title": "Call or walk in",
+        "title": "Call",
         "description": "Describe the door and the problem — apartment, brownstone, storefront, mortise or cylindrical if you know it. We give a realistic price range up front, not a teaser number, and dispatch from the nearest office or van."
       },
       {
@@ -110,9 +110,9 @@ const allServices: Service[] = [
         "note": "Repair of the existing case is quoted first where the hardware allows it."
       },
       {
-        "item": "Walk-in key cutting (per key)",
+        "item": "Key cutting (per key)",
         "range": "$ (confirm)",
-        "note": "Cut while you wait at 803 Greenwich St, West Village."
+        "note": "Cut on our own machines at 170 Hicks St or 232 Leonard St."
       }
     ],
     "faqs": [
@@ -129,8 +129,8 @@ const allServices: Service[] = [
         "a": "Your lease governs this, and most NYC leases require you to provide the landlord a copy of any new key so they can access the unit in an emergency — landlords are also generally entitled to access with notice under NYC housing rules. What you cannot be forced to accept is old tenants or unknown parties holding working keys; rekeying after move-in is reasonable and standard. The clean approach: rekey the cylinder, keep the same hardware so nothing about the door changes, and hand the landlord one copy. If a lock is failing and the landlord won't act, document it — a functioning entry lock is part of the warranty of habitability."
       },
       {
-        "q": "Do you cut keys while I wait, or do I have to leave them?",
-        "a": "While you wait, at the storefront. There's an Xhorse automatic key-cutting machine at the counter at 803 Greenwich St, so standard residential, mortise, and most commercial keys are cut and handed back in minutes. Restricted keys — Mul-T-Lock and other patent-protected keyways — are different: those require the key's control card or proof of authorization, and duplication happens only for the verified keyholder. That restriction is the entire point of a restricted system, so no shop that takes it seriously will cut one for whoever walks in with the key."
+        "q": "How fast can you cut keys?",
+        "a": "Fast — we cut in-house. There's an Xhorse automatic key-cutting machine at both 170 Hicks St and 232 Leonard St, so standard residential, mortise, and most commercial keys are cut in minutes rather than sent out. Restricted keys — Mul-T-Lock and other patent-protected keyways — are different: those require the key's control card or proof of authorization, and duplication happens only for the verified keyholder. That restriction is the entire point of a restricted system, so no shop that takes it seriously will cut one for whoever shows up with the key."
       },
       {
         "q": "My key goes in but the lock won't turn, or turns without unlocking. Is the whole lock dead?",
@@ -138,7 +138,7 @@ const allServices: Service[] = [
       },
       {
         "q": "Are you actually licensed, and why does it matter?",
-        "a": "Yes — NYC DCWP locksmith license #2109597, and every technician works under it. New York City requires locksmiths to be licensed, and it matters for practical reasons: a licensed shop has a fixed business address you can walk into (we have two), accountability if something goes wrong, and no incentive to run the drill-everything pricing scam that unlicensed dispatch operations depend on. If you're comparing locksmiths, ask for the license number and an address before you ask for the price. A company that won't give you both isn't a company — it's a phone number."
+        "a": "Yes — NYC DCWP locksmith license #2109597, and every technician works under it. New York City requires locksmiths to be licensed, and it matters for practical reasons: a licensed shop has a fixed business address (we have two), accountability if something goes wrong, and no incentive to run the drill-everything pricing scam that unlicensed dispatch operations depend on. If you're comparing locksmiths, ask for the license number and an address before you ask for the price. A company that won't give you both isn't a company — it's a phone number."
       }
     ],
     "related": [
@@ -151,7 +151,7 @@ const allServices: Service[] = [
     "photos": [
       {
         "src": "/images/real/real-key-cutting.jpg",
-        "alt": "Key being cut on the automatic key-cutting machine at the Downtown office counter"
+        "alt": "Key being cut on the automatic key-cutting machine at the Downtown office"
       },
       {
         "src": "/images/real/real-fresh-cut-keys-handful2.jpg",
@@ -176,7 +176,7 @@ const allServices: Service[] = [
     "icon": "Radio",
     "metaTitle": "Intercom Installation & Repair NYC | Downtown",
     "metaDescription": "Licensed NYC intercom installers. Video, audio & smartphone intercoms for co-ops, condos & rentals. Two Brooklyn offices, 24/7 service, five boroughs.",
-    "answerFirst": "Downtown Locksmith & Security Intercoms installs and repairs building intercom systems across NYC — audio buzzers, video entry panels, and smartphone-based systems that need no in-apartment wiring. We service everything from a single dead apartment station to full lobby panel replacements in 100+ unit buildings, working with co-op and condo boards, property managers, and individual owners. Licensed by NYC DCWP (#2109597), open 24/7, with walk-in offices in Brooklyn Heights and Williamsburg.",
+    "answerFirst": "Downtown Door Repair & Security installs and repairs building intercom systems across NYC — audio buzzers, video entry panels, and smartphone-based systems that need no in-apartment wiring. We service everything from a single dead apartment station to full lobby panel replacements in 100+ unit buildings, working with co-op and condo boards, property managers, and individual owners. Licensed by NYC DCWP (#2109597), open 24/7, from our Brooklyn Heights and Williamsburg offices.",
     "heroTagline": "Lobby panels, apartment stations, and smartphone entry — installed, repaired, and rewired by NYC's door and security specialists.",
     "whatItIs": [
       "An intercom system is the front line of a multi-tenant building: the lobby panel where a visitor calls up, the apartment stations where residents answer, the door release that fires the electric strike or maglock on the vestibule door, and the wiring riser that ties it all together. In NYC this is not optional equipment — the Multiple Dwelling Law requires self-locking entrance doors in most multiple dwellings, and buildings with eight or more apartments are generally required to maintain a working two-way intercom and buzzer-release system. When the system dies, tenants complain, packages disappear, and HPD violations follow. We keep these systems running in pre-war walk-ups, elevator co-ops, and new-construction condos across the five boroughs.",
@@ -295,7 +295,7 @@ const allServices: Service[] = [
     "icon": "Fingerprint",
     "metaTitle": "Access Control Installation NYC | Downtown",
     "metaDescription": "Card, fob, keypad & mobile access control for NYC buildings. Rosslare readers, maglocks, strikes, code-compliant egress. Licensed, 24/7, five boroughs.",
-    "answerFirst": "Downtown Locksmith & Security Intercoms designs and installs access control systems for NYC buildings — fob, card, PIN, and mobile-credential entry on anything from a single storefront door to networked multi-door systems across residential and commercial properties. We stock Rosslare readers and controllers and Seco-Larm/Enforcer exit devices, and because we're a door company first, every installation includes correct locking hardware and code-compliant egress. NYC DCWP licensed (#2109597), 24/7, serving all five boroughs from two Brooklyn offices.",
+    "answerFirst": "Downtown Door Repair & Security designs and installs access control systems for NYC buildings — fob, card, PIN, and mobile-credential entry on anything from a single storefront door to networked multi-door systems across residential and commercial properties. We stock Rosslare readers and controllers and Seco-Larm/Enforcer exit devices, and because we're a door company first, every installation includes correct locking hardware and code-compliant egress. NYC DCWP licensed (#2109597), 24/7, serving all five boroughs from two Brooklyn offices.",
     "heroTagline": "Fobs, cards, keypads, and mobile credentials — with the door hardware and egress compliance most access vendors get wrong.",
     "whatItIs": [
       "Access control replaces mechanical keys with managed credentials: a reader at the door, a controller that decides who gets in, and electrified locking hardware that does the physical work. Instead of tracking hundreds of brass keys — and re-keying the building every time one walks off with a departing tenant, employee, or contractor — you issue fobs, cards, PIN codes, or mobile credentials that can be revoked in seconds. Every entry is logged with a name and a timestamp, which changes how property managers handle disputes, deliveries, staff turnover, and after-hours access.",
@@ -416,7 +416,7 @@ const allServices: Service[] = [
     "icon": "Magnet",
     "metaTitle": "Maglock Installation NYC | Downtown Door & Security",
     "metaDescription": "Licensed maglock installation and repair for NYC commercial buildings. 600lb and 1200lb magnetic locks, REX sensors, fire alarm tie-in, code-compliant egress. 24/7.",
-    "answerFirst": "A magnetic lock (maglock) is an electromagnet mounted to the door frame that holds a steel armature plate on the door with 600 to 1200 pounds of force whenever power is applied. Downtown Locksmith & Security Intercoms installs, repairs, and brings maglocks up to NYC code across the five boroughs — including request-to-exit sensors, battery-backed power supplies, and the fire alarm tie-in that NYC law requires so the door releases automatically when the alarm sounds. Walk-in offices at 803 Greenwich St, Brooklyn Heights and 803 Greenwich St, Williamsburg. NYC DCWP license #2109597, open 24/7.",
+    "answerFirst": "A magnetic lock (maglock) is an electromagnet mounted to the door frame that holds a steel armature plate on the door with 600 to 1200 pounds of force whenever power is applied. Downtown Door Repair & Security installs, repairs, and brings maglocks up to NYC code across the five boroughs — including request-to-exit sensors, battery-backed power supplies, and the fire alarm tie-in that NYC law requires so the door releases automatically when the alarm sounds. Offices at 170 Hicks St, Brooklyn Heights and 232 Leonard St, Williamsburg. NYC DCWP license #2109597, open 24/7.",
     "heroTagline": "1200 pounds of holding force, wired to release the instant your fire alarm says so.",
     "whatItIs": [
       "A magnetic lock is the simplest piece of electrified door hardware there is: an electromagnet bolted to the header of the frame, and a flat steel armature plate bolted to the door. Energize the magnet and the plate can't pull away — a standard single maglock holds around 600 pounds of direct pull, and the 1200lb units we install on main entrances and roof doors will outlast the door itself in a pull test. There's no latch, no bolt, no keeper to align, which is exactly why maglocks are the go-to on doors where a mechanical lock is a headache: glass storefront doors, narrow-stile aluminum doors, gates, and doors that have sagged so badly nothing else lines up anymore.",
@@ -535,7 +535,7 @@ const allServices: Service[] = [
     "icon": "Zap",
     "metaTitle": "Electric Strike Installation NYC | Downtown Door",
     "metaDescription": "Electric strike installation for NYC commercial doors — hollow metal, aluminum storefront, and wood frames. Fail-secure or fail-safe, buzzer and access control ready. 24/7.",
-    "answerFirst": "An electric strike replaces the fixed strike plate in your door frame with a motorized keeper that pivots open on an electric signal, letting the door open without retracting the latch — the hardware behind every NYC 'buzz-in' door. Downtown Locksmith & Security Intercoms cuts in and wires electric strikes on hollow metal, aluminum storefront, and wood frames across the five boroughs, matched to your latch, your frame, and the fail-safe or fail-secure behavior your door actually needs. Walk-in offices in Brooklyn Heights (803 Greenwich St) and Williamsburg (803 Greenwich St). NYC DCWP license #2109597, open 24/7.",
+    "answerFirst": "An electric strike replaces the fixed strike plate in your door frame with a motorized keeper that pivots open on an electric signal, letting the door open without retracting the latch — the hardware behind every NYC 'buzz-in' door. Downtown Door Repair & Security cuts in and wires electric strikes on hollow metal, aluminum storefront, and wood frames across the five boroughs, matched to your latch, your frame, and the fail-safe or fail-secure behavior your door actually needs. Offices in Brooklyn Heights (170 Hicks St) and Williamsburg (232 Leonard St). NYC DCWP license #2109597, open 24/7.",
     "heroTagline": "The buzz-in door, done right: cut clean into the frame, aligned to the latch, wired to whatever lets people in.",
     "whatItIs": [
       "An electric strike is the part of a buzz-in door that people never see working. Your door keeps its normal lockset or panic device with its normal latch — but instead of that latch seating into a fixed plate, it seats into a strike whose keeper is held by a small solenoid or motor. Send it voltage (from an intercom buzzer, keypad, card reader, or access control panel) and the keeper swings free, so the door pushes open with the latch still extended. Release the door and the latch snaps back into a locked keeper. Nothing about how the door works with a key changes, which is the electric strike's core advantage over a maglock: the door remains a normal door.",
@@ -652,7 +652,7 @@ const allServices: Service[] = [
     "icon": "Camera",
     "metaTitle": "CCTV Camera Installation NYC | Downtown",
     "metaDescription": "Professional security camera installation in NYC. PoE IP cameras, NVR systems, remote viewing for co-ops, condos & businesses. Licensed, 24/7, five boroughs.",
-    "answerFirst": "Downtown Locksmith & Security Intercoms installs CCTV and IP security camera systems for NYC buildings and businesses — PoE cameras wired to an on-site NVR, with remote viewing on your phone and footage retention sized to your building's needs. We handle lobbies, entrances, hallways, basements, package rooms, storefronts, and rooftops, mounting on brick, masonry, and metal, and we coordinate with co-op/condo boards and property managers on camera placement and privacy. NYC DCWP licensed (#2109597), 24/7, all five boroughs.",
+    "answerFirst": "Downtown Door Repair & Security installs CCTV and IP security camera systems for NYC buildings and businesses — PoE cameras wired to an on-site NVR, with remote viewing on your phone and footage retention sized to your building's needs. We handle lobbies, entrances, hallways, basements, package rooms, storefronts, and rooftops, mounting on brick, masonry, and metal, and we coordinate with co-op/condo boards and property managers on camera placement and privacy. NYC DCWP licensed (#2109597), 24/7, all five boroughs.",
     "heroTagline": "PoE cameras, on-site recording, phone viewing — placed where incidents actually happen, installed to survive NYC weather and NYC tenants.",
     "whatItIs": [
       "A modern camera system is an IP network: PoE (Power over Ethernet) cameras that receive both power and data over a single Cat6 cable, home-run to an NVR (network video recorder) that stores footage on hard drives sized for your retention window. One cable per camera means cleaner installs, easier troubleshooting, and no separate power supplies rotting in a ceiling somewhere. The NVR sits in a locked closet or basement room, records continuously or on motion, and serves live and recorded video to authorized phones and desktops — the super checks the package room from his apartment, the managing agent pulls an incident clip from their office, the owner watches the register from home.",
@@ -771,7 +771,7 @@ const allServices: Service[] = [
     "icon": "Lock",
     "metaTitle": "Master Key Systems NYC — Design & Install | Downtown",
     "metaDescription": "Master key systems for NYC buildings — designed, pinned & installed by a licensed locksmith. Restricted keyways, landlord & super keys, five-borough service.",
-    "answerFirst": "A master key system pins a building's cylinders so each tenant's key opens only their own door while a master key opens every door in its group — the standard way NYC landlords, supers, property managers, and multi-room businesses control access without carrying a ring of thirty keys. Downtown Locksmith & Security Intercoms designs, pins, and installs master key systems across the five boroughs, from a three-family brownstone to multi-building portfolios, on standard or restricted keyways including Mul-T-Lock and Maxtek. We keep the keying records, cut keys at our Brooklyn Heights and Williamsburg offices, and service the system when tenants turn over — all under NYC DCWP license #2109597.",
+    "answerFirst": "A master key system pins a building's cylinders so each tenant's key opens only their own door while a master key opens every door in its group — the standard way NYC landlords, supers, property managers, and multi-room businesses control access without carrying a ring of thirty keys. Downtown Door Repair & Security designs, pins, and installs master key systems across the five boroughs, from a three-family brownstone to multi-building portfolios, on standard or restricted keyways including Mul-T-Lock and Maxtek. We keep the keying records, cut keys at our Brooklyn Heights and Williamsburg offices, and service the system when tenants turn over — all under NYC DCWP license #2109597.",
     "heroTagline": "One key for you, one key per door for everyone else — designed on paper before it's ever pinned in brass.",
     "whatItIs": [
       "Mechanically, master keying works by adding master pins inside each cylinder so the lock operates at two or more shear lines: the change key (the tenant's key) works one, the master key works another. Done casually, this quietly weakens the system — every added shear line is another combination that can operate the lock, and sloppy keying creates 'ghost keys' nobody intended. Done properly, the system is designed on paper first: a keying chart that maps every door, every key, and every level, chosen to minimize incidental combinations and to leave room for expansion. We build the chart before we touch a pinning kit, and we keep it on file so lost keys, new doors, and tenant turnover are handled against the record instead of by guesswork.",
@@ -826,7 +826,7 @@ const allServices: Service[] = [
       {
         "item": "Additional change or master keys",
         "range": "$ (confirm)",
-        "note": "Cut against the keying record at the West Village storefront; restricted keys require an authorized signer."
+        "note": "Cut against the keying record at either Brooklyn office; restricted keys require an authorized signer."
       }
     ],
     "faqs": [
@@ -852,7 +852,7 @@ const allServices: Service[] = [
       },
       {
         "q": "How long does a master key system take, and what's the lead time for extra keys later?",
-        "a": "A small building — say a three- or four-family brownstone — typically goes from survey to installed system within days: the chart is drafted after the walkthrough, and pinning plus installation is usually a single day on site since we pin in our own shop rather than sending cylinders out. Larger or restricted-keyway systems add hardware lead time, and we give you the real schedule at quote, not an optimistic one. Afterward, change keys and masters are cut against your keying record at 803 Greenwich St or 803 Greenwich St — standard keys while you wait, restricted keys for authorized signers, generally same visit for common formats. Because we hold the records, a phone call with the key symbol is enough to have keys ready for pickup."
+        "a": "A small building — say a three- or four-family brownstone — typically goes from survey to installed system within days: the chart is drafted after the walkthrough, and pinning plus installation is usually a single day on site since we pin in our own shop rather than sending cylinders out. Larger or restricted-keyway systems add hardware lead time, and we give you the real schedule at quote, not an optimistic one. Afterward, change keys and masters are cut against your keying record at 170 Hicks St or 232 Leonard St — standard keys promptly, restricted keys for authorized signers, generally same visit for common formats. Because we hold the records, a phone call with the key symbol is enough to have keys ready for pickup."
       }
     ],
     "related": [
@@ -889,7 +889,7 @@ const allServices: Service[] = [
     "icon": "ShieldCheck",
     "metaTitle": "High-Security Locks NYC — Mul-T-Lock | Downtown",
     "metaDescription": "Mul-T-Lock & Maxtek high-security cylinders installed by a licensed NYC locksmith. Pick, drill & bump resistant, restricted keys. Brooklyn offices, 5 boroughs.",
-    "answerFirst": "A high-security lock replaces a standard pin-tumbler cylinder with one built to resist picking, bumping, drilling, and unauthorized key copying — the four ways NYC apartments and storefronts actually get compromised. Downtown Locksmith & Security Intercoms stocks and installs Mul-T-Lock and Maxtek high-security cylinders in both mortise and cylindrical formats, matched to brownstone, co-op, and commercial doors across the five boroughs. Keys are on restricted keyways, so duplicates can only be cut for verified keyholders. Installation, keying, and service run through our two Brooklyn offices under NYC DCWP license #2109597.",
+    "answerFirst": "A high-security lock replaces a standard pin-tumbler cylinder with one built to resist picking, bumping, drilling, and unauthorized key copying — the four ways NYC apartments and storefronts actually get compromised. Downtown Door Repair & Security stocks and installs Mul-T-Lock and Maxtek high-security cylinders in both mortise and cylindrical formats, matched to brownstone, co-op, and commercial doors across the five boroughs. Keys are on restricted keyways, so duplicates can only be cut for verified keyholders. Installation, keying, and service run through our two Brooklyn offices under NYC DCWP license #2109597.",
     "heroTagline": "Mul-T-Lock and Maxtek cylinders in stock — keys that can't be copied at a hardware store, locks that don't open for a bump key.",
     "whatItIs": [
       "The cylinder is the part of the lock a burglar actually attacks, and the standard cylinders installed on most NYC doors are the same basic pin-tumbler design that bump keys and cheap pick sets defeat. A high-security cylinder redesigns that mechanism: Mul-T-Lock's telescoping pin-within-pin system requires two components to align at every chamber, and hardened steel inserts sit in front of the drill points. Maxtek cylinders bring similar pick and drill resistance at a different price point. We stock both, in the formats NYC doors need — threaded mortise cylinders for pre-war and brownstone hardware, rim cylinders for the drop-bolt and jimmy-proof locks common on apartment doors, and standard profiles for cylindrical locksets and deadbolts.",
@@ -970,7 +970,7 @@ const allServices: Service[] = [
       },
       {
         "q": "How long does installation take, and how fast can I get extra keys later?",
-        "a": "A single-door cylinder swap is typically done in one visit — we stock Mul-T-Lock and Maxtek on the van and pin cylinders in-house, so there's no order-and-wait for common formats. Multi-door or keyed-alike jobs usually run one visit after a walkthrough. Additional restricted keys are cut at either office — 803 Greenwich St in Brooklyn Heights or 803 Greenwich St in Williamsburg — for verified keyholders with the control card, generally while you wait since we're an authorized point for the systems we install. Unusual formats or large batches can add lead time, and we'll tell you the real number when you order rather than promising same-day and slipping."
+        "a": "A single-door cylinder swap is typically done in one visit — we stock Mul-T-Lock and Maxtek on the van and pin cylinders in-house, so there's no order-and-wait for common formats. Multi-door or keyed-alike jobs usually run one visit after a walkthrough. Additional restricted keys are cut at either office — 170 Hicks St in Brooklyn Heights or 232 Leonard St in Williamsburg — for verified keyholders with the control card, generally same visit since we're an authorized point for the systems we install. Unusual formats or large batches can add lead time, and we'll tell you the real number when you order rather than promising same-day and slipping."
       }
     ],
     "related": [
@@ -1008,7 +1008,7 @@ const allServices: Service[] = [
     "icon": "LogOut",
     "metaTitle": "Panic Bar Installation NYC | Downtown Door & Security",
     "metaDescription": "Panic bar and exit device installation and repair for NYC commercial buildings. Rim, mortise, and vertical rod devices, FDNY-ready egress, alarmed exits. Licensed, 24/7.",
-    "answerFirst": "Panic hardware — the horizontal push bar on a commercial exit door — lets anyone leave a building with a single push, no keys and no knowledge, which is exactly what NYC egress code and the FDNY require on many commercial exit doors. Downtown Locksmith & Security Intercoms installs and repairs rim, mortise, and vertical rod exit devices on steel, wood, and aluminum storefront doors across the five boroughs, including outside trim for keyed entry, alarmed bars, and electrified devices tied to access control. Walk-in offices at 803 Greenwich St, Brooklyn Heights and 803 Greenwich St, Williamsburg. NYC DCWP license #2109597, open 24/7.",
+    "answerFirst": "Panic hardware — the horizontal push bar on a commercial exit door — lets anyone leave a building with a single push, no keys and no knowledge, which is exactly what NYC egress code and the FDNY require on many commercial exit doors. Downtown Door Repair & Security installs and repairs rim, mortise, and vertical rod exit devices on steel, wood, and aluminum storefront doors across the five boroughs, including outside trim for keyed entry, alarmed bars, and electrified devices tied to access control. Offices at 170 Hicks St, Brooklyn Heights and 232 Leonard St, Williamsburg. NYC DCWP license #2109597, open 24/7.",
     "heroTagline": "One push and everyone's out. That's the law — and it's also just a good door.",
     "whatItIs": [
       "Panic hardware (an 'exit device' in the trade) is the push bar that spans an exit door and retracts the latch when anything presses against it. The principle behind it is grim and simple: in a fire or a crowd panic, people surge toward the door, and the door has to open from that surge alone — no lever to find, no thumbturn to twist, no key, no instructions. NYC egress code requires exactly this single-motion, no-special-knowledge exit on doors serving assembly spaces, many commercial occupancies, and most public-facing exits, and FDNY inspectors check for it. A chained panic bar or a deadbolt added above one is the violation inspectors photograph first, and it's the kind that comes with real consequences because it's the kind that kills people.",
@@ -1123,9 +1123,9 @@ const allServices: Service[] = [
     "shortTitle": "Security Gates",
     "category": "security",
     "icon": "Store",
-    "metaTitle": "Security Gate & Roll-Down Gate Repair in Five Boroughs | Downtown Locksmith",
+    "metaTitle": "Security Gate & Roll-Down Gate Repair in Five Boroughs | Downtown Doors",
     "metaDescription": "Roll-down and security gate repair and installation across NYC — rolling steel gates, scissor gates, motors, springs, locks, and open-grille storefront gates.",
-    "answerFirst": "Downtown Locksmith & Security Intercoms repairs and installs security gates and roll-down gates across the five boroughs — rolling steel and open-grille storefront gates, scissor gates, their motors, springs, and locks. We keep the gate that protects your storefront rolling smoothly and locking securely.",
+    "answerFirst": "Downtown Door Repair & Security repairs and installs security gates and roll-down gates across the five boroughs — rolling steel and open-grille storefront gates, scissor gates, their motors, springs, and locks. We keep the gate that protects your storefront rolling smoothly and locking securely.",
     "heroTagline": "Roll-down gates that open smooth and lock tight.",
     "whatItIs": [
       "A storefront's roll-down or scissor gate is its first line of security — and when the motor, spring, track, or lock fails, the gate jams open, jams shut, or won't secure at closing.",
@@ -1189,7 +1189,7 @@ const allServices: Service[] = [
     "icon": "Wrench",
     "metaTitle": "Door Repair & Door Supply NYC | Downtown",
     "metaDescription": "One page, all door work: repair, installation & supply, emergency & break-in response, storefront doors, closers, and fire-rated doors — five boroughs, 24/7.",
-    "answerFirst": "Downtown Locksmith & Security Intercoms handles all door work across the five boroughs on one crew: repairing misaligned or damaged doors and frames, supplying and installing new residential and commercial doors, emergency and break-in response, storefront and fire-rated doors, and closers. It supports our core locksmith, intercom, and access-control trade — a properly hung, properly closing door is what makes every lock and reader actually work.",
+    "answerFirst": "Downtown Door Repair & Security handles all door work across the five boroughs on one crew: repairing misaligned or damaged doors and frames, supplying and installing new residential and commercial doors, emergency and break-in response, storefront and fire-rated doors, and closers. It supports our core locksmith, intercom, and access-control trade — a properly hung, properly closing door is what makes every lock and reader actually work.",
     "heroTagline": "Doors that stick, sag, or won't latch — fixed right the first time.",
     "whatItIs": [
       "Door repair covers everything that keeps a door from opening, closing, sealing, or locking the way it should: sagging or dragging doors, racked frames, split jambs, loose or bent hinges, misaligned strike plates, and closers that slam or no longer pull the door shut.",

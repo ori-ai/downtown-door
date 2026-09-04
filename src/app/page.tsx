@@ -30,7 +30,7 @@ import { QuoteForm } from "@/components/forms/quote-form";
 
 const homeFaqs = [
   {
-    q: "What areas does Downtown Locksmith & Security Intercoms serve?",
+    q: "What areas does Downtown Door Repair & Security serve?",
     a: "We serve all five NYC boroughs — Brooklyn, Manhattan, Queens, the Bronx, and Staten Island — for locksmith, security-system, and door work, plus Westchester, Rockland, and Nassau counties, and Bergen County, NJ, by request.",
   },
   {
@@ -263,7 +263,7 @@ export default function HomePage() {
               <div className="absolute inset-y-0 right-0 hidden w-1/2 md:block">
                 <Image
                   src="/images/real/real-storefront-door.jpg"
-                  alt="Commercial glass storefront door with door closer, installed by Downtown Locksmith & Security Intercoms in NYC"
+                  alt="Commercial glass storefront door with door closer, installed by Downtown Door Repair & Security in NYC"
                   fill
                   sizes="50vw"
                   className="object-cover opacity-40"

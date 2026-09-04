@@ -73,16 +73,25 @@ docs/
 See **[docs/human-todo.md](docs/human-todo.md)** — domain, API keys, real
 content, NAP/phone confirmation, and the Search Console launch steps.
 
-## NAP (LOCKED — 2026-08-25 relocation)
+## NAP (LOCKED — 2026-09-04, Ori)
 
-**ONE storefront, ONE number, sitewide:**
+**Brand:** Downtown Door Repair & Security (legal: Downtown Door Repair &
+Security Inc., NYS DOS ID 7536197). The 2026-08-25 Manhattan-storefront rebrand
+was a misrepresentation and is fully removed. Canonical domain: downtowndoorsandsecurity.com.
 
-- **Address:** 803 Greenwich St, New York, NY 10014 (West Village) — the ONLY address on the site and in schema.
-- **Phone:** (347) 851-8615 (Dori 24/7 AI reception) — the ONLY number on the site, matching the storefront sign and GBP.
+**TWO real Brooklyn locations**, each its own LocalBusiness schema node with
+its own number:
+
+| Location | Phone | Positioning | Page |
+|---|---|---|---|
+| 170 Hicks St, Brooklyn, NY 11201 (Brooklyn Heights / Downtown Brooklyn) — MAIN office, the original reviewed GBP; sitewide NAP + schema `address` | (347) 514-8770 | Locksmith-led (GBP primary: Locksmith; also door supplier, repair service, security system installation, emergency locksmith) | `/locations/170-hicks-st-brooklyn` |
+| 232 Leonard St, Brooklyn, NY 11211 (Williamsburg / North Brooklyn) — new GBP | (347) 851-8615 | Door supplier + security system installation-led; locksmith secondary | `/locations/232-leonard-st-brooklyn` |
+
+- **Sitewide primary CTA phone:** (347) 851-8615 (`siteConfig.phone`; Dori 24/7
+  AI reception). Each location block (footer, contact, its own page, its
+  schema node) shows ITS OWN number.
 - **Email:** office@downtowndoorsandsecurity.com.
-- **Hours:** Open 24/7 (single story sitewide).
+- **Hours:** Open 24/7 (single story sitewide). Neither location is described
+  as a walk-in showroom.
 
-The prior Brooklyn office pages (170 Hicks St, 232 Leonard St) are removed and
-308 to /locations/west-village-803-greenwich-st. Their GBP listings are managed
-by Ori directly — the site asserts only 803 Greenwich. Source of truth:
-`src/lib/site.ts` + `src/lib/locations.ts`.
+Source of truth: `src/lib/site.ts` + `src/lib/locations.ts`.

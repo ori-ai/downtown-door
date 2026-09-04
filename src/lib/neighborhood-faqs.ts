@@ -17,15 +17,15 @@ export const neighborhoodFaqs: Record<string, NeighborhoodFaq[]> = {
   "brooklyn/brooklyn-heights": [
     {
       q: "Can you rekey or replace locks on a landmarked brownstone door without damaging it?",
-      a: "Yes — this is the bulk of our Brooklyn Heights work. On landmarked brownstones we rekey or replace the cylinder and internal hardware while keeping the original escutcheons, rosettes, and mortise casework intact, so nothing changes on the street-facing side. We dispatch across brownstone Brooklyn around the clock — one number, (347) 851-8615.",
+      a: "Yes — this is the bulk of our Brooklyn Heights work. On landmarked brownstones we rekey or replace the cylinder and internal hardware while keeping the original escutcheons, rosettes, and mortise casework intact, so nothing changes on the street-facing side. Our main office is at 170 Hicks St, so a tech is minutes away.",
     },
     {
       q: "Do you service buzzer and intercom entry in pre-war co-op buildings?",
       a: "We repair and replace intercom and buzzer panels in Brooklyn Heights' pre-war co-ops regularly — from fixing dead door-release strikes on a single unit to replacing a full lobby panel with an audio/video or smartphone-based system, coordinated with the board or managing agent.",
     },
     {
-      q: "Do you still serve Brooklyn Heights now that your storefront is in Manhattan?",
-      a: "Absolutely — Brooklyn Heights is where this company's trade was built and it stays core coverage. Techs dispatch 24/7, and for walk-in key cutting or hardware pickup our storefront at 803 Greenwich St in the West Village is one subway stop across the river on the 2/3.",
+      q: "Where is your Brooklyn Heights office?",
+      a: "170 Hicks St, Brooklyn, NY 11201 — (347) 514-8770. It's our original location and main office: locksmith-led, with door supply and repair and security-system installation from the same crew, and it still handles most of the brownstone-Brooklyn and Downtown Brooklyn work.",
     },
   ],
   "brooklyn/park-slope": [
@@ -44,8 +44,8 @@ export const neighborhoodFaqs: Record<string, NeighborhoodFaq[]> = {
   ],
   "brooklyn/williamsburg": [
     {
-      q: "Do you cover Williamsburg?",
-      a: "Yes — Williamsburg has been core territory for us since the beginning: converted-loft access control, storefront hardware, and multi-family intercoms. Techs dispatch 24/7 on (347) 851-8615, and our walk-in storefront at 803 Greenwich St in the West Village is one L stop from Bedford Av.",
+      q: "Where is your Williamsburg office?",
+      a: "232 Leonard St, Brooklyn, NY 11211 — (347) 851-8615. It leads with door supply and installation and security-system installation, with locksmith service alongside, and it's our hub for Williamsburg and North Brooklyn work.",
     },
     {
       q: "Can you put access control on a converted-loft building entrance?",
@@ -105,7 +105,7 @@ export const neighborhoodFaqs: Record<string, NeighborhoodFaq[]> = {
     },
     {
       q: "Do you service the shops on Court and Smith Street?",
-      a: "Yes — small-storefront work on Court and Smith is steady: door closers, deadbolt and mortise repairs, gate locks, and rekeys. Most jobs are same-day — Cobble Hill is deep inside our core Brooklyn dispatch zone.",
+      a: "Yes — small-storefront work on Court and Smith is steady: door closers, deadbolt and mortise repairs, gate locks, and rekeys. Most jobs are same-day since our Brooklyn Heights office at 170 Hicks St is a few minutes away.",
     },
     {
       q: "Can you quiet a slamming vestibule door in a small co-op?",

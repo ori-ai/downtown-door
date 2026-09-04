@@ -108,7 +108,7 @@ export const capabilityStatement = {
 
 export const govFaqs = [
   {
-    q: "Does Downtown Locksmith & Security Intercoms work with NYC public schools?",
+    q: "Does Downtown Door Repair & Security work with NYC public schools?",
     a: "Yes. We provide door repair, replacement, and security work for institutional clients including public schools. Contact us with your solicitation or project details and we'll respond with the relevant documentation.",
   },
   {

@@ -28,11 +28,12 @@ import type { Service } from "./services";
 import type { SupplierBrand, BrandPage } from "./brands";
 
 /**
- * Entity graph (2026-08-24 restructure):
- *   ONE Organization node (#organization) — the brand.
- *   TWO location nodes (#office-<slug>) — @type ["Locksmith","LocalBusiness"],
- *   one per physical office, each with its OWN telephone, address, geo, hours,
- *   image, and hasMap, and parentOrganization → #organization.
+ * Entity graph (2026-08-24 restructure, 2026-09-04 two real Brooklyn locations):
+ *   ONE Organization node (#organization) — the brand, address = 170 Hicks St.
+ *   TWO location nodes (#office-<slug>) — @type from Office.schemaTypes
+ *   (170 Hicks = ["Locksmith","LocalBusiness"], 232 Leonard = ["LocalBusiness"]),
+ *   one per physical location, each with its OWN telephone, address, geo,
+ *   hours, image, and hasMap, and parentOrganization → #organization.
  * Homepage emits all three; each /locations page emits its own office node.
  */
 const ORG_ID = `${siteConfig.url}/#organization`;
@@ -118,6 +119,7 @@ export function organizationSchema(): WithContext<Organization> {
     url: siteConfig.url,
     telephone: `+1${siteConfig.phone.digits}`,
     email: emailAddress("general"),
+    address: postalAddress(), // main office — 170 Hicks St
     logo: absoluteUrl("/og.jpg"),
   };
   if (sameAs.length) schema.sameAs = sameAs;
@@ -125,17 +127,19 @@ export function organizationSchema(): WithContext<Organization> {
 }
 
 /**
- * One physical office as ["Locksmith","LocalBusiness"] with its OWN phone,
- * geo, hours, photos and map link, tied to the parent Organization.
+ * One physical location as its own LocalBusiness node (@type per
+ * Office.schemaTypes) with its OWN phone, geo, hours, photos and map link,
+ * tied to the parent Organization. `name` is the brand name — the same name
+ * both Google Business Profiles carry.
  * `image` is only emitted once real office photos exist — never stock.
  */
 export function officeSchema(o: Office): WithContext<LocalBusiness> {
   const hours = openingHours();
   const schema = {
     "@context": "https://schema.org",
-    "@type": ["Locksmith", "LocalBusiness"],
+    "@type": o.schemaTypes,
     "@id": officeId(o),
-    name: `${siteConfig.name} — ${o.shortLabel}`,
+    name: siteConfig.name,
     description: o.intro,
     url: absoluteUrl(`/locations/${o.slug}`),
     telephone: `+1${o.phone.digits}`,

@@ -38,8 +38,8 @@ export async function generateMetadata({
   const office = getOffice(slug);
   if (!office) return {};
   return {
-    title: `West Village Locksmith & Security Storefront — ${office.street}, NYC`,
-    description: `${siteConfig.name} at ${officeAddress(office)} — ground-floor walk-in office for locksmith, intercom, access control & security work. ${office.phone.display}. Open 24/7.`,
+    title: office.pageTitle,
+    description: `${siteConfig.name} at ${officeAddress(office)} — ${office.positioning}. Serving ${office.areaLabel} and all of NYC. ${office.phone.display}. Open 24/7.`,
     alternates: { canonical: `/locations/${office.slug}` },
     openGraph: {
       url: absoluteUrl(`/locations/${office.slug}`),
@@ -65,8 +65,8 @@ export default async function LocationPage({
 
   return (
     <>
-      {/* This office's own ["Locksmith","LocalBusiness"] node (merges by @id
-          with the sitewide graph) */}
+      {/* This location's own LocalBusiness node (merges by @id with the
+          sitewide graph) */}
       <JsonLd data={officeSchema(office)} />
       <JsonLd data={breadcrumbSchema(breadcrumbs)} />
       <Breadcrumbs items={breadcrumbs} />
@@ -85,14 +85,14 @@ export default async function LocationPage({
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-800 bg-brand-950/50 px-3 py-1 font-display text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-brand-300">
               <MapPin className="h-3.5 w-3.5" aria-hidden />
-              The storefront — walk-ins welcome
+              {office.role === "main" ? "Main office — the original location" : "North Brooklyn office"} · {office.areaLabel}
             </span>
             <h1 className="mt-5 font-display text-3xl font-bold uppercase leading-[1.12] tracking-[0.005em] text-ink md:text-5xl">
               {office.shortLabel} Office — {office.street}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-body">{office.intro}</p>
 
-            {/* NAP block — THIS office's own number only */}
+            {/* NAP block — THIS location's own number only */}
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
               <div className="rounded-xl border border-line bg-surface p-4">
                 <div className="flex items-center gap-2 text-sm font-semibold text-ink">
@@ -132,14 +132,17 @@ export default async function LocationPage({
         </Container>
       </section>
 
-      {/* What you can do here + story */}
+      {/* What this location handles + story */}
       <Section>
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
             <div>
-              <SectionHeading eyebrow="Walk-in office" title="What you can do at this office" />
+              <SectionHeading eyebrow="This location" title="What this office handles" />
+              <p className="mt-3 text-sm text-muted">
+                Google Business Profile categories: {office.categories.join(" · ")}
+              </p>
               <ul className="mt-6 grid gap-3">
-                {office.walkInServices.map((s) => (
+                {office.services.map((s) => (
                   <li
                     key={s}
                     className="flex items-start gap-2.5 rounded-xl border border-line bg-surface p-4 text-sm text-body"
@@ -195,7 +198,7 @@ export default async function LocationPage({
         </Container>
       </Section>
 
-      {/* Real office photos — rendered ONLY when real photos exist. Never stock. */}
+      {/* Real location photos — rendered ONLY when real photos exist. Never stock. */}
       {office.photos.length ? (
         <Section topBorder className="bg-surface">
           <Container>
@@ -245,7 +248,7 @@ export default async function LocationPage({
                 </Link>
               ))}
             <Link
-              href={`/service-areas/manhattan/${office.neighborhood.toLowerCase().replace(/ /g, "-")}`}
+              href={office.neighborhoodPath}
               className="group rounded-2xl border border-line bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300"
             >
               <h3 className="flex items-center gap-2 text-lg font-bold text-ink">
@@ -264,7 +267,7 @@ export default async function LocationPage({
         </Container>
       </Section>
 
-      <CtaBand title={`Stop by ${office.street} or call ${office.phone.display}`} />
+      <CtaBand title={`Call the ${office.shortLabel} office — ${office.phone.display}`} />
     </>
   );
 }

@@ -128,9 +128,10 @@ export const migrationRedirects: Redirect[] = [
   p("/services/door-closers", "/services/door-repair"),
   p("/services/commercial-storefront-doors", "/services/door-repair"),
 
-  // --- 2026-08-25: relocated to the single West Village storefront ---
-  p("/locations/brooklyn-heights-170-hicks-st", "/locations/west-village-803-greenwich-st"),
-  p("/locations/williamsburg-232-leonard-st", "/locations/west-village-803-greenwich-st"),
+  // --- 2026-09-04: real brand + two Brooklyn locations restored; old slugs → new ---
+  p("/locations/west-village-803-greenwich-st", "/locations/170-hicks-st-brooklyn"),
+  p("/locations/brooklyn-heights-170-hicks-st", "/locations/170-hicks-st-brooklyn"),
+  p("/locations/williamsburg-232-leonard-st", "/locations/232-leonard-st-brooklyn"),
 ];
 
 /**

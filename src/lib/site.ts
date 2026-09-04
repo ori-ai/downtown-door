@@ -4,40 +4,52 @@
  * RULE: Nothing on the site hardcodes NAP independently — header, footer,
  * JSON-LD, sitemap, forms and metadata all read from here. Change it once,
  * it changes everywhere. This is what keeps the site, schema and the Google
- * Business Profile in exact agreement (a hard SEO requirement).
+ * Business Profiles in exact agreement (a hard SEO requirement).
+ *
+ * 2026-09-04 (Ori): the real brand is "Downtown Door Repair & Security" with
+ * TWO real Brooklyn locations (see `locations` below and src/lib/locations.ts).
+ * The 2026-08-25 Manhattan-storefront rebrand was a misrepresentation and is
+ * fully removed. Canonical domain: downtowndoorsandsecurity.com.
  *
  * ⚠️ ITEMS MARKED `// VERIFY` OR `null` ARE NOT CONFIRMED. Do not present them
  * as fact until the client supplies real data. See docs/human-todo.md.
  */
 
-// Canonical live domain (downtowndoorrepairnyc.com 301s into it).
+// Canonical live domain — downtowndoorsandsecurity.com (Ori, 2026-09-04; already
+// on Vercel nameservers). downtowndoorrepairnyc.com is a FUTURE redirect only.
 // NEXT_PUBLIC_SITE_URL still wins for preview/staging environments.
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://downtowndoorsandsecurity.com";
 
 // --- Phone -------------------------------------------------------------------
-// Downtown's dedicated AI-reception line: calls are answered by "Dori" (an
-// ElevenLabs voice agent), who qualifies the job, captures the lead (routed to
-// Ori), and hands off to Ori at +19174388338 for the owner / emergencies /
-// custom pricing. Provisioned via Twilio 2026-07-24. This REPLACES the old
-// ClearOps reception line (9175403962) and the exposed personal number.
+// Sitewide PRIMARY CTA line: answered 24/7 by "Dori" (ElevenLabs voice agent),
+// who qualifies the job, captures the lead (routed to Ori), and hands off to
+// Ori for the owner / emergencies / custom pricing. Provisioned via Twilio
+// 2026-07-24. This is ALSO the listing number of the 232 Leonard St location.
 const PHONE_DIGITS = "3478518615";
 
+// 170 Hicks St (Brooklyn Heights) — the original, reviewed Google listing.
+// Rendered ONLY where that location is shown as itself (its location page,
+// its schema node, footer/contact location blocks) — never as the global CTA.
+const HICKS_PHONE_DIGITS = "3475148770";
+
 export const siteConfig = {
-  name: "Downtown Locksmith & Security Intercoms", // brand renamed by Ori 2026-08-25 (matches storefront sign)
-  shortName: "Downtown Locksmith",
-  legalName: "Downtown Door Repair & Security INC", // EIN-backed entity name (Ori, 2026-08-24)
-  tagline: "West Village Locksmith, Intercom & Security Systems — Serving All of NYC",
+  name: "Downtown Door Repair & Security",
+  shortName: "Downtown Door Repair",
+  // Registered entity: Downtown Door Repair & Security Inc., NYS DOS ID 7536197,
+  // 170 Hicks St (Ori, 2026-09-04).
+  legalName: "Downtown Door Repair & Security Inc.",
+  tagline: "Locksmith, Door & Security Systems — Brooklyn & All of NYC",
   description:
-    "Downtown Locksmith & Security Intercoms provides locksmith services, intercom systems, access control, security cameras, and security systems — plus expert door repair — for homeowners, businesses, and institutional clients across NYC — from our West Village storefront at 803 Greenwich St. Open 24/7.",
+    "Downtown Door Repair & Security provides locksmith services, door supply and repair, intercom systems, access control, security cameras, and security-system installation for homeowners, businesses, and institutional clients across NYC — from two Brooklyn offices: 170 Hicks St in Brooklyn Heights and 232 Leonard St in Williamsburg. Open 24/7.",
 
   url: SITE_URL,
 
   // --- Phone -----------------------------------------------------------------
-  // ONE number sitewide (Ori, 2026-08-25): the Dori 24/7 line — the number on
-  // the 803 Greenwich St storefront sign and the GBP. No other number appears
-  // anywhere on the site.
+  // The sitewide primary CTA number (header, mobile call bar, forms, CTA bands,
+  // Organization schema). Each location block shows ITS OWN number — see
+  // `locations` below.
   phone: {
     digits: PHONE_DIGITS,
     display: "(347) 851-8615",
@@ -53,46 +65,47 @@ export const siteConfig = {
     bids: "bids", // dedicated institutional/procurement inbox alias
   },
 
-  // --- Legacy contact (still on the physical sign & business cards) ----------
-  // RETIRED FROM THE UI 2026-08-24 (email-domain + phone consolidation): kept
-  // here only as a record of what the 170 Hicks signage shows. Do NOT render
-  // these anywhere — the sign itself is on the punch list to reprint.
-  legacyContact: {
-    phone: { digits: "3475148770", display: "(347) 514-8770", href: "tel:+13475148770" },
-    email: "info@downtowndoorrepairnyc.com",
-  },
-
-  // --- Address (THE storefront — Ori 2026-08-25: "the only address") ----------
-  // The company relocated to its West Village storefront. This is the ONE
-  // address on the site, matching the sign and the GBP. Prior Brooklyn office
-  // addresses are retired from every page and from schema (GBPs are managed
-  // by Ori directly — the site asserts only 803 Greenwich).
+  // --- Address (MAIN OFFICE — 170 Hicks St, the original reviewed listing) ---
+  // This is the sitewide NAP address and the schema `address` for the
+  // Organization + every Service/brand provider node. The second location
+  // lives in `locations` below and src/lib/locations.ts.
   address: {
-    street: "803 Greenwich St",
-    city: "New York",
+    street: "170 Hicks St",
+    city: "Brooklyn",
     region: "NY",
     regionName: "New York",
-    postalCode: "10014",
+    postalCode: "11201",
     country: "US",
-    neighborhood: "West Village",
+    neighborhood: "Brooklyn Heights",
   },
 
-  // Approximate geo for 803 Greenwich St. // VERIFY against the GBP pin.
+  // Approximate geo for 170 Hicks St, Brooklyn Heights. // VERIFY against the GBP pin.
   geo: {
-    lat: 40.7376,
-    lng: -74.0055,
+    lat: 40.6972,
+    lng: -73.9939,
   },
 
-  // --- Office locations ---------------------------------------------------------
-  // ONE location. Rendered wherever locations are listed (footer, contact page).
+  // --- Office locations (both real locations, each with ITS OWN line) --------
+  // Rendered wherever locations are listed (footer, contact page). The first
+  // entry is the main office and doubles as `address` above — keep in sync.
+  // Full per-location data (positioning, photos, schema) is in locations.ts.
   locations: [
     {
-      label: "West Village Storefront",
-      street: "803 Greenwich St",
-      city: "New York",
+      label: "Main Office — Brooklyn Heights",
+      street: "170 Hicks St",
+      city: "Brooklyn",
       region: "NY",
-      postalCode: "10014",
-      neighborhood: "West Village",
+      postalCode: "11201",
+      neighborhood: "Brooklyn Heights",
+      phone: { digits: HICKS_PHONE_DIGITS, display: "(347) 514-8770", href: `tel:+1${HICKS_PHONE_DIGITS}` },
+    },
+    {
+      label: "Williamsburg Office",
+      street: "232 Leonard St",
+      city: "Brooklyn",
+      region: "NY",
+      postalCode: "11211",
+      neighborhood: "Williamsburg",
       phone: { digits: PHONE_DIGITS, display: "(347) 851-8615", href: `tel:+1${PHONE_DIGITS}` },
     },
   ],
@@ -130,6 +143,7 @@ export const siteConfig = {
   // --- Reviews ---------------------------------------------------------------
   // Rating & count come LIVE from Google Business Profile at render time —
   // never hardcoded. See src/lib/reviews.ts. `null` here means "not yet wired".
+  // This is the 170 Hicks St listing — the original, reviewed one.
   reviews: {
     googlePlaceId: "ChIJxbP4QSdbwokRti8UT3aRgp8" as string | null,
     profileUrl: "https://search.google.com/local/writereview?placeid=ChIJxbP4QSdbwokRti8UT3aRgp8" as string | null,
@@ -196,7 +210,7 @@ export function emailAddress(box: "general" | "bids" = "general"): string {
   return `${siteConfig.email[box]}@${domain}`;
 }
 
-/** One-line postal address of the storefront, e.g. "803 Greenwich St, New York, NY 10014". */
+/** One-line postal address of the main office, e.g. "170 Hicks St, Brooklyn, NY 11201". */
 export function formattedAddress(): string {
   const a = siteConfig.address;
   return `${a.street}, ${a.city}, ${a.region} ${a.postalCode}`;

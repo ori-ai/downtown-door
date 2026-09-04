@@ -75,7 +75,7 @@ const aboutVideos: RealVideo[] = [
 export const metadata: Metadata = {
   title: "About Us — Two Brooklyn Offices, One Trade",
   description:
-    "Downtown Locksmith & Security Intercoms — locksmith, intercom, and access-control specialists born in Brooklyn, now operating from our West Village storefront at 803 Greenwich St. Serving NYC 24/7.",
+    "Downtown Door Repair & Security started at 170 Hicks St in Brooklyn Heights — locksmith-led — and grew into a second office at 232 Leonard St, Williamsburg, for door supply and security-system installation. Serving the five boroughs 24/7.",
   alternates: { canonical: "/about" },
   openGraph: { url: absoluteUrl("/about") },
 };
@@ -104,11 +104,11 @@ export default function AboutPage() {
               <MapPin className="h-4 w-4" aria-hidden />
               the Five Boroughs
             </span>
-            <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Locksmith &amp; Security Intercoms</h1>
+            <h1 className="mt-4 text-4xl md:text-5xl">About Downtown Door Repair &amp; Security</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              Locksmith, intercom, and access-control specialists — the trade was built in
-              Brooklyn's brownstones and co-ops, and today it runs from our West Village
-              storefront at 803 Greenwich St. One licensed company, serving NYC 24/7.
+              Locksmith, door, and security-system specialists — born in Brooklyn Heights,
+              grown into Williamsburg. Two Brooklyn offices, one licensed trade, serving
+              homeowners, businesses, and institutions across the five boroughs, 24/7.
             </p>
           </div>
         </Container>
@@ -118,25 +118,29 @@ export default function AboutPage() {
         <Container>
           <div className="grid items-start gap-10 lg:grid-cols-2">
             <div className="max-w-xl">
-              <h2 className="text-2xl">The real story: Brooklyn roots, a West Village home</h2>
+              <h2 className="text-2xl">The real story: two offices, one trade</h2>
               <div className="mt-4 space-y-4 text-lg leading-relaxed text-body">
                 <p>
-                  Downtown Locksmith &amp; Security Intercoms was founded in Brooklyn in 2025, and the
-                  borough shaped the trade: rekeying and restoring locks on landmarked brownstone
+                  Downtown Door Repair &amp; Security started at{" "}
+                  <Link href="/locations/170-hicks-st-brooklyn" className="font-semibold text-brand-700 hover:text-brand-800">
+                    170 Hicks St in Brooklyn Heights
+                  </Link>{" "}
+                  — our main office, in the middle of brownstone Brooklyn.
+                  The neighborhood shaped the trade: rekeying and restoring locks on landmarked
                   doors, getting pre-war buzzer and intercom systems working again, and securing
-                  co-ops, walk-ups, and storefronts. Locksmith, intercom, and access-control work
-                  is the core of what we do; door repair is the supporting craft that makes every
-                  install hold up.
+                  the co-ops and small storefronts around the Heights. Locksmith, intercom, and
+                  access-control work is the core of what we do; door repair is the supporting
+                  craft that makes those installs hold up.
                 </p>
                 <p>
-                  Today the company operates from its storefront at{" "}
-                  <Link href="/locations/west-village-803-greenwich-st" className="font-semibold text-brand-700 hover:text-brand-800">
-                    803 Greenwich St in the West Village
+                  As the work spread across North Brooklyn, we opened our second office at{" "}
+                  <Link href="/locations/232-leonard-st-brooklyn" className="font-semibold text-brand-700 hover:text-brand-800">
+                    232 Leonard St in Williamsburg
                   </Link>{" "}
-                  — a ground-floor shop where you can walk in for key cutting, pick up
-                  high-security locks and hardware from stock (we&apos;re a Mul-T-Lock dealer),
-                  or sit down to plan an intercom, camera, or building access-control system.
-                  One number reaches us around the clock: (347) 851-8615.
+                  — our North Brooklyn office, which leads with door supply and installation
+                  and security-system work. Both are real offices with one crew behind them:
+                  keys cut and cylinders pinned on our own machines, locks and hardware from
+                  stock, and full building access-control systems planned and installed.
                 </p>
                 <p>
                   We serve two very different kinds of clients with the same crew: homeowners and

@@ -32,7 +32,7 @@ const displayFont = Orbitron({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `West Village Locksmith, Intercom & Security Systems NYC | ${siteConfig.name}`,
+    default: `Locksmith, Door Repair & Security Systems — Brooklyn & NYC | ${siteConfig.name}`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
@@ -66,9 +66,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bodyFont.variable} ${displayFont.variable} h-full`} data-scroll-behavior="smooth">
       <body className="flex min-h-full flex-col bg-[#0a1330]">
-        {/* Sitewide entity graph: Organization + BOTH offices as
-            ["Locksmith","LocalBusiness"] nodes, each with its own phone,
-            geo, hours and map (NAP source of truth: site.ts + locations.ts) */}
+        {/* Sitewide entity graph: Organization (address = 170 Hicks St) +
+            BOTH locations as their own LocalBusiness nodes, each with its own
+            phone, geo, hours and map (NAP source of truth: site.ts + locations.ts) */}
         {businessGraphSchemas().map((s, i) => (
           <JsonLd key={i} data={s} />
         ))}

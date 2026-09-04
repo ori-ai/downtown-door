@@ -38,9 +38,9 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-body">
-              Locksmith, intercom systems, access control, cameras, and security
-              systems — plus expert door repair — for homes, businesses, and
-              institutions across NYC — from our West Village storefront.
+              Locksmith, door supply and repair, intercom systems, access control,
+              cameras, and security-system installation — for homes, businesses,
+              and institutions across the five boroughs, from two Brooklyn offices.
             </p>
 
             <address className="mt-6 space-y-2 text-sm not-italic text-body">
@@ -48,12 +48,14 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-brand-600" aria-hidden />
                 {emailAddress("general")}
               </a>
+              {/* Each location listed with ITS OWN line — the exact NAP each
+                  Google Business Profile carries. */}
               {offices.map((o) => (
                 <span key={o.slug} className="flex items-start gap-2 pt-1.5">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden />
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wide text-muted">
-                      West Village Storefront
+                      {o.role === "main" ? `Main office — ${o.shortLabel}` : `${o.shortLabel} office`}
                     </span>
                     <Link href={`/locations/${o.slug}`} className="hover:text-brand-700">
                       {officeAddress(o)}

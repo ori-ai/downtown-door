@@ -13,7 +13,7 @@ import { ContactTabs } from "@/components/forms/contact-tabs";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Downtown Locksmith & Security Intercoms — locksmith, security systems, and door repair across the five boroughs. Request a quote for residential or commercial work, or submit a bid inquiry for institutional projects.",
+    "Contact Downtown Door Repair & Security — locksmith, security systems, and door repair across the five boroughs. Request a quote for residential or commercial work, or submit a bid inquiry for institutional projects.",
   alternates: { canonical: "/contact" },
   openGraph: { url: absoluteUrl("/contact") },
 };
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 // REVERIFICATION MODE (2026-08-24): plain-address embed, deliberately NOT tied
 // to a GBP place id while the listings are in suspension/verification review.
 // Restore the place_id embed once both listings are live again.
-const mapSrc = "https://www.google.com/maps?q=" + encodeURIComponent("803 Greenwich St, New York, NY 10014") + "&output=embed";
+const mapSrc = "https://www.google.com/maps?q=" + encodeURIComponent("170 Hicks St, Brooklyn, NY 11201") + "&output=embed";
 
 export default async function ContactPage({
   searchParams,
@@ -94,14 +94,14 @@ export default async function ContactPage({
                       </span>
                       <span>
                         <span className="block text-xs font-semibold uppercase tracking-wide text-muted">
-                          West Village Storefront
+                          {o.role === "main" ? `Main office — ${o.shortLabel}` : `${o.shortLabel} office`}
                         </span>
                         {officeAddress(o)}
                         <a href={o.phone.href} className="block font-semibold hover:text-brand-700">
                           {o.phone.display}
                         </a>
                         <Link href={`/locations/${o.slug}`} className="block font-semibold text-brand-700 hover:text-brand-800">
-                          Office page, map & walk-in details →
+                          Location page, map & directions →
                         </Link>
                       </span>
                     </li>
@@ -137,7 +137,7 @@ export default async function ContactPage({
                 <p className="mt-3 text-sm font-semibold text-ink">{siteConfig.hours.display}</p>
                 <p className="mt-2 text-xs text-muted">
                   Every day, around the clock — emergencies dispatched immediately, scheduled work
-                  booked at your convenience. Both offices take walk-ins.
+                  booked at your convenience.
                 </p>
               </div>
             </aside>
@@ -156,7 +156,7 @@ export default async function ContactPage({
             className="h-full w-full border-0"
           />
           <a
-            href={"https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("803 Greenwich St, New York, NY 10014")}
+            href={"https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Downtown Door Repair & Security, 170 Hicks St, Brooklyn, NY 11201")}
             target="_blank"
             rel="noopener noreferrer"
             className="absolute bottom-4 right-4 rounded-lg border border-line bg-surface/95 px-4 py-2 text-sm font-medium text-ink shadow-lg backdrop-blur transition hover:bg-brand-600 hover:text-white"

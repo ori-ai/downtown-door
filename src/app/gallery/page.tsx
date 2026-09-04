@@ -11,7 +11,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 export const metadata: Metadata = {
   title: "Photo Gallery",
   description:
-    "Real jobsite photos from Downtown Locksmith & Security Intercoms — locksmith work, access control and intercom installs, security cameras, and door repair.",
+    "Real jobsite photos from Downtown Door Repair & Security — locksmith work, access control and intercom installs, security cameras, and door repair.",
   alternates: { canonical: "/gallery" },
   openGraph: { url: absoluteUrl("/gallery") },
 };
